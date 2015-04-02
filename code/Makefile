@@ -51,7 +51,10 @@ BINDIR=$(PREFIX)/bin
 # any of this.
 # (N.B. -ffast-math breaks us; -fomit-frame-pointer is added below
 # unless PROFILING=gprof.)
-CUSTOM_CFLAGS?=-Wall -ggdb3 -O3 -std=gnu99 -frename-registers -pthread -Wsign-compare -D_GNU_SOURCE
+CUSTOM_CFLAGS?=-Wall -ggdb3 -O3 -std=gnu99  -pthread -Wsign-compare -D_GNU_SOURCE
+ifndef MAC
+	CUSTOM_CFLAGS?=$(CUSTOM_CFLAGS) -frename-registers
+endif
 
 ### CONFIGURATION END
 
