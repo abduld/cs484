@@ -85,6 +85,12 @@ fast_random(unsigned int max)
 	return ((pmseed & 0xffff) * max) >> 16;
 }
 
+uint16_t
+fast_random_omp(unsigned int max)
+{
+	return rand()%max;
+}
+
 float
 fast_frandom(void)
 {

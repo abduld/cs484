@@ -25,11 +25,13 @@
 #include "random.h"
 #include "version.h"
 #include "network.h"
+#include <omp.h>
 
 int debug_level = 3;
 bool debug_boardprint = true;
 long verbose_logs = 0;
 int seed;
+int omp_thread_count = 1;
 
 
 enum engine_id {
@@ -94,7 +96,7 @@ int main(int argc, char *argv[])
 	seed = time(NULL) ^ getpid();
 
 	int opt;
-	while ((opt = getopt(argc, argv, "c:e:d:Df:g:l:r:s:t:u:")) != -1) {
+	while ((opt = getopt(argc, argv, "c:e:d:Df:g:l:r:s:t:T:u:")) != -1) {
 		switch (opt) {
 			case 'c':
 				chatfile = strdup(optarg);
@@ -157,6 +159,10 @@ int main(int argc, char *argv[])
 				}
 				ti_default.ignore_gtp = true;
 				assert(ti_default.period != TT_NULL);
+				break;
+			case 'T':
+				omp_thread_count=atoi(optarg);
+				omp_set_num_threads(omp_thread_count);
 				break;
 			case 'u':
 				testfile = strdup(optarg);

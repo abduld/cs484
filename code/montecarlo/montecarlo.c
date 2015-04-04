@@ -13,6 +13,10 @@
 #include "montecarlo/montecarlo.h"
 #include "playout.h"
 #include "timeinfo.h"
+#include <omp.h>
+#include <math.h>
+#include <sys/time.h>
+extern int omp_thread_count;
 
 
 /* This is simple monte-carlo engine. It plays MC_GAMES random games from the
@@ -99,17 +103,26 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 	 * of board margin. */
 	struct move_stat moves[board_size2(b)];
 	memset(moves, 0, sizeof(moves));
+	struct timeval tv; 
 
 	int losses = 0;
 	int i, superko = 0, good_games = 0;
-	for (i = 0; i < stop.desired.playouts; i++) {
+	bool move_not_found = true;
+#pragma omp parallel \
+  private(i,tv) \
+  reduction(+:losses,superko,good_games)
+{
+  	gettimeofday(&tv, (void *) 0);
+	srand((int)(tv.tv_sec * 1.0 + tv.tv_usec * 1.0E-6) ^ omp_get_thread_num());
+	for (i = 0; i < stop.desired.playouts && move_not_found; i++) {
 		assert(!b->superko_violation);
 
 		struct board b2;
 		board_copy(&b2, b);
 
 		coord_t coord;
-		board_play_random(&b2, color, &coord, NULL, NULL);
+
+		board_play_random_omp(&b2, color, &coord, NULL, NULL);
 		if (!is_pass(coord) && !group_at(&b2, coord)) {
 			/* Multi-stone suicide. We play chinese rules,
 			 * so we can't consider this. (Note that we
@@ -136,7 +149,11 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 				/* Uhh. Triple ko, or something? */
 				if (MCDEBUGL(0))
 					fprintf(stderr, "SUPERKO LOOP. I will pass. Did we hit triple ko?\n");
-				goto pass_wins;
+				//goto pass_wins;
+				#pragma omp critical(update_move_not_found_flag)
+				{
+					move_not_found = false;
+				}
 			}
 			/* This playout didn't count; we should not
 			 * disadvantage moves that lead to a superko.
@@ -162,6 +179,10 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 			break;
 		}
 	}
+} //end omp
+if(!move_not_found){
+	goto pass_wins;
+}
 
 	if (!good_games) {
 		/* No moves to try??? */

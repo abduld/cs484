@@ -1439,6 +1439,26 @@ pass:
 	board_play(b, &m);
 }
 
+void
+board_play_random_omp(struct board *b, enum stone color, coord_t *coord, ppr_permit permit, void *permit_data)
+{
+	if (unlikely(b->flen == 0))
+		goto pass_omp;
+
+	int base = fast_random(b->flen), f;
+	for (f = base; f < b->flen; f++)
+		if (board_try_random_move(b, color, coord, f, permit, permit_data))
+			return;
+	for (f = 0; f < base; f++)
+		if (board_try_random_move(b, color, coord, f, permit, permit_data))
+			return;
+
+pass_omp:
+	*coord = pass;
+	struct move m = { pass, color };
+	board_play(b, &m);
+}
+
 
 bool
 board_is_false_eyelike(struct board *board, coord_t coord, enum stone eye_color)

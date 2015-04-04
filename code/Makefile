@@ -51,7 +51,7 @@ BINDIR=$(PREFIX)/bin
 # any of this.
 # (N.B. -ffast-math breaks us; -fomit-frame-pointer is added below
 # unless PROFILING=gprof.)
-CUSTOM_CFLAGS?=-Wall -ggdb3 -O3 -std=gnu99  -pthread -Wsign-compare -D_GNU_SOURCE
+CUSTOM_CFLAGS?=-Wall -ggdb3 -O3 -std=gnu99 -fopenmp  -pthread -Wsign-compare -D_GNU_SOURCE 
 ifndef MAC
 	CUSTOM_CFLAGS?=$(CUSTOM_CFLAGS) -frename-registers
 endif
@@ -69,8 +69,8 @@ ifdef MAC
 	SYS_LDFLAGS?=-pthread -rdynamic
 	SYS_LIBS?=-lm -ldl
 else
-	SYS_CFLAGS?=-march=native
-	SYS_LDFLAGS?=-pthread -rdynamic
+	SYS_CFLAGS?=-march=native -fopenmp
+	SYS_LDFLAGS?=-pthread -rdynamic -fopenmp
 	SYS_LIBS?=-lm -lrt -ldl
 endif
 endif

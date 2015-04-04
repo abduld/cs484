@@ -10,6 +10,10 @@ unsigned long fast_getseed(void);
 
 /* Note that only 16bit numbers can be returned. */
 uint16_t fast_random(unsigned int max);
+
+/* Use this one if you want a thread dependent version of fast_random numbers. */
+uint16_t fast_random_omp(unsigned int max);
+
 /* Use this one if you want larger numbers. */
 static uint32_t fast_irandom(unsigned int max);
 
