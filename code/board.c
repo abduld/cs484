@@ -119,7 +119,7 @@ board_alloc(struct board *board)
 	board->tq = x; x += tqsize;
 #endif
 	board->coord = x; x += cdsize;
-
+	board->bytecount = size;
 	return size;
 }
 
@@ -130,12 +130,27 @@ board_copy(struct board *b2, struct board *b1)
 
 	size_t size = board_alloc(b2);
 	memcpy(b2->b, b1->b, size);
+	b2->bytecount = b1->bytecount;
 
 	// XXX: Special semantics.
 	b2->fbook = NULL;
 
 	return b2;
 }
+
+struct board *
+board_copy_noalloc(struct board *b2, struct board *b1)
+{
+
+	size_t size = b1->bytecount;
+	memcpy(b2->b, b1->b, size);
+
+	// XXX: Special semantics.
+	b2->fbook = NULL;
+
+	return b2;
+}
+
 
 void
 board_done_noalloc(struct board *board)
@@ -1440,12 +1455,12 @@ pass:
 }
 
 void
-board_play_random_omp(struct board *b, enum stone color, coord_t *coord, ppr_permit permit, void *permit_data)
+board_play_random_omp(struct board *b, enum stone color, coord_t *coord, ppr_permit permit, void *permit_data, unsigned long * seed)
 {
 	if (unlikely(b->flen == 0))
 		goto pass_omp;
 
-	int base = fast_random_omp(b->flen), f;
+	int base = fast_random_omp(b->flen, seed), f;
 	for (f = base; f < b->flen; f++)
 		if (board_try_random_move(b, color, coord, f, permit, permit_data))
 			return;

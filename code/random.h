@@ -12,7 +12,9 @@ unsigned long fast_getseed(void);
 uint16_t fast_random(unsigned int max);
 
 /* Use this one if you want a thread dependent version of fast_random numbers. */
-uint16_t fast_random_omp(unsigned int max);
+unsigned long random_init_omp(unsigned long * seed);
+float fast_frandom_omp(unsigned long * seed);
+uint16_t fast_random_omp(unsigned int max, unsigned long * seed);
 
 /* Use this one if you want larger numbers. */
 static uint32_t fast_irandom(unsigned int max);

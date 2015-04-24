@@ -261,6 +261,8 @@ struct board {
 	hash_t hash;
 	/* Hash of current board position quadrants. */
 	hash_t qhash[4];
+
+	size_t bytecount;
 };
 
 #ifdef BOARD_SIZE
@@ -320,6 +322,7 @@ struct board {
 
 struct board *board_init(char *fbookfile);
 struct board *board_copy(struct board *board2, struct board *board1);
+struct board * board_copy_noalloc(struct board *b2, struct board *b1);
 void board_done_noalloc(struct board *board);
 void board_done(struct board *board);
 /* size here is without the S_OFFBOARD margin. */
@@ -343,7 +346,7 @@ int board_play(struct board *board, struct move *m);
  * the move coordinate to redirect the move elsewhere. */
 typedef bool (*ppr_permit)(void *data, struct board *b, struct move *m);
 void board_play_random(struct board *b, enum stone color, coord_t *coord, ppr_permit permit, void *permit_data);
-void board_play_random_omp(struct board *b, enum stone color, coord_t *coord, ppr_permit permit, void *permit_data);
+void board_play_random_omp(struct board *b, enum stone color, coord_t *coord, ppr_permit permit, void *permit_data, unsigned long * seed);
 
 /*Undo, supported only for pass moves. Returns -1 on error, 0 otherwise. */
 int board_undo(struct board *board);

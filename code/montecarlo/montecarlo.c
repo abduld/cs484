@@ -108,21 +108,32 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 	int losses = 0;
 	int i, superko = 0, good_games = 0;
 	bool move_not_found = true;
+
+		struct board * boards = malloc(sizeof(struct board) * omp_thread_count);
+		for (i = 0; i < omp_thread_count; i++) {
+			board_copy(&boards[i], b);
+		}
+		unsigned long * seeds = malloc(sizeof(unsigned long) * omp_thread_count);
+		for (i = 0; i < omp_thread_count; i++) {
+			seeds[i] = i;
+			random_init_omp(&seeds[i]);
+		}
 #pragma omp parallel \
   private(i,tv) \
   reduction(+:losses,superko,good_games)
 {
-  	gettimeofday(&tv, (void *) 0);
-	srand((int)(tv.tv_sec * 1.0 + tv.tv_usec * 1.0E-6) ^ omp_get_thread_num());
 	for (i = 0; i < stop.desired.playouts && move_not_found; i++) {
 		assert(!b->superko_violation);
+		int thread_num = omp_get_thread_num();
+		unsigned long * seed = &seeds[thread_num];
 
-		struct board b2;
-		board_copy(&b2, b);
+
+		struct board b2 = boards[thread_num];
+		board_copy_noalloc(&b2, b);
 
 		coord_t coord;
 
-		board_play_random_omp(&b2, color, &coord, NULL, NULL);
+		board_play_random_omp(&b2, color, &coord, NULL, NULL, seed);
 		if (!is_pass(coord) && !group_at(&b2, coord)) {
 			/* Multi-stone suicide. We play chinese rules,
 			 * so we can't consider this. (Note that we
@@ -131,7 +142,6 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 				fprintf(stderr, "SUICIDE DETECTED at %d,%d:\n", coord_x(coord, b), coord_y(coord, b));
 				board_print(b, stderr);
 			}
-			board_done_noalloc(&b2);
 			continue;
 		}
 
@@ -141,7 +151,6 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 		struct playout_setup ps = { .gamelen = mc->gamelen };
 		int result = play_random_game(&ps, &b2, color, NULL, NULL, mc->playout);
 
-		board_done_noalloc(&b2);
 
 		if (result == 0) {
 			/* Superko. We just ignore this playout.
@@ -181,6 +190,11 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 		}
 	}
 } //end omp
+for (i = 0; i < omp_thread_count; i++) {
+			board_done_noalloc(&boards[i]);
+		}
+		free(boards);
+		free(seeds);
 if(!move_not_found){
 	goto pass_wins;
 }
