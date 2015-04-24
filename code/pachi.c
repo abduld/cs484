@@ -162,7 +162,7 @@ int main(int argc, char *argv[])
 				break;
 			case 'T':
 				omp_thread_count=atoi(optarg);
-				//fprintf(stderr, "Running multithreaded version with %d threads\n", omp_thread_count);
+				fprintf(stderr, "Running multithreaded version with %d threads\n", omp_thread_count);
 				omp_set_num_threads(omp_thread_count);
 				break;
 			case 'u':
