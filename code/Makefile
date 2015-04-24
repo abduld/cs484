@@ -65,8 +65,8 @@ ifdef WIN
 	SYS_LIBS?=-lm -lws2_32 -lregex
 else
 ifdef MAC
-	SYS_CFLAGS?=-DNO_THREAD_LOCAL
-	SYS_LDFLAGS?=-pthread -rdynamic
+	SYS_CFLAGS?=-DNO_THREAD_LOCAL -fopenmp -Wall
+	SYS_LDFLAGS?=-pthread -fopenmp
 	SYS_LIBS?=-lm -ldl
 else
 	SYS_CFLAGS?=-march=native -fopenmp
