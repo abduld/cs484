@@ -1,5 +1,5 @@
 INCLUDES=-I..
-OBJS=random.o
+OBJS=random.o 
 
 all: random.a
 random.a: $(OBJS)

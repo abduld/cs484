@@ -131,6 +131,7 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 				fprintf(stderr, "SUICIDE DETECTED at %d,%d:\n", coord_x(coord, b), coord_y(coord, b));
 				board_print(b, stderr);
 			}
+			board_done_noalloc(&b2);
 			continue;
 		}
 

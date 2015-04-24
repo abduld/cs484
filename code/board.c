@@ -1445,7 +1445,7 @@ board_play_random_omp(struct board *b, enum stone color, coord_t *coord, ppr_per
 	if (unlikely(b->flen == 0))
 		goto pass_omp;
 
-	int base = fast_random(b->flen), f;
+	int base = fast_random_omp(b->flen), f;
 	for (f = base; f < b->flen; f++)
 		if (board_try_random_move(b, color, coord, f, permit, permit_data))
 			return;
