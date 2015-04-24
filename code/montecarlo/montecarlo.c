@@ -131,6 +131,7 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 				fprintf(stderr, "SUICIDE DETECTED at %d,%d:\n", coord_x(coord, b), coord_y(coord, b));
 				board_print(b, stderr);
 			}
+			board_done_noalloc(&b2);
 			continue;
 		}
 
@@ -232,7 +233,7 @@ montecarlo_state_init(char *arg, struct board *b)
 	struct montecarlo *mc = calloc2(1, sizeof(struct montecarlo));
 
 	mc->debug_level = 1;
-	mc->gamelen = MC_GAMELEN;
+	mc->gamelen = omp_thread_count * MC_GAMELEN;
 
 	if (arg) {
 		char *optspec, *next = arg;
