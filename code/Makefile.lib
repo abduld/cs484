@@ -9,15 +9,9 @@
 # @ in the non-verbose mode), and we will show the "real" cmds instead of
 # their quiet versions (which are used in the non-verbose mode).
 # Inspired by the Linux kernel build system.
-ifdef V
-	Q =
-	quiet =
-	mquiet = masq_
-else
-	Q = @
-	quiet = quiet_
-	mquiet = quiet_
-endif
+Q =
+quiet =
+mquiet = masq_
 
 # Show the command (quiet or non-quiet version based on the assignment
 # just above) and then execute it.
@@ -44,9 +38,9 @@ quiet_cmd_recmake = "[MAKE $$target]   $$subdir"
 ### Internal build rules
 
 unexport CFLAGS
-CFLAGS += $(CUSTOM_CFLAGS) $(XCFLAGS) $(INCLUDES) $(SYS_CFLAGS)
+CFLAGS += $(CUSTOM_CFLAGS) $(XCFLAGS) $(INCLUDES) $(SYS_CFLAGS) -pg
 unexport LDFLAGS
-LDFLAGS += $(CUSTOM_LDFLAGS) $(XLDFLAGS) $(SYS_LDFLAGS)
+LDFLAGS += $(CUSTOM_LDFLAGS) $(XLDFLAGS) $(SYS_LDFLAGS) -pg
 COMPILE = $(CC) $(CFLAGS)
 LINK = $(CC) $(LDFLAGS)
 
@@ -60,6 +54,7 @@ ifdef DEP_FILES
 endif
 
 %.o: %.c
+	echo "${mcmd}, ${compile}"
 	$(call mcmd,compile)
 	@-cp .deps/$(*F).pp .deps/$(*F).P; \
 		tr ' ' '\012' < .deps/$(*F).pp \
@@ -68,6 +63,7 @@ endif
 		rm .deps/$(*F).pp
 
 %.a:
+	echo "${cmd}, ${archive}"
 	$(call cmd,archive)
 
 

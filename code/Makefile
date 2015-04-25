@@ -51,7 +51,7 @@ BINDIR=$(PREFIX)/bin
 # any of this.
 # (N.B. -ffast-math breaks us; -fomit-frame-pointer is added below
 # unless PROFILING=gprof.)
-CUSTOM_CFLAGS?=-Wall -ggdb3 -O3 -std=gnu99 -fopenmp  -pthread -Wsign-compare -D_GNU_SOURCE 
+CUSTOM_CFLAGS?=-Wall -ggdb3 -std=gnu99 -fopenmp  -pthread -Wsign-compare -D_GNU_SOURCE  -pg -O0
 ifndef MAC
 	CUSTOM_CFLAGS?=$(CUSTOM_CFLAGS) -frename-registers
 endif
@@ -65,8 +65,8 @@ ifdef WIN
 	SYS_LIBS?=-lm -lws2_32 -lregex
 else
 ifdef MAC
-	SYS_CFLAGS?=-DNO_THREAD_LOCAL -fopenmp -Wall
-	SYS_LDFLAGS?=-pthread -fopenmp
+	SYS_CFLAGS?=-DNO_THREAD_LOCAL -fopenmp -Wall -pg -g
+	SYS_LDFLAGS?=-pthread -fopenmp -pg -g
 	SYS_LIBS?=-lm -ldl -ltcmalloc -lprofiler
 else
 	SYS_CFLAGS?=-march=native -fopenmp
@@ -84,7 +84,7 @@ ifeq ($(PROFILING), gprof)
 	CUSTOM_CFLAGS+=-pg -fno-inline
 else
 	# Whee, an extra register!
-	CUSTOM_CFLAGS+=-fomit-frame-pointer
+#	CUSTOM_CFLAGS+=-fomit-frame-pointer
 ifeq ($(PROFILING), perftools)
 	SYS_LIBS+=-lprofiler
 endif
