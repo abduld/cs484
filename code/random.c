@@ -87,7 +87,7 @@ fast_random(unsigned int max)
 
 unsigned long random_init_omp(unsigned long * seed)
 {
-	*seed = *seed ^ 29264UL;
+	*seed = *seed * 29264UL;
 	fast_frandom_omp(seed);
 	return *seed;
 }

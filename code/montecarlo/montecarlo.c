@@ -5,6 +5,7 @@
 
 #include "board.h"
 #include "engine.h"
+#include "random.h"
 #include "joseki/base.h"
 #include "move.h"
 #include "playout/moggy.h"
@@ -16,6 +17,7 @@
 #include <omp.h>
 #include <math.h>
 #include <sys/time.h>
+
 extern int omp_thread_count;
 
 
@@ -103,7 +105,6 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 	 * of board margin. */
 	struct move_stat moves[board_size2(b)];
 	memset(moves, 0, sizeof(moves));
-	struct timeval tv; 
 
 	int losses = 0;
 	int i, superko = 0, good_games = 0;
@@ -116,10 +117,11 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 		unsigned long * seeds = malloc(sizeof(unsigned long) * omp_thread_count);
 		for (i = 0; i < omp_thread_count; i++) {
 			seeds[i] = i;
-			random_init_omp(&seeds[i]);
+			seeds[i] = random_init_omp(&seeds[i]);
 		}
+
 #pragma omp parallel \
-  private(i,tv) \
+  private(i) \
   reduction(+:losses,superko,good_games)
 {
 	for (i = 0; i < stop.desired.playouts && move_not_found; i++) {
