@@ -5,20 +5,14 @@
 
 #include "board.h"
 #include "engine.h"
-#include "random.h"
 #include "joseki/base.h"
 #include "move.h"
 #include "playout/moggy.h"
 #include "playout/light.h"
-#include "montecarlo/internal.h"
-#include "montecarlo/montecarlo.h"
+#include "montecarlo_original/internal.h"
+#include "montecarlo_original/montecarlo_original.h"
 #include "playout.h"
 #include "timeinfo.h"
-#include <omp.h>
-#include <math.h>
-#include <sys/time.h>
-
-extern int omp_thread_count;
 
 
 /* This is simple monte-carlo engine. It plays MC_GAMES random games from the
@@ -50,7 +44,7 @@ extern int omp_thread_count;
 
 
 void
-board_stats_print(struct board *board, struct move_stat *moves, FILE *f)
+board_stats_print_original(struct board *board, struct move_stat *moves, FILE *f)
 {
 	fprintf(f, "\n       ");
 	int x, y;
@@ -81,9 +75,9 @@ board_stats_print(struct board *board, struct move_stat *moves, FILE *f)
 
 
 static coord_t *
-montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum stone color, bool pass_all_alive)
+montecarlo_original_genmove(struct engine *e, struct board *b, struct time_info *ti, enum stone color, bool pass_all_alive)
 {
-	struct montecarlo *mc = e->data;
+	struct montecarlo_original *mc = e->data;
 	if (ti->dim == TD_WALLTIME) {
 		fprintf(stderr, "Warning: TD_WALLTIME time mode not supported, resetting to defaults.\n");
 		ti->period = TT_NULL;
@@ -107,37 +101,17 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 
 	int losses = 0;
 	int i, superko = 0, good_games = 0;
-	bool move_not_found = true;
-
-		struct board * boards = malloc(sizeof(struct board) * omp_thread_count);
-		for (i = 0; i < omp_thread_count; i++) {
-			board_copy(&boards[i], b);
-		}
-		unsigned long * seeds = malloc(sizeof(unsigned long) * omp_thread_count);
-		for (i = 0; i < omp_thread_count; i++) {
-			seeds[i] = i;
-			seeds[i] = random_init_omp(&seeds[i]);
-		}
-
-#pragma omp parallel \
-  private(i) \
-  reduction(+:losses,superko,good_games)
-{
-	for (i = 0; i < stop.desired.playouts && move_not_found; i++) {
+	for (i = 0; i < stop.desired.playouts; i++) {
 		assert(!b->superko_violation);
-		int thread_num = omp_get_thread_num();
-		unsigned long * seed = &seeds[thread_num];
 
-
-		struct board b2 = boards[thread_num];
-		board_copy_noalloc(&b2, b);
+		struct board b2;
+		board_copy(&b2, b);
 
 		coord_t coord;
-
-		board_play_random_omp(&b2, color, &coord, NULL, NULL, seed);
+		board_play_random(&b2, color, &coord, NULL, NULL);
 		if (!is_pass(coord) && !group_at(&b2, coord)) {
 			/* Multi-stone suicide. We play chinese rules,
-			 * so we can't consider this. (Note that we
+			 * so we can't consider thi4s. (Note that we
 			 * unfortunately still consider this in playouts.) */
 			if (DEBUGL(4)) {
 				fprintf(stderr, "SUICIDE DETECTED at %d,%d:\n", coord_x(coord, b), coord_y(coord, b));
@@ -152,6 +126,7 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 		struct playout_setup ps = { .gamelen = mc->gamelen };
 		int result = play_random_game(&ps, &b2, color, NULL, NULL, mc->playout);
 
+		board_done_noalloc(&b2);
 
 		if (result == 0) {
 			/* Superko. We just ignore this playout.
@@ -160,11 +135,7 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 				/* Uhh. Triple ko, or something? */
 				if (MCDEBUGL(0))
 					fprintf(stderr, "SUPERKO LOOP. I will pass. Did we hit triple ko?\n");
-				//goto pass_wins;
-				#pragma omp critical(update_move_not_found_flag)
-				{
-					move_not_found = false;
-				}
+				goto pass_wins;
 			}
 			/* This playout didn't count; we should not
 			 * disadvantage moves that lead to a superko.
@@ -190,15 +161,6 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 			break;
 		}
 	}
-} //end omp
-for (i = 0; i < omp_thread_count; i++) {
-			board_done_noalloc(&boards[i]);
-		}
-		free(boards);
-		free(seeds);
-if(!move_not_found){
-	goto pass_wins;
-}
 
 	if (!good_games) {
 		/* No moves to try??? */
@@ -231,7 +193,7 @@ pass_wins:
 	} foreach_point_end;
 
 	if (MCDEBUGL(2)) {
-		board_stats_print(b, moves, stderr);
+		board_stats_print_original(b, moves, stderr);
 	}
 
 move_found:
@@ -242,10 +204,10 @@ move_found:
 }
 
 
-struct montecarlo *
-montecarlo_state_init(char *arg, struct board *b)
+struct montecarlo_original *
+montecarlo_original_state_init(char *arg, struct board *b)
 {
-	struct montecarlo *mc = calloc2(1, sizeof(struct montecarlo));
+	struct montecarlo_original *mc = calloc2(1, sizeof(struct montecarlo_original));
 
 	mc->debug_level = 1;
 	mc->gamelen = MC_GAMELEN;
@@ -277,10 +239,10 @@ montecarlo_state_init(char *arg, struct board *b)
 				} else if (!strcasecmp(optval, "light")) {
 					mc->playout = playout_light_init(playoutarg, b);
 				} else {
-					fprintf(stderr, "MonteCarlo: Invalid playout policy %s\n", optval);
+					fprintf(stderr, "montecarlo_original: Invalid playout policy %s\n", optval);
 				}
 			} else {
-				fprintf(stderr, "MonteCarlo: Invalid engine argument %s or missing value\n", optname);
+				fprintf(stderr, "montecarlo_original: Invalid engine argument %s or missing value\n", optname);
 			}
 		}
 	}
@@ -297,13 +259,13 @@ montecarlo_state_init(char *arg, struct board *b)
 
 
 struct engine *
-engine_montecarlo_init(char *arg, struct board *b)
+engine_montecarlo_original_init(char *arg, struct board *b)
 {
-	struct montecarlo *mc = montecarlo_state_init(arg, b);
+	struct montecarlo_original *mc = montecarlo_original_state_init(arg, b);
 	struct engine *e = calloc2(1, sizeof(struct engine));
-	e->name = "MonteCarlo";
+	e->name = "montecarlo_original";
 	e->comment = "I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules).";
-	e->genmove = montecarlo_genmove;
+	e->genmove = montecarlo_original_genmove;
 	e->data = mc;
 
 	return e;

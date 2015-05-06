@@ -10,13 +10,14 @@
 #include "move.h"
 #include "playout/moggy.h"
 #include "playout/light.h"
-#include "montecarlo/internal.h"
-#include "montecarlo/montecarlo.h"
+#include "montecarlo_mpi/internal.h"
+#include "montecarlo_mpi/montecarlo_mpi.h"
 #include "playout.h"
 #include "timeinfo.h"
 #include <omp.h>
 #include <math.h>
 #include <sys/time.h>
+#include "mpi.h"
 
 extern int omp_thread_count;
 
@@ -50,7 +51,7 @@ extern int omp_thread_count;
 
 
 void
-board_stats_print(struct board *board, struct move_stat *moves, FILE *f)
+board_stats_print_mpi(struct board *board, struct move_stat *moves, FILE *f)
 {
 	fprintf(f, "\n       ");
 	int x, y;
@@ -81,9 +82,9 @@ board_stats_print(struct board *board, struct move_stat *moves, FILE *f)
 
 
 static coord_t *
-montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum stone color, bool pass_all_alive)
+montecarlo_mpi_genmove(struct engine *e, struct board *b, struct time_info *ti, enum stone color, bool pass_all_alive)
 {
-	struct montecarlo *mc = e->data;
+	struct montecarlo_mpi *mc = e->data;
 	if (ti->dim == TD_WALLTIME) {
 		fprintf(stderr, "Warning: TD_WALLTIME time mode not supported, resetting to defaults.\n");
 		ti->period = TT_NULL;
@@ -93,6 +94,12 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 		ti->dim = TD_GAMES;
 		ti->len.games = MC_GAMES;
 	}
+	struct { 
+		float value; 
+		int   rank; 
+	} top_ratio_send_buffer, top_ratio_receive_buffer;
+	int my_mpi_rank;
+	MPI_Comm_rank(MPI_COMM_WORLD,&my_mpi_rank);
 	struct time_stop stop;
 	time_stop_conditions(ti, b, 20, 40, 3.0, &stop);
 
@@ -115,7 +122,7 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 		}
 		unsigned long * seeds = malloc(sizeof(unsigned long) * omp_thread_count);
 		for (i = 0; i < omp_thread_count; i++) {
-			seeds[i] = i;
+			seeds[i] = i*3+11*my_mpi_rank+7;
 			seeds[i] = random_init_omp(&seeds[i]);
 		}
 
@@ -231,21 +238,26 @@ pass_wins:
 	} foreach_point_end;
 
 	if (MCDEBUGL(2)) {
-		board_stats_print(b, moves, stderr);
+		board_stats_print_mpi(b, moves, stderr);
 	}
 
 move_found:
 	if (MCDEBUGL(1))
 		fprintf(stderr, "*** WINNER is %d,%d with score %1.4f (%d games, %d superko)\n", coord_x(top_coord, b), coord_y(top_coord, b), top_ratio, i, superko);
 
+	printf("Rank %d reporting top_ratio of %f\n",my_mpi_rank,top_ratio);
+	top_ratio_send_buffer.value = top_ratio;
+	top_ratio_send_buffer.rank = my_mpi_rank;
+	MPI_Allreduce(&top_ratio_send_buffer, &top_ratio_receive_buffer, 1, MPI_FLOAT_INT, MPI_MAXLOC, MPI_COMM_WORLD);
+	MPI_Bcast(&top_coord, 2, MPI_INT, top_ratio_receive_buffer.rank, MPI_COMM_WORLD);
 	return coord_copy(top_coord);
 }
 
 
-struct montecarlo *
-montecarlo_state_init(char *arg, struct board *b)
+struct montecarlo_mpi *
+montecarlo_mpi_state_init(char *arg, struct board *b)
 {
-	struct montecarlo *mc = calloc2(1, sizeof(struct montecarlo));
+	struct montecarlo_mpi *mc = calloc2(1, sizeof(struct montecarlo_mpi));
 
 	mc->debug_level = 1;
 	mc->gamelen = MC_GAMELEN;
@@ -277,10 +289,10 @@ montecarlo_state_init(char *arg, struct board *b)
 				} else if (!strcasecmp(optval, "light")) {
 					mc->playout = playout_light_init(playoutarg, b);
 				} else {
-					fprintf(stderr, "MonteCarlo: Invalid playout policy %s\n", optval);
+					fprintf(stderr, "montecarlo_mpi: Invalid playout policy %s\n", optval);
 				}
 			} else {
-				fprintf(stderr, "MonteCarlo: Invalid engine argument %s or missing value\n", optname);
+				fprintf(stderr, "montecarlo_mpi: Invalid engine argument %s or missing value\n", optname);
 			}
 		}
 	}
@@ -297,13 +309,13 @@ montecarlo_state_init(char *arg, struct board *b)
 
 
 struct engine *
-engine_montecarlo_init(char *arg, struct board *b)
+engine_montecarlo_mpi_init(char *arg, struct board *b)
 {
-	struct montecarlo *mc = montecarlo_state_init(arg, b);
+	struct montecarlo_mpi *mc = montecarlo_mpi_state_init(arg, b);
 	struct engine *e = calloc2(1, sizeof(struct engine));
-	e->name = "MonteCarlo";
+	e->name = "montecarlo_mpi";
 	e->comment = "I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules).";
-	e->genmove = montecarlo_genmove;
+	e->genmove = montecarlo_mpi_genmove;
 	e->data = mc;
 
 	return e;

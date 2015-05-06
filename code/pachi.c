@@ -12,6 +12,8 @@
 #include "engine.h"
 #include "replay/replay.h"
 #include "montecarlo/montecarlo.h"
+#include "montecarlo_mpi/montecarlo_mpi.h"
+#include "montecarlo_original/montecarlo_original.h"
 #include "random/random.h"
 #include "patternscan/patternscan.h"
 #include "patternplay/patternplay.h"
@@ -26,6 +28,7 @@
 #include "version.h"
 #include "network.h"
 #include <omp.h>
+#include "mpi.h"
 
 int debug_level = 3;
 bool debug_boardprint = true;
@@ -40,6 +43,8 @@ enum engine_id {
 	E_PATTERNSCAN,
 	E_PATTERNPLAY,
 	E_MONTECARLO,
+	E_MONTECARLO_MPI,
+	E_MONTECARLO_ORIGINAL,
 	E_UCT,
 	E_DISTRIBUTED,
 	E_JOSEKI,
@@ -52,6 +57,8 @@ static struct engine *(*engine_init[E_MAX])(char *arg, struct board *b) = {
 	engine_patternscan_init,
 	engine_patternplay_init,
 	engine_montecarlo_init,
+	engine_montecarlo_mpi_init,
+	engine_montecarlo_original_init,
 	engine_uct_init,
 	engine_distributed_init,
 	engine_joseki_init,
@@ -76,7 +83,7 @@ static void done_engine(struct engine *e)
 static void usage(char *name)
 {
 	fprintf(stderr, "Pachi version %s\n", PACHI_VERSION);
-	fprintf(stderr, "Usage: %s [-e random|replay|montecarlo|uct|distributed]\n"
+	fprintf(stderr, "Usage: %s [-e random|replay|montecarlo|montecarlo_mpi|montecarlo_original|uct|distributed]\n"
 		" [-d DEBUG_LEVEL] [-D] [-r RULESET] [-s RANDOM_SEED] [-t TIME_SETTINGS] [-u TEST_FILENAME]\n"
 		" [-g [HOST:]GTP_PORT] [-l [HOST:]LOG_PORT] [-f FBOOKFILE] [ENGINE_ARGS]\n", name);
 }
@@ -92,11 +99,15 @@ int main(int argc, char *argv[])
 	char *chatfile = NULL;
 	char *fbookfile = NULL;
 	char *ruleset = NULL;
-
+	int mpi_enabled = 0;
+	int mpi_rank = 0;
+	int mpi_provided_level;
+	int mpi_comm_size = 1;
+	MPI_Init_thread(&argc,&argv,MPI_THREAD_FUNNELED,&mpi_provided_level);
 	seed = time(NULL) ^ getpid();
 
 	int opt;
-	while ((opt = getopt(argc, argv, "c:e:d:Df:g:l:r:s:t:T:u:")) != -1) {
+	while ((opt = getopt(argc, argv, "c:e:d:Df:g:l:r:s:t:T:u")) != -1) {
 		switch (opt) {
 			case 'c':
 				chatfile = strdup(optarg);
@@ -107,7 +118,12 @@ int main(int argc, char *argv[])
 				} else if (!strcasecmp(optarg, "replay")) {
 					engine = E_REPLAY;
 				} else if (!strcasecmp(optarg, "montecarlo")) {
-					engine = E_MONTECARLO;
+					engine = E_MONTECARLO;				
+				} else if (!strcasecmp(optarg, "montecarlo_mpi")) {
+					engine = E_MONTECARLO_MPI;
+					mpi_enabled = 1;
+				} else if (!strcasecmp(optarg, "montecarlo_original")) {
+					engine = E_MONTECARLO_ORIGINAL;
 				} else if (!strcasecmp(optarg, "uct")) {
 					engine = E_UCT;
 				} else if (!strcasecmp(optarg, "distributed")) {
@@ -174,9 +190,13 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	if (log_port)
-		open_log_port(log_port);
+	if(mpi_enabled){
+		MPI_Comm_rank(MPI_COMM_WORLD,&mpi_rank);
+		MPI_Comm_size(MPI_COMM_WORLD,&mpi_comm_size);
+	}
 
+if(mpi_rank==0 && mpi_comm_size == 1){
+	seed = seed+mpi_rank*11;
 	fast_srandom(seed);
 	if (DEBUGL(0))
 		fprintf(stderr, "Random seed: %d\n", seed);
@@ -202,6 +222,7 @@ int main(int argc, char *argv[])
 
 	if (testfile) {
 		unittest(testfile);
+		if(mpi_enabled){MPI_Finalize();}
 		return 0;
 	}
 
@@ -235,5 +256,140 @@ int main(int argc, char *argv[])
 	}
 	done_engine(e);
 	chat_done();
+	if(mpi_enabled){MPI_Finalize();}
 	return 0;
+}
+if(mpi_rank==0 && mpi_comm_size > 1){
+	if (log_port)
+		open_log_port(log_port);
+
+	fast_srandom(seed);
+	if (DEBUGL(0))
+		fprintf(stderr, "Random seed: %d\n", seed);
+
+	struct board *b = board_init(fbookfile);
+	if (ruleset) {
+		if (!board_set_rules(b, ruleset)) {
+			fprintf(stderr, "Unknown ruleset: %s\n", ruleset);
+			exit(1);
+		}
+	}
+
+	struct time_info ti[S_MAX];
+	ti[S_BLACK] = ti_default;
+	ti[S_WHITE] = ti_default;
+
+	chat_init(chatfile);
+
+	char *e_arg = NULL;
+	if (optind < argc)
+		e_arg = argv[optind];
+	struct engine *e = init_engine(engine, e_arg, b);
+
+	if (testfile) {
+		unittest(testfile);
+		MPI_Finalize();
+		return 0;
+	}
+
+	if (gtp_port) {
+		open_gtp_connection(&gtp_sock, gtp_port);
+	}
+
+	for (;;) {
+		char buf[4096];
+		int successful_fgets = !!(fgets(buf, 4096, stdin));
+		MPI_Bcast(&successful_fgets, 1, MPI_INT, 0, MPI_COMM_WORLD);
+		while (successful_fgets) {
+			if (DEBUGL(1))
+				fprintf(stderr, "IN: %s", buf);
+
+			MPI_Bcast(&buf[0], 4096, MPI_CHAR, 0, MPI_COMM_WORLD);
+			enum parse_code c = gtp_parse(b, e, ti, buf);
+			if (c == P_ENGINE_RESET) {
+				ti[S_BLACK] = ti_default;
+				ti[S_WHITE] = ti_default;
+				if (!e->keep_on_clear) {
+					b->es = NULL;
+					done_engine(e);
+					e = init_engine(engine, e_arg, b);
+				}
+			} else if (c == P_UNKNOWN_COMMAND && gtp_port) {
+				/* The gtp command is a weak identity check,
+				 * close the connection with a wrong peer. */
+				break;
+			}
+			successful_fgets = !!(fgets(buf, 4096, stdin));
+			MPI_Bcast(&successful_fgets, 1, MPI_INT, 0, MPI_COMM_WORLD);
+		}
+		if (!gtp_port) break;
+		open_gtp_connection(&gtp_sock, gtp_port);
+	}
+	done_engine(e);
+	chat_done();
+	MPI_Finalize();
+	return 0;
+}
+if(mpi_rank>0){
+	if (log_port)
+	open_log_port(log_port);
+
+	fast_srandom(seed);
+	if (DEBUGL(0))
+		fprintf(stderr, "Random seed: %d\n", seed);
+
+	struct board *b = board_init(fbookfile);
+	if (ruleset) {
+		if (!board_set_rules(b, ruleset)) {
+			fprintf(stderr, "Unknown ruleset: %s\n", ruleset);
+			exit(1);
+		}
+	}
+
+	struct time_info ti[S_MAX];
+	ti[S_BLACK] = ti_default;
+	ti[S_WHITE] = ti_default;
+
+	chat_init(chatfile);
+
+	char *e_arg = NULL;
+	if (optind < argc)
+		e_arg = argv[optind];
+	struct engine *e = init_engine(engine, e_arg, b);
+
+	for (;;) {
+		char buf[4096];
+		int successful_fgets;
+		MPI_Bcast(&successful_fgets, 1, MPI_INT, 0, MPI_COMM_WORLD);
+		while (successful_fgets) {
+			if (DEBUGL(1))
+				fprintf(stderr, "IN: %s", buf);
+
+			MPI_Bcast(&buf[0], 4096, MPI_CHAR, 0, MPI_COMM_WORLD);
+			enum parse_code c = gtp_parse(b, e, ti, buf);
+			if (c == P_ENGINE_RESET) {
+				ti[S_BLACK] = ti_default;
+				ti[S_WHITE] = ti_default;
+				if (!e->keep_on_clear) {
+					b->es = NULL;
+					done_engine(e);
+					e = init_engine(engine, e_arg, b);
+				}
+			} else if (c == P_UNKNOWN_COMMAND && gtp_port) {
+				/* The gtp command is a weak identity check,
+				 * close the connection with a wrong peer. */
+				break;
+			}
+			MPI_Bcast(&successful_fgets, 1, MPI_INT, 0, MPI_COMM_WORLD);
+		}
+		if (!gtp_port) break;
+		open_gtp_connection(&gtp_sock, gtp_port);
+	}
+	done_engine(e);
+	chat_done();
+	MPI_Finalize();
+	return 0;
+}
+MPI_Finalize();
+return 0;
 }
