@@ -1,3 +1,4 @@
+#!/bin/sh
 dir=`pwd`
 
 ####set up OMP environment parameters#####
@@ -5,8 +6,13 @@ dir=`pwd`
 export OMP_PROC_BIND=true
 
 ###define pachi commands##
-white="${dir}/code/pachi -e montecarlo -t _10 -T 12"
-black="${dir}/code/pachi -e montecarlo -t _10 -T 12"
+white="mpiexec -np 2 ${dir}/code/pachi -e montecarlo_mpi -t _10 -T 2"
+black="${dir}/code/pachi -e montecarlo_original -t _10"
+
+#TWOGTP="${dir}/gogui/bin/gogui-twogtp -black mpiexec -np 2 \"$black\" -white \"$white\" -size 9"
+#echo $TWOGTP
+#gogui="${dir}/gogui/bin/gogui"
+#${gogui} -size 9 -program "$TWOGTP" -computer-both -auto
 
 ##remove outputfiles from previous run##
 #rm test.summary.dat

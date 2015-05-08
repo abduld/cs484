@@ -84,7 +84,6 @@ static coord_t *
 montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum stone color, bool pass_all_alive)
 {
 	struct montecarlo *mc = e->data;
-
 	if (ti->dim == TD_WALLTIME) {
 		fprintf(stderr, "Warning: TD_WALLTIME time mode not supported, resetting to defaults.\n");
 		ti->period = TT_NULL;
