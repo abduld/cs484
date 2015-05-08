@@ -60,18 +60,6 @@ int queue_length = 0;
 int queue_age = 0;
 static int queue_max_length;
 
-/* Mutex protecting all variables above. receive_queue may be
- * read without the lock but is only written with lock held. */
-static pthread_mutex_t slave_lock = PTHREAD_MUTEX_INITIALIZER;
-
-/* Condition signaled when a new gtp command is available. */
-static pthread_cond_t cmd_cond = PTHREAD_COND_INITIALIZER;
-
-/* Condition signaled when reply_count increases. */
-static pthread_cond_t reply_cond = PTHREAD_COND_INITIALIZER;
-
-/* Mutex protecting stderr. Must not be held at same time as slave_lock. */
-static pthread_mutex_t log_lock = PTHREAD_MUTEX_INITIALIZER;
 
 /* Absolute time when this program was started.
  * For debugging only. */
@@ -85,14 +73,12 @@ struct slave_state default_sstate;
 void
 protocol_lock(void)
 {
-	pthread_mutex_lock(&slave_lock);
 }
 
 /* Release exclusive access to the threads and commands state. */
 void
 protocol_unlock(void)
 {
-	pthread_mutex_unlock(&slave_lock);
 }
 
 /* Write the time, client address, prefix, and string s to stderr atomically.
@@ -100,21 +86,6 @@ protocol_unlock(void)
 void
 logline(struct in_addr *client, char *prefix, char *s)
 {
-	double now = time_now();
-
-	char addr[INET_ADDRSTRLEN];
-	if (client) {
-#ifdef _WIN32
-		strcpy(addr, inet_ntoa(*client));
-#else
-		inet_ntop(AF_INET, client, addr, sizeof(addr));
-#endif
-	} else {
-		addr[0] = '\0';
-	}
-	pthread_mutex_lock(&log_lock);
-	fprintf(stderr, "%s%15s %9.3f: %s", prefix, addr, now - start_time, s);
-	pthread_mutex_unlock(&log_lock);
 }
 
 /* Thread opening a connection on the given socket and copying input

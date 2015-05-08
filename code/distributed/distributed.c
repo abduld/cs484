@@ -84,8 +84,8 @@
 #include "mq.h"
 #include "debug.h"
 #include "chat.h"
-#include "distributed/distributed.h"
-#include "distributed/merge.h"
+#include "distributed_mpi/distributed.h"
+#include "distributed_mpi/merge.h"
 
 /* Internal engine state. */
 struct distributed {
@@ -131,23 +131,8 @@ static const struct time_info default_ti = {
 char *
 path2sstr(path_t path, struct board *b)
 {
-	/* Special case for pass and resign. */
-	if (path < 0) return coord2sstr((coord_t)path, b);
-
-	static char buf[16][64];
-	static int bi = 0;
-	char *b2;
-	b2 = buf[bi++ & 15];
-	*b2 = '\0';
-	char *s = b2;
-	char *end = b2 + 64;
-	coord_t leaf;
-	while ((leaf = leaf_coord(path, b)) != 0) {
-		s += snprintf(s, end - s, "%s<", coord2sstr(leaf, b));
-		path = parent_path(path, b);
-	}
-	if (s != b2) s[-1] = '\0';
-	return b2;
+	char s[] = "path2sstr disabled";
+	return s;
 }
 
 /* Dispatch a new gtp command to all slaves.
@@ -191,6 +176,8 @@ distributed_notify(struct engine *e, struct board *b, int id, char *cmd, char *a
 
 	// At the beginning wait even more for late slaves.
 	if (b->moves == 0) sleep(1);
+
+	MPI_Bcast(b, )
 	return P_OK;
 }
 
