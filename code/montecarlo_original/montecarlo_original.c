@@ -13,6 +13,7 @@
 #include "montecarlo_original/montecarlo_original.h"
 #include "playout.h"
 #include "timeinfo.h"
+#include "mc_parallel_vars.h"
 
 
 /* This is simple monte-carlo engine. It plays MC_GAMES random games from the
@@ -41,7 +42,6 @@
  * already. */
 /* FIXME: We cannot handle seki. Any good ideas are welcome. A possibility is
  * to consider 'pass' among the moves, but this seems tricky. */
-
 
 void
 board_stats_print_original(struct board *board, struct move_stat *moves, FILE *f)
@@ -88,6 +88,7 @@ montecarlo_original_genmove(struct engine *e, struct board *b, struct time_info 
 		ti->len.games = MC_GAMES;
 	}
 	struct time_stop stop;
+	printf("Original Stone color: %d\n",color);
 	time_stop_conditions(ti, b, 20, 40, 3.0, &stop);
 
 	/* resign when the hope for win vanishes */
@@ -100,10 +101,9 @@ montecarlo_original_genmove(struct engine *e, struct board *b, struct time_info 
 	memset(moves, 0, sizeof(moves));
 
 	int losses = 0;
-	int i, superko = 0, good_games = 0;
+	int i, superko = 0, good_games = 0, total_playout=0;
 	for (i = 0; i < stop.desired.playouts; i++) {
 		assert(!b->superko_violation);
-
 		struct board b2;
 		board_copy(&b2, b);
 
@@ -124,8 +124,8 @@ montecarlo_original_genmove(struct engine *e, struct board *b, struct time_info 
 			fprintf(stderr, "[%d,%d color %d] playing random game\n", coord_x(coord, b), coord_y(coord, b), color);
 
 		struct playout_setup ps = { .gamelen = mc->gamelen };
-		int result = play_random_game(&ps, &b2, color, NULL, NULL, mc->playout);
-
+		int result = play_random_game(&ps, &b2, (color==S_BLACK)?(S_WHITE):(S_BLACK), NULL, NULL, mc->playout);
+		total_playout++;
 		board_done_noalloc(&b2);
 
 		if (result == 0) {
@@ -172,7 +172,6 @@ pass_wins:
 		top_coord = pass; top_ratio = 0.5;
 		goto move_found;
 	}
-
 	foreach_point(b) {
 		if (b->moves < 3) {
 			/* Simple heuristic: avoid opening too low. Do not
@@ -182,7 +181,6 @@ pass_wins:
 			    || coord_y(c, b) < 3 || coord_y(c, b) > board_size(b) - 4)
 				continue;
 		}
-
 		floating_t ratio = (floating_t) moves[c].wins / moves[c].games;
 		/* Since pass is [0,0], we will pass only when we have nothing
 		 * better to do. */
@@ -191,6 +189,7 @@ pass_wins:
 			top_coord = c == 0 ? pass : c;
 		}
 	} foreach_point_end;
+	
 
 	if (MCDEBUGL(2)) {
 		board_stats_print_original(b, moves, stderr);
@@ -199,7 +198,7 @@ pass_wins:
 move_found:
 	if (MCDEBUGL(1))
 		fprintf(stderr, "*** WINNER is %d,%d with score %1.4f (%d games, %d superko)\n", coord_x(top_coord, b), coord_y(top_coord, b), top_ratio, i, superko);
-
+	total_game_count_mc_original += total_playout;
 	return coord_copy(top_coord);
 }
 
@@ -251,7 +250,7 @@ montecarlo_original_state_init(char *arg, struct board *b)
 		mc->playout = playout_light_init(NULL, b);
 	mc->playout->debug_level = mc->debug_level;
 
-	mc->resign_ratio = 0.1; /* Resign when most games are lost. */
+	mc->resign_ratio = 0; /* Resign when most games are lost. */
 	mc->loss_threshold = 5000; /* Stop reading if no loss encountered in first 5000 games. */
 
 	return mc;

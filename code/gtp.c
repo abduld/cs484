@@ -18,6 +18,7 @@
 #include "version.h"
 #include "timeinfo.h"
 #include "mpi.h"
+#include "mc_parallel_vars.h"
 
 #define NO_REPLY (-2)
 
@@ -202,7 +203,8 @@ if(my_mpi_rank==0){
 	    
 	if (!strcasecmp(cmd, "quit")) {
 		gtp_reply(id, NULL);
-		MPI_Finalize();
+		print_game_stats();
+		MPI_Finalize();	
 		exit(0);
 
 	} else if (!strcasecmp(cmd, "boardsize")) {
@@ -658,6 +660,7 @@ else{
 	}
 	    
 	if (!strcasecmp(cmd, "quit")) {
+		print_game_stats();
 		MPI_Finalize();
 		exit(0);
 
@@ -674,8 +677,6 @@ else{
 
 	} else if (!strcasecmp(cmd, "clear_board")) {
 		board_clear(board);
-		if (DEBUGL(3) && debug_boardprint)
-			board_print(board, stderr);
 		return P_ENGINE_RESET;
 
 	} else if (!strcasecmp(cmd, "kgs-game_over")) {
@@ -684,7 +685,6 @@ else{
 		 * if the game is resumed immediately after. KGS
 		 * may start directly with genmove on resumption. */
 		if (DEBUGL(1)) {
-			fprintf(stderr, "game is over\n");
 			fflush(stderr);
 		}
 		if (engine->stop)
@@ -697,9 +697,6 @@ else{
 		char *arg;
 		next_tok(arg);
 		sscanf(arg, PRIfloating, &board->komi);
-
-		if (DEBUGL(3) && debug_boardprint)
-			board_print(board, stderr);
 
 	} else if (!strcasecmp(cmd, "kgs-rules")) {
 		char *arg;
@@ -720,22 +717,12 @@ else{
 		next_tok(arg);
 		char *enginearg = arg;
 
-		if (DEBUGL(5))
-			fprintf(stderr, "got move %d,%d,%d\n", m.color, coord_x(m.coord, board), coord_y(m.coord, board));
-
 		// This is where kgs starts the timer, not at genmove!
 		time_start_timer(&ti[stone_other(m.color)]);
 
 		if (engine->notify_play)
 			engine->notify_play(engine, board, &m, enginearg);
 		if (board_play(board, &m) < 0) {
-			if (DEBUGL(0)) {
-				fprintf(stderr, "! ILLEGAL MOVE %d,%d,%d\n", m.color, coord_x(m.coord, board), coord_y(m.coord, board));
-				board_print(board, stderr);
-			}
-		} else {
-			if (DEBUGL(4) && debug_boardprint)
-				board_print_custom(board, stderr, engine->printhook);
 		}
 
 	} else if (!strcasecmp(cmd, "genmove") || !strcasecmp(cmd, "kgs-genmove_cleanup")) {
@@ -743,8 +730,6 @@ else{
 		next_tok(arg);
 		enum stone color = str2stone(arg);
 		coord_t *c = NULL;
-		if (DEBUGL(2) && debug_boardprint)
-			board_print_custom(board, stderr, engine->printhook);
 		
 		if (!ti[color].len.t.timer_start) {
 			/* First game move. */
@@ -761,15 +746,9 @@ else{
 		}
 		struct move m = { *c, color };
 		if (board_play(board, &m) < 0) {
-			fprintf(stderr, "Attempted to generate an illegal move: [%s, %s]\n", coord2sstr(m.coord, board), stone2str(m.color));
 			abort();
 		}
 		char *str = coord2str(*c, board);
-		if (DEBUGL(4))
-			fprintf(stderr, "playing move %s\n", str);
-		if (DEBUGL(1) && debug_boardprint) {
-			board_print_custom(board, stderr, engine->printhook);
-		}
 		free(str); coord_done(c);
 
 		/* Account for spent time. If our GTP peer keeps our clock, this will
@@ -793,17 +772,10 @@ else{
 		if (!reply) {
 			return P_OK;
 		}
-		if (DEBUGL(3))
-			fprintf(stderr, "proposing moves %s\n", reply);
-		if (DEBUGL(4) && debug_boardprint)
-			board_print_custom(board, stderr, engine->printhook);
 		if (stats_size > 0) {
-			double start = time_now();
+			time_now();
 			fwrite(stats, 1, stats_size, stdout);
 			fflush(stdout);
-			if (DEBUGVV(2))
-				fprintf(stderr, "sent reply %d bytes in %.4fms\n",
-					stats_size, (time_now() - start)*1000);
 		}
 
 	} else if (!strcasecmp(cmd, "set_free_handicap")) {
@@ -815,18 +787,12 @@ else{
 		do {
 			coord_t *c = str2coord(arg, board_size(board));
 			m.coord = *c; coord_done(c);
-			if (DEBUGL(4))
-				fprintf(stderr, "setting handicap %d,%d\n", coord_x(m.coord, board), coord_y(m.coord, board));
 
 			if (board_play(board, &m) < 0) {
-				if (DEBUGL(0))
-					fprintf(stderr, "! ILLEGAL MOVE %d,%d,%d\n", m.color, coord_x(m.coord, board), coord_y(m.coord, board));
 			}
 			board->handicap++;
 			next_tok(arg);
 		} while (*arg);
-		if (DEBUGL(1) && debug_boardprint)
-			board_print(board, stderr);
 
 	/* TODO: Engine should choose free handicap; however, it tends to take
 	 * overly long to think it all out, and unless it's clever its
@@ -839,8 +805,6 @@ else{
 
 		gtp_prefix('=', id);
 		board_handicap(board, stones, id == NO_REPLY ? NULL : stdout);
-		if (DEBUGL(1) && debug_boardprint)
-			board_print(board, stderr);
 		if (id == NO_REPLY) return P_OK;
 		putchar('\n');
 		gtp_flush();
@@ -851,8 +815,6 @@ else{
 			engine->dead_group_list(engine, board, &q);
 		floating_t score = board_official_score(board, &q);
 		char str[64];
-		if (DEBUGL(1))
-			fprintf(stderr, "counted score %.1f\n", score);
 		if (score == 0) {
 		} else if (score > 0) {
 			snprintf(str, 64, "W+%.1f", score);
@@ -905,17 +867,10 @@ next_group2:;
 		}
 	} else if (!strcasecmp(cmd, "undo")) {
 		if (board_undo(board) < 0) {
-			if (DEBUGL(1)) {
-				fprintf(stderr, "undo on non-pass move %s\n", coord2sstr(board->last_move.coord, board));
-				board_print(board, stderr);
-			}
 			return P_OK;
 		}
 		if (engine->undo)
 			engine->undo(engine, board);
-		if (DEBUGL(3) && debug_boardprint)
-			board_print(board, stderr);
-
 	/* Custom commands for handling the tree opening tbook */
 	} else if (!strcasecmp(cmd, "pachi-gentbook")) {
 		/* Board must be initialized properly, as if for genmove;
@@ -945,7 +900,6 @@ next_group2:;
 				if (!board_coord_in_symmetry(board, board->f[i])
 				    || isnan(vals[i]) || vals[i] < 0.001)
 					continue;
-				printf("%s %.3f\n", coord2sstr(board->f[i], board), (double) vals[i]);
 			}
 			gtp_flush();
 		}
@@ -980,8 +934,6 @@ next_group2:;
 		int stones = atoi(arg);
 		if (!ti[color].ignore_gtp) {
 			time_left(&ti[color], time, stones);
-		} else {
-			if (DEBUGL(2)) fprintf(stderr, "ignored time info\n");
 		}
 
 
@@ -1016,14 +968,10 @@ next_group2:;
 			byoyomi_stones = atoi(arg);
 		}
 
-		if (DEBUGL(1))
-			fprintf(stderr, "time_settings %d %d/%d*%d\n",
-				main_time, byoyomi_time, byoyomi_stones, byoyomi_periods);
+
 		if (!ti[S_BLACK].ignore_gtp) {
 			time_settings(&ti[S_BLACK], main_time, byoyomi_time, byoyomi_stones, byoyomi_periods);
 			ti[S_WHITE] = ti[S_BLACK];
-		} else {
-			if (DEBUGL(1)) fprintf(stderr, "ignored time info\n");
 		}
 
 

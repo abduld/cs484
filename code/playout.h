@@ -111,4 +111,16 @@ coord_t play_random_move(struct playout_setup *setup,
 		         struct board *b, enum stone color,
 		         struct playout_policy *policy);
 
+int play_random_game_omp(struct playout_setup *setup,
+                     struct board *b, enum stone starting_color,
+                     struct playout_amafmap *amafmap,
+		     struct board_ownermap *ownermap,
+		     struct playout_policy *policy,
+		     unsigned long * seed);
+
+coord_t play_random_move_omp(struct playout_setup *setup,
+		         struct board *b, enum stone color,
+		         struct playout_policy *policy,
+			 unsigned long * seed);
+
 #endif

@@ -29,13 +29,19 @@
 #include "network.h"
 #include <omp.h>
 #include "mpi.h"
+#include <sys/time.h>
+#include "mc_parallel_vars.h"
 
-int debug_level = 3;
+int debug_level = 2;
 bool debug_boardprint = true;
 long verbose_logs = 0;
 int seed;
-int omp_thread_count = 1;
 
+int omp_thread_count = 1;
+int total_game_count_mc_original = 0;
+int total_game_count_mc_omp = 0;
+int total_game_count_mc_mpi = 0;
+int passing_flag = 0;
 
 enum engine_id {
 	E_RANDOM,
@@ -195,8 +201,12 @@ int main(int argc, char *argv[])
 		MPI_Comm_size(MPI_COMM_WORLD,&mpi_comm_size);
 	}
 
+struct timeval tv;
+gettimeofday(&tv, (void *) 0);
+srand(tv.tv_usec ^ ((mpi_rank+1)*(127-mpi_rank)));
+seed = rand()%0xffff;
+
 if(mpi_rank==0 && mpi_comm_size == 1){
-	seed = seed+mpi_rank*11;
 	fast_srandom(seed);
 	if (DEBUGL(0))
 		fprintf(stderr, "Random seed: %d\n", seed);
@@ -238,6 +248,7 @@ if(mpi_rank==0 && mpi_comm_size == 1){
 
 			enum parse_code c = gtp_parse(b, e, ti, buf);
 			if (c == P_ENGINE_RESET) {
+				print_game_stats();
 				ti[S_BLACK] = ti_default;
 				ti[S_WHITE] = ti_default;
 				if (!e->keep_on_clear) {
@@ -256,6 +267,7 @@ if(mpi_rank==0 && mpi_comm_size == 1){
 	}
 	done_engine(e);
 	chat_done();
+	print_game_stats();
 	if(mpi_enabled){MPI_Finalize();}
 	return 0;
 }
@@ -307,6 +319,7 @@ if(mpi_rank==0 && mpi_comm_size > 1){
 			MPI_Bcast(&buf[0], 4096, MPI_CHAR, 0, MPI_COMM_WORLD);
 			enum parse_code c = gtp_parse(b, e, ti, buf);
 			if (c == P_ENGINE_RESET) {
+				print_game_stats();
 				ti[S_BLACK] = ti_default;
 				ti[S_WHITE] = ti_default;
 				if (!e->keep_on_clear) {
@@ -327,6 +340,7 @@ if(mpi_rank==0 && mpi_comm_size > 1){
 	}
 	done_engine(e);
 	chat_done();
+	print_game_stats();
 	MPI_Finalize();
 	return 0;
 }
@@ -368,6 +382,7 @@ if(mpi_rank>0){
 			MPI_Bcast(&buf[0], 4096, MPI_CHAR, 0, MPI_COMM_WORLD);
 			enum parse_code c = gtp_parse(b, e, ti, buf);
 			if (c == P_ENGINE_RESET) {
+				print_game_stats();
 				ti[S_BLACK] = ti_default;
 				ti[S_WHITE] = ti_default;
 				if (!e->keep_on_clear) {
@@ -387,6 +402,7 @@ if(mpi_rank>0){
 	}
 	done_engine(e);
 	chat_done();
+	print_game_stats();
 	MPI_Finalize();
 	return 0;
 }

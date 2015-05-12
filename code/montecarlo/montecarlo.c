@@ -17,9 +17,7 @@
 #include <omp.h>
 #include <math.h>
 #include <sys/time.h>
-
-extern int omp_thread_count;
-
+#include "mc_parallel_vars.h"
 
 /* This is simple monte-carlo engine. It plays MC_GAMES random games from the
  * current board and records win/loss ratio for each first move. The move with
@@ -104,31 +102,30 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 	 * of board margin. */
 	struct move_stat moves[board_size2(b)];
 	memset(moves, 0, sizeof(moves));
-
+	
 	int losses = 0;
-	int i, superko = 0, good_games = 0;
+	int i, superko = 0, good_games = 0, total_playout = 0;
 	bool move_not_found = true;
 
-		struct board * boards = malloc(sizeof(struct board) * omp_thread_count);
-		for (i = 0; i < omp_thread_count; i++) {
-			board_copy(&boards[i], b);
-		}
-		unsigned long * seeds = malloc(sizeof(unsigned long) * omp_thread_count);
-		for (i = 0; i < omp_thread_count; i++) {
-			seeds[i] = i;
-			seeds[i] = random_init_omp(&seeds[i]);
-		}
+	struct board * boards = malloc(sizeof(struct board) * omp_thread_count);
+	for (i = 0; i < omp_thread_count; i++) {
+		board_copy(&boards[i], b);
+	}
+	unsigned long * seeds = malloc(sizeof(unsigned long) * omp_thread_count);
+	for (i = 0; i < omp_thread_count; i++) {
+		seeds[i] = rand()%0xffff;
+	}
 
 #pragma omp parallel \
   private(i) \
-  reduction(+:losses,superko,good_games)
+  reduction(+:losses,superko,good_games,total_playout)
 {
+	int thread_num = omp_get_thread_num();
+	int num_threads = omp_get_num_threads();
+	unsigned long *seed = &seeds[thread_num];
+
 	for (i = 0; i < stop.desired.playouts && move_not_found; i++) {
 		assert(!b->superko_violation);
-		int thread_num = omp_get_thread_num();
-		unsigned long * seed = &seeds[thread_num];
-
-
 		struct board b2 = boards[thread_num];
 		board_copy_noalloc(&b2, b);
 
@@ -150,13 +147,14 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 			fprintf(stderr, "[%d,%d color %d] playing random game\n", coord_x(coord, b), coord_y(coord, b), color);
 
 		struct playout_setup ps = { .gamelen = mc->gamelen };
-		int result = play_random_game(&ps, &b2, color, NULL, NULL, mc->playout);
+		int result = play_random_game_omp(&ps, &b2, (color==S_BLACK)?(S_WHITE):(S_BLACK), NULL, NULL, mc->playout, seed);
+		total_playout++;
 
-
+		//Note result > 0 means opponent wins; result < 0 color wins; result == 0 means superko
 		if (result == 0) {
 			/* Superko. We just ignore this playout.
 			 * And play again. */
-			if (unlikely(superko > 2 * stop.desired.playouts)) {
+			if (unlikely(superko > 2 * num_threads * stop.desired.playouts)) {
 				/* Uhh. Triple ko, or something? */
 				if (MCDEBUGL(0))
 					fprintf(stderr, "SUPERKO LOOP. I will pass. Did we hit triple ko?\n");
@@ -166,10 +164,11 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 					move_not_found = false;
 				}
 			}
+			else{
 			/* This playout didn't count; we should not
 			 * disadvantage moves that lead to a superko.
 			 * And it is supposed to be rare. */
-			i--, superko++;
+			i--, superko++;}
 			continue;
 		}
 
@@ -177,12 +176,16 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 			fprintf(stderr, "\tresult for other player: %d\n", result);
 
 		int pos = is_pass(coord) ? 0 : coord;
+		int game_lost = (result > 0);
 
 		good_games++;
-		moves[pos].games++;
-
-		losses += result > 0;
-		moves[pos].wins += 1 - (result > 0);
+		#pragma omp critical (update_moves)
+		{
+			moves[pos].games++;
+			moves[pos].wins += 1 - game_lost;
+		}
+		losses += game_lost;
+		
 
 		if (unlikely(!losses && i == mc->loss_threshold)) {
 			/* We played out many games and didn't lose once yet.
@@ -190,6 +193,7 @@ montecarlo_genmove(struct engine *e, struct board *b, struct time_info *ti, enum
 			break;
 		}
 	}
+
 } //end omp
 for (i = 0; i < omp_thread_count; i++) {
 			board_done_noalloc(&boards[i]);
@@ -237,7 +241,7 @@ pass_wins:
 move_found:
 	if (MCDEBUGL(1))
 		fprintf(stderr, "*** WINNER is %d,%d with score %1.4f (%d games, %d superko)\n", coord_x(top_coord, b), coord_y(top_coord, b), top_ratio, i, superko);
-
+	total_game_count_mc_omp += total_playout;
 	return coord_copy(top_coord);
 }
 
@@ -289,7 +293,7 @@ montecarlo_state_init(char *arg, struct board *b)
 		mc->playout = playout_light_init(NULL, b);
 	mc->playout->debug_level = mc->debug_level;
 
-	mc->resign_ratio = 0.1; /* Resign when most games are lost. */
+	mc->resign_ratio = 0; /* Resign when most games are lost. */
 	mc->loss_threshold = 5000; /* Stop reading if no loss encountered in first 5000 games. */
 
 	return mc;

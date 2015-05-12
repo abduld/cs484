@@ -112,7 +112,7 @@ montecarlo_mpi_genmove(struct engine *e, struct board *b, struct time_info *ti, 
 	memset(moves, 0, sizeof(moves));
 
 	int losses = 0;
-	int i, superko = 0, good_games = 0, total_playout = 0;
+	int i,j, superko = 0, good_games = 0;
 	bool move_not_found = true;
 
 	struct board * boards = malloc(sizeof(struct board) * omp_thread_count);
@@ -126,7 +126,7 @@ montecarlo_mpi_genmove(struct engine *e, struct board *b, struct time_info *ti, 
 
 #pragma omp parallel \
   private(i) \
-  reduction(+:losses,superko,total_playout)
+  reduction(+:losses,superko)
 {
 	int thread_num = omp_get_thread_num();
 	int num_threads = omp_get_num_threads();
@@ -157,7 +157,7 @@ montecarlo_mpi_genmove(struct engine *e, struct board *b, struct time_info *ti, 
 
 		struct playout_setup ps = { .gamelen = mc->gamelen };
 		int result = play_random_game_omp(&ps, &b2, (color==S_BLACK)?(S_WHITE):(S_BLACK), NULL, NULL, mc->playout, seed);
-		total_playout++;
+
 
 		if (result == 0) {
 			/* Superko. We just ignore this playout.
@@ -190,8 +190,7 @@ montecarlo_mpi_genmove(struct engine *e, struct board *b, struct time_info *ti, 
 			moves[pos].games++;
 			moves[pos].wins += 1 - game_lost;
 		}
-
-		good_games++;
+		
 		losses += game_lost;		
 		if (unlikely(!losses && i == mc->loss_threshold)) {
 			/* We played out many games and didn't lose once yet.
@@ -221,9 +220,18 @@ montecarlo_mpi_genmove(struct engine *e, struct board *b, struct time_info *ti, 
 	//}
 
 	if(my_mpi_rank == 0){
-		struct move_stat move_rbuff[board_size2(b)];
-		memset(move_rbuff, 0, sizeof(move_rbuff));
-		MPI_Reduce(&moves[0], &move_rbuff[0], my_stats_array_size, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);	
+		int * game_stats_array = malloc(sizeof(int) * my_stats_array_size);
+		MPI_Reduce(&moves[0], &game_stats_array[0], my_stats_array_size, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+		j=0;	
+		for (i = 0; i < my_stats_array_size; i+=2){
+			moves[j].games = game_stats_array[i];
+			moves[j].wins = game_stats_array[i+1];
+			good_games += game_stats_array[i+1];
+			j++;
+		}
+		//for(i=0; i<board_size2(b); i++){
+		//	printf("%d, %d, %d\n",my_mpi_rank,moves[i].wins,moves[i].games);
+		//}
 		if (!good_games) {
 			/* No moves to try??? */
 			if (MCDEBUGL(0)) {
@@ -243,7 +251,7 @@ montecarlo_mpi_genmove(struct engine *e, struct board *b, struct time_info *ti, 
 					continue;
 			}
 
-			floating_t ratio = (floating_t) move_rbuff[c].wins / move_rbuff[c].games;
+			floating_t ratio = (floating_t) moves[c].wins / moves[c].games;
 			/* Since pass is [0,0], we will pass only when we have nothing
 			 * better to do. */
 			if (ratio >= top_ratio) {
@@ -260,12 +268,18 @@ move_found:
 		if (MCDEBUGL(1))
 			fprintf(stderr, "*** WINNER is %d,%d with score %1.4f (%d games, %d superko)\n", coord_x(top_coord, b), coord_y(top_coord, b), top_ratio, i, superko);
 		MPI_Bcast(&top_coord, 2, MPI_INT, 0, MPI_COMM_WORLD);
+		free(game_stats_array);
 	}
 	else{
 		MPI_Reduce(&moves[0], NULL, my_stats_array_size, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 		MPI_Bcast(&top_coord, 2, MPI_INT, 0, MPI_COMM_WORLD);
 	}
-	total_game_count_mc_mpi += total_playout;
+	if(!passing_flag){
+		total_game_count_mc_mpi += good_games;
+	}
+	if(top_coord == pass){
+		passing_flag = 1;
+	}
 	return coord_copy(top_coord);
 }
 

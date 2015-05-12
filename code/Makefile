@@ -67,7 +67,7 @@ else
 ifdef MAC
 	SYS_CFLAGS?=-DNO_THREAD_LOCAL -fopenmp -Wall
 	SYS_LDFLAGS?=-pthread -fopenmp
-	SYS_LIBS?=-lm -ldl -ltcmalloc -lprofiler
+	SYS_LIBS?=-lm -ldl
 else
 	SYS_CFLAGS?=-march=native -fopenmp
 	SYS_LDFLAGS?=-pthread -rdynamic -fopenmp
@@ -107,7 +107,7 @@ unexport INCLUDES
 INCLUDES=-I.
 
 
-OBJS= board.o gtp.o move.o ownermap.o pattern3.o pattern.o patternsp.o patternprob.o playout.o probdist.o random.o stone.o timeinfo.o network.o fbook.o chat.o
+OBJS= board.o gtp.o move.o ownermap.o pattern3.o pattern.o patternsp.o patternprob.o playout.o probdist.o random.o stone.o timeinfo.o network.o fbook.o chat.o mc_parallel_vars.o
 SUBDIRS=random replay patternscan patternplay joseki montecarlo montecarlo_mpi montecarlo_original uct uct/policy playout tactics t-unit distributed
 
 all: all-recursive pachi
