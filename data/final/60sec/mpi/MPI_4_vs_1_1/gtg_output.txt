@@ -1,0 +1,2292 @@
+B>> protocol_version
+Random seed: 35191
+IN: protocol_version
+B<< = 2
+B<< 
+B>> name
+IN: name
+B<< = Pachi montecarlo_original
+B<< 
+B>> version
+IN: version
+B<< = 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+B<< 
+B>> list_commands
+IN: list_commands
+B<< = protocol_version
+B<< echo
+B<< name
+B<< version
+B<< list_commands
+B<< known_command
+B<< quit
+B<< boardsize
+B<< clear_board
+B<< kgs-game_over
+B<< komi
+B<< kgs-rules
+B<< play
+B<< genmove
+B<< kgs-genmove_cleanup
+B<< set_free_handicap
+B<< place_free_handicap
+B<< fixed_handicap
+B<< final_score
+B<< final_status_list
+B<< undo
+B<< pachi-evaluate
+B<< pachi-result
+B<< pachi-gentbook
+B<< pachi-dumptbook
+B<< kgs-chat
+B<< time_left
+B<< time_settings
+B<< kgs-time_settings
+B<< 
+W>> protocol_version
+Running multithreaded version with 1 threads
+Random seed: 63595
+Running multithreaded version with 1 threads
+Random seed: 9020
+Running multithreaded version with 1 threads
+Random seed: 2285
+Running multithreaded version with 1 threads
+Random seed: 6903
+IN: protocol_version
+W<< = 2
+W<< 
+IN: �)qyIN: �i���IN: ��I�W>> name
+�IN: name
+IN: protocol_versionIN: protocol_versionIN: protocol_versionW<< = Pachi montecarlo_mpi
+W<< 
+W>> version
+IN: version
+IN: nameIN: nameIN: nameW<< = 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+W<< 
+W>> list_commands
+IN: list_commands
+IN: versionIN: versionIN: versionW<< = protocol_version
+W<< echo
+W<< name
+W<< version
+W<< list_commands
+W<< known_command
+W<< quit
+W<< boardsize
+W<< clear_board
+W<< kgs-game_over
+W<< komi
+W<< kgs-rules
+W<< play
+W<< genmove
+W<< kgs-genmove_cleanup
+W<< set_free_handicap
+W<< place_free_handicap
+W<< fixed_handicap
+W<< final_score
+W<< final_status_list
+W<< undo
+W<< pachi-evaluate
+W<< pachi-result
+W<< pachi-gentbook
+W<< pachi-dumptbook
+W<< kgs-chat
+W<< time_left
+W<< time_settings
+W<< kgs-time_settings
+W<< 
+B>> boardsize 9
+IN: boardsize 9
+B<< = 
+B<< 
+B>> clear_board
+IN: clear_board
+B<< = 
+B<< 
+B>> komi 6.5
+IN: komi 6.5
+B<< = 
+B<< 
+W>> boardsize 9
+IN: list_commandsIN: list_commandsIN: boardsize 9
+IN: list_commandsW<< = 
+W<< 
+W>> clear_board
+IN: boardsizeIN: boardsizeIN: clear_board
+IN: boardsizeW<< = 
+W<< 
+W>> komi 6.5
+IN: clear_boardIN: clear_boardIN: clear_boardIN: komi 6.5
+W<< = 
+W<< 
+============================================
+Game 0
+============================================
+B>> boardsize 9
+IN: boardsize 9
+B<< = 
+B<< 
+B>> clear_board
+IN: clear_board
+B<< = 
+B<< 
+W>> boardsize 9
+IN: komiIN: komiIN: boardsize 9
+IN: komiW<< = 
+W<< 
+W>> clear_board
+IN: clear_board
+IN: boardsizeIN: boardsizeIN: boardsizeW<< = 
+W<< 
+B>> time_settings 600 0 0
+IN: time_settings 600 0 0
+time_settings 600 0/0*0
+ignored time info
+B<< = 
+B<< 
+W>> time_settings 600 0 0
+IN: time_settings 600 0 0
+IN: clear_boardIN: clear_boardIN: clear_boardtime_settings 600 0/0*0
+ignored time info
+W<< = 
+W<< 
+B>> genmove b
+IN: genmove b
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Move:   1  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X). . . . |
+  5 | . . . . . . . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . . . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = E6
+B<< 
+W>> play B E6
+W<< = 
+IN: time_settingsIN: play B E6
+IN: time_settingsIN: time_settingsW<< 
+W>> genmove w
+IN: genmove w
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+IN: playWarning: TD_WALLTIME time mode not supported, resetting to defaults.
+IN: playWarning: TD_WALLTIME time mode not supported, resetting to defaults.
+IN: playWarning: TD_WALLTIME time mode not supported, resetting to defaults.
+Move:   2  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O). . |
+  5 | . . . . . . . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . . . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = G6
+W<< 
+B>> play W G6
+IN: play W G6
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:   3  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X). . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . . . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = E5
+B<< 
+W>> play B E5
+W<< = 
+W<< 
+IN: genmoveIN: play B E5
+IN: genmoveIN: genmoveW>> genmove w
+IN: playIN: playIN: genmove w
+IN: playW<< = D2
+Move:   4  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . . . . . |
+  2 | . . . O). . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< 
+B>> play W D2
+IN: play W D2
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+B<< = E3
+Move:   5  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . X). . . . |
+  2 | . . . O . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< 
+W>> play B E3
+IN: play B E3
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playMove:   6  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . . O). . . . |
+  3 | . . . . X . . . . |
+  2 | . . . O . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = E4
+W<< 
+B>> play W E4
+IN: play W E4
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+B<< = D4
+B<< 
+Move:   7  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X)O . . . . |
+  3 | . . . . X . . . . |
+  2 | . . . O . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W>> play B D4
+IN: genmoveIN: play B D4
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playMove:   8  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X O . . . . |
+  3 | . . . . X O). . . |
+  2 | . . . O . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = F3
+W<< 
+B>> play W F3
+B<< = 
+B<< 
+IN: play W F3
+B>> genmove b
+IN: genmove b
+Move:   9  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X). . . |
+  3 | . . . . X O . . . |
+  2 | . . . O . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = F4
+B<< 
+W>> play B F4
+IN: genmoveIN: play B F4
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playW<< = G4
+W<< 
+Move:  10  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X O). . |
+  3 | . . . . X O . . . |
+  2 | . . . O . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B>> play W G4
+B<< = 
+B<< 
+IN: play W G4
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+Move:  11  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X). . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = E2
+B<< 
+W>> play B E2
+IN: genmoveIN: play B E2
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+Move:  12  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . O). . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = E7
+W<< 
+B>> play W E7
+B<< = 
+B<< 
+IN: play W E7
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+B<< = C7
+B<< 
+Move:  13  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . X). O . . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W>> play B C7
+IN: genmoveIN: genmoveIN: genmoveIN: play B C7
+W<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playW<< = F7
+Move:  14  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . X . O O). . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< 
+B>> play W F7
+B<< = 
+B<< 
+IN: play W F7
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+B<< = D8
+B<< 
+Move:  15  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . X). . . . . |
+  7 | . . X . O O . . . |
+  6 | . . . . X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W>> play B D8
+IN: genmoveIN: play B D8
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  16  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . X . . . . . |
+  7 | . . X . O O . . . |
+  6 | . . . O)X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = D6
+W<< 
+B>> play W D6
+B<< = 
+B<< 
+IN: play W D6
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+B<< = C6
+B<< 
+Move:  17  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . X . . . . . |
+  7 | . . X . O O . . . |
+  6 | . . X)O X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W>> play B C6
+IN: genmoveIN: genmoveIN: genmoveIN: play B C6
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  18  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . X . . . . . |
+  7 | . . X O)O O . . . |
+  6 | . . X O X . O . . |
+  5 | . . . . X . . . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = D7
+W<< 
+B>> play W D7
+IN: play W D7
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+Move:  19  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . X . . . . . |
+  7 | . . X O O O . . . |
+  6 | . . X O X . O . . |
+  5 | . . . X)X . . . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = D5
+B<< 
+W>> play B D5
+IN: play B D5
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+Move:  20  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . X . . . . . |
+  7 | . . X O O O . . . |
+  6 | . . X O X . O . . |
+  5 | . . . X X . O). . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = G5
+W<< 
+B>> play W G5
+B<< = 
+IN: play W G5
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  21  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X)X . . . . . |
+  7 | . . X O O O . . . |
+  6 | . . X O X . O . . |
+  5 | . . . X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = C8
+B<< 
+W>> play B C8
+IN: genmoveIN: genmoveIN: play B C8
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  22  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O . . . |
+  6 | . . X O X . O . . |
+  5 | . . . X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X O). . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = F2
+W<< 
+B>> play W F2
+B<< = 
+B<< 
+IN: play W F2
+B>> genmove b
+IN: genmove b
+Move:  23  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O . . . |
+  6 | . . X O X . O . . |
+  5 | . . X)X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X O . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = C5
+B<< 
+W>> play B C5
+IN: play B C5
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  24  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O . . . |
+  6 | . . X O X . O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O . . . |
+  2 | . . . O X O . . . |
+  1 | . . . . O). . . . |
+    +-------------------+
+
+W<< = E1
+W<< 
+B>> play W E1
+IN: play W E1
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+Move:  25  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O . . . |
+  6 | . . X O X . O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X). . |
+  2 | . . . O X O . . . |
+  1 | . . . . O . . . . |
+    +-------------------+
+
+B<< = G3
+B<< 
+W>> play B G3
+IN: genmoveIN: genmoveIN: play B G3
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+W<< = G2
+W<< 
+Move:  26  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O . . . |
+  6 | . . X O X . O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X . . |
+  2 | . . . O X O O). . |
+  1 | . . . . O . . . . |
+    +-------------------+
+
+B>> play W G2
+IN: play W G2
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+Move:  27  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O . . . |
+  6 | . . X O X X)O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X . . |
+  2 | . . . O X O O . . |
+  1 | . . . . O . . . . |
+    +-------------------+
+
+B<< = F6
+B<< 
+W>> play B F6
+IN: genmoveIN: play B F6
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playW<< = G7
+Move:  28  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O). . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X . . |
+  2 | . . . O X O O . . |
+  1 | . . . . O . . . . |
+    +-------------------+
+
+W<< 
+B>> play W G7
+IN: play W G7
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+Move:  29  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X X). |
+  2 | . . . O X O O . . |
+  1 | . . . . O . . . . |
+    +-------------------+
+
+B<< = H3
+B<< 
+W>> play B H3
+IN: genmoveIN: genmoveIN: play B H3
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playMove:  30  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X X . |
+  2 | . . . O X O O O). |
+  1 | . . . . O . . . . |
+    +-------------------+
+
+W<< = H2
+W<< 
+B>> play W H2
+IN: play W H2
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+Move:  31  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X X . |
+  2 | . . . O X O O O . |
+  1 | . . . X)O . . . . |
+    +-------------------+
+
+B<< = D1
+B<< 
+W>> play B D1
+IN: genmoveIN: play B D1
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playW<< = C1
+Move:  32  Komi: 6.5  Handicap: 0  Captures B: 1 W: 1
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X X . |
+  2 | . . . O X O O O . |
+  1 | . . O). O . . . . |
+    +-------------------+
+
+W<< 
+B>> play W C1
+IN: play W C1
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  33  Komi: 6.5  Handicap: 0  Captures B: 1 W: 1
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X X . |
+  2 | . . . O X O O O . |
+  1 | . . O . O X). . . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = F1
+B<< 
+W>> play B F1
+IN: genmoveIN: genmoveIN: genmoveIN: play B F1
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  34  Komi: 6.5  Handicap: 0  Captures B: 1 W: 2
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X X . |
+  2 | . . . O X O O O . |
+  1 | . . O . O . O). . |
+    +-------------------+
+
+W<< = G1
+W<< 
+B>> play W G1
+IN: play W G1
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  35  Komi: 6.5  Handicap: 0  Captures B: 1 W: 2
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O . . |
+  3 | . . . . X O X X . |
+  2 | . . . O X O O O X)|
+  1 | . . O . O . O . . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = J2
+B<< 
+W>> play B J2
+IN: play B J2
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+W<< = H4
+Move:  36  Komi: 6.5  Handicap: 0  Captures B: 1 W: 2
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O O). |
+  3 | . . . . X O X X . |
+  2 | . . . O X O O O X |
+  1 | . . O . O . O . . |
+    +-------------------+
+
+W<< 
+B>> play W H4
+IN: play W H4
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+B<< = H1
+B<< 
+Move:  37  Komi: 6.5  Handicap: 0  Captures B: 1 W: 2
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O O . |
+  3 | . . . . X O X X . |
+  2 | . . . O X O O O X |
+  1 | . . O . O . O X). |
+    +-------------------+
+
+W>> play B H1
+W<< = 
+W<< 
+IN: genmoveIN: play B H1
+IN: genmoveIN: genmoveW>> genmove w
+IN: genmove w
+IN: playIN: playIN: playW<< = J3
+W<< 
+Move:  38  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X . . . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O O . |
+  3 | . . . . X O . . O)|
+  2 | . . . O X O O O X |
+  1 | . . O . O . O X . |
+    +-------------------+
+
+B>> play W J3
+IN: play W J3
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  39  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X X). . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O O . |
+  3 | . . . . X O . . O |
+  2 | . . . O X O O O X |
+  1 | . . O . O . O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = E8
+B<< 
+W>> play B E8
+IN: genmoveIN: genmoveIN: genmoveIN: play B E8
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  40  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X X O). . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O O . |
+  3 | . . . . X O . . O |
+  2 | . . . O X O O O X |
+  1 | . . O . O . O X . |
+    +-------------------+
+
+W<< = F8
+W<< 
+B>> play W F8
+IN: play W F8
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+Move:  41  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O O . |
+  3 | . . . . X O . . O |
+  2 | . X). O X O O O X |
+  1 | . . O . O . O X . |
+    +-------------------+
+
+B<< = B2
+B<< 
+W>> play B B2
+IN: genmoveIN: play B B2
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playW<< = F9
+W<< 
+Move:  42  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . O). . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O O . |
+  3 | . . . . X O . . O |
+  2 | . X . O X O O O X |
+  1 | . . O . O . O X . |
+    +-------------------+
+
+B>> play W F9
+IN: play W F9
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  43  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X)O . . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X . O . . |
+  4 | . . . X . X O O . |
+  3 | . . . . X O . . O |
+  2 | . X . O X O O O X |
+  1 | . . O . O . O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = E9
+B<< 
+W>> play B E9
+IN: play B E9
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playW<< = F5
+W<< 
+Move:  44  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O . . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X O)O . . |
+  4 | . . . X . X O O . |
+  3 | . . . . X O . . O |
+  2 | . X . O X O O O X |
+  1 | . . O . O . O X . |
+    +-------------------+
+
+B>> play W F5
+IN: play W F5
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  45  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O . . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X O O . . |
+  4 | . . . X X)X O O . |
+  3 | . . . . X O . . O |
+  2 | . X . O X O O O X |
+  1 | . . O . O . O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = E4
+B<< 
+W>> play B E4
+IN: genmoveIN: play B E4
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playMove:  46  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O . . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O . |
+  3 | . . . . X O . . O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O)O X . |
+    +-------------------+
+
+W<< = F1
+W<< 
+B>> play W F1
+B<< = 
+IN: play W F1
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  47  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O . . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X)|
+  3 | . . . . X O . . O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = J4
+B<< 
+W>> play B J4
+IN: genmoveIN: genmoveIN: play B J4
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playMove:  48  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O . . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O . . |
+  6 | . . X O X X O . . |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O)O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = H3
+W<< 
+B>> play W H3
+IN: play W H3
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  49  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O . . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O X). |
+  6 | . . X O X X O . . |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = H7
+B<< 
+W>> play B H7
+W<< = 
+IN: play B H7
+IN: genmoveIN: genmoveIN: genmoveW<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playMove:  50  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O . . . |
+  8 | . . X X X O . . . |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O). |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = H6
+W<< 
+B>> play W H6
+B<< = 
+IN: play W H6
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  51  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O . . . |
+  8 | . . X X X O X). . |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O . |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = G8
+B<< 
+W>> play B G8
+IN: genmoveIN: play B G8
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playMove:  52  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O O). . |
+  8 | . . X X X O X . . |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O . |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = G9
+W<< 
+B>> play W G9
+IN: play W G9
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  53  Komi: 6.5  Handicap: 0  Captures B: 1 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O O . . |
+  8 | . . X X X O X . . |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X)|
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = J6
+B<< 
+W>> play B J6
+IN: genmoveIN: genmoveIN: play B J6
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playW<< = H8
+Move:  54  Komi: 6.5  Handicap: 0  Captures B: 1 W: 5
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O O . . |
+  8 | . . X X X O . O). |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< 
+B>> play W H8
+IN: play W H8
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  55  Komi: 6.5  Handicap: 0  Captures B: 1 W: 5
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O O X). |
+  8 | . . X X X O . O . |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = H9
+B<< 
+W>> play B H9
+IN: genmoveIN: genmoveIN: genmoveIN: play B H9
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playW<< = J8
+Move:  56  Komi: 6.5  Handicap: 0  Captures B: 1 W: 5
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . X O O X . |
+  8 | . . X X X O . O O)|
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< 
+B>> play W J8
+IN: play W J8
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  57  Komi: 6.5  Handicap: 0  Captures B: 1 W: 5
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . X)X O O X . |
+  8 | . . X X X O . O O |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = D9
+B<< 
+W>> play B D9
+IN: genmoveIN: genmoveIN: genmoveIN: play B D9
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+Move:  58  Komi: 6.5  Handicap: 0  Captures B: 1 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . X X O O . O)|
+  8 | . . X X X O . O O |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = J9
+W<< 
+B>> play W J9
+IN: play W J9
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  59  Komi: 6.5  Handicap: 0  Captures B: 1 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . X)X X O O . O |
+  8 | . . X X X O . O O |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = C9
+B<< 
+W>> play B C9
+IN: genmoveIN: play B C9
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  60  Komi: 6.5  Handicap: 0  Captures B: 1 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O)X X X O O . O |
+  8 | . . X X X O . O O |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = B9
+W<< 
+B>> play W B9
+IN: play W B9
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  61  Komi: 6.5  Handicap: 0  Captures B: 1 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | X)O X X X O O . O |
+  8 | . . X X X O . O O |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = A9
+B<< 
+W>> play B A9
+IN: genmoveIN: genmoveIN: genmoveIN: play B A9
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+W<< = B8
+Move:  62  Komi: 6.5  Handicap: 0  Captures B: 1 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | X O X X X O O . O |
+  8 | . O)X X X O . O O |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< 
+B>> play W B8
+IN: play W B8
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+Move:  63  Komi: 6.5  Handicap: 0  Captures B: 1 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | X O X X X O O . O |
+  8 | X)O X X X O . O O |
+  7 | . . X O O O O X . |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< = A8
+B<< 
+W>> play B A8
+W<< = 
+IN: genmoveIN: genmoveIN: play B A8
+IN: genmoveW<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  64  Komi: 6.5  Handicap: 0  Captures B: 1 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | X O X X X O O . O |
+  8 | X O X X X O . O O |
+  7 | . . X O O O O . O)|
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = J7
+W<< 
+B>> play W J7
+IN: play W J7
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  65  Komi: 6.5  Handicap: 0  Captures B: 3 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X . X X X O . O O |
+  7 | . X)X O O O O . O |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = B7
+B<< 
+W>> play B B7
+IN: genmoveIN: play B B7
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+W<< = B9
+Move:  66  Komi: 6.5  Handicap: 0  Captures B: 3 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | X O)X X X O O . O |
+  8 | X . X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< 
+B>> play W B9
+IN: play W B9
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  67  Komi: 6.5  Handicap: 0  Captures B: 4 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X)X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = B8
+B<< 
+W>> play B B8
+IN: genmoveIN: play B B8
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playMove:  68  Komi: 6.5  Handicap: 0  Captures B: 4 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O)X X O O O O . O |
+  6 | . . X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = A7
+W<< 
+B>> play W A7
+IN: play W A7
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  69  Komi: 6.5  Handicap: 0  Captures B: 4 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | . X)X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = B6
+B<< 
+W>> play B B6
+IN: play B B6
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playW<< = A6
+Move:  70  Komi: 6.5  Handicap: 0  Captures B: 4 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | O)X X O X X O O X |
+  5 | . . X X X O O . . |
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< 
+B>> play W A6
+IN: play W A6
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  71  Komi: 6.5  Handicap: 0  Captures B: 4 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | O X X O X X O O X |
+  5 | . . X X X O O . X)|
+  4 | . . . X X X O O X |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = J5
+B<< 
+W>> play B J5
+IN: genmoveIN: genmoveIN: play B J5
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playMove:  72  Komi: 6.5  Handicap: 0  Captures B: 4 W: 10
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | O X X O X X O O . |
+  5 | . . X X X O O O). |
+  4 | . . . X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = H5
+W<< 
+B>> play W H5
+IN: play W H5
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  73  Komi: 6.5  Handicap: 0  Captures B: 4 W: 10
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | O X X O X X O O X)|
+  5 | . . X X X O O O . |
+  4 | . . . X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = J6
+B<< 
+W>> play B J6
+IN: genmoveIN: genmoveIN: genmoveIN: play B J6
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  74  Komi: 6.5  Handicap: 0  Captures B: 4 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | O X X O X X O O . |
+  5 | . . X X X O O O O)|
+  4 | . . . X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = J5
+W<< 
+B>> play W J5
+IN: play W J5
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  75  Komi: 6.5  Handicap: 0  Captures B: 4 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | O X X O X X O O . |
+  5 | . X)X X X O O O O |
+  4 | . . . X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = B5
+B<< 
+W>> play B B5
+IN: genmoveIN: genmoveIN: play B B5
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  76  Komi: 6.5  Handicap: 0  Captures B: 4 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | O X X O X X O O . |
+  5 | O)X X X X O O O O |
+  4 | . . . X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = A5
+W<< 
+B>> play W A5
+IN: play W A5
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  77  Komi: 6.5  Handicap: 0  Captures B: 4 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | O X X O X X O O . |
+  5 | O X X X X O O O O |
+  4 | . . X)X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = C4
+B<< 
+W>> play B C4
+IN: play B C4
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+Move:  78  Komi: 6.5  Handicap: 0  Captures B: 4 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O X X O O O O . O |
+  6 | O X X O X X O O . |
+  5 | O X X X X O O O O |
+  4 | . O)X X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = B4
+W<< 
+B>> play W B4
+IN: play W B4
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  79  Komi: 6.5  Handicap: 0  Captures B: 7 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | . X X O X X O O . |
+  5 | . X X X X O O O O |
+  4 | X)O X X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = A4
+B<< 
+W>> play B A4
+IN: genmoveIN: genmoveIN: genmoveIN: play B A4
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+Move:  80  Komi: 6.5  Handicap: 0  Captures B: 7 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | O)X X O O O O . O |
+  6 | . X X O X X O O . |
+  5 | . X X X X O O O O |
+  4 | X O X X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = A7
+W<< 
+B>> play W A7
+IN: play W A7
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  81  Komi: 6.5  Handicap: 0  Captures B: 8 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X)X X O X X O O . |
+  5 | . X X X X O O O O |
+  4 | X O X X X X O O . |
+  3 | . . . . X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = A6
+B<< 
+W>> play B A6
+IN: play B A6
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playMove:  82  Komi: 6.5  Handicap: 0  Captures B: 8 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | . X X X X O O O O |
+  4 | X O X X X X O O . |
+  3 | . . . O)X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = D3
+W<< 
+B>> play W D3
+IN: play W D3
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  83  Komi: 6.5  Handicap: 0  Captures B: 8 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X)X X X X O O O O |
+  4 | X O X X X X O O . |
+  3 | . . . O X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = A5
+B<< 
+W>> play B A5
+W<< = 
+IN: genmoveIN: play B A5
+IN: genmoveIN: genmoveW<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playMove:  84  Komi: 6.5  Handicap: 0  Captures B: 8 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X O X X X X O O . |
+  3 | . . O)O X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = C3
+W<< 
+B>> play W C3
+IN: play W C3
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+B<< Original Stone color: 1
+Move:  85  Komi: 6.5  Handicap: 0  Captures B: 9 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X . X X X X O O . |
+  3 | . X)O O X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< = B3
+B<< 
+W>> play B B3
+IN: genmoveIN: play B B3
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playMove:  86  Komi: 6.5  Handicap: 0  Captures B: 9 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X . X X X X O O . |
+  3 | O)X O O X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = A3
+W<< 
+B>> play W A3
+IN: play W A3
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  87  Komi: 6.5  Handicap: 0  Captures B: 9 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X X)X X X X O O . |
+  3 | O X O O X O . O O |
+  2 | . X . O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = B4
+B<< 
+W>> play B B4
+IN: genmoveIN: genmoveIN: play B B4
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+Move:  88  Komi: 6.5  Handicap: 0  Captures B: 9 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X X X X X X O O . |
+  3 | O X O O X O . O O |
+  2 | . X O)O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+W<< = C2
+W<< 
+B>> play W C2
+IN: play W C2
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  89  Komi: 6.5  Handicap: 0  Captures B: 10 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X X X X X X O O . |
+  3 | . X O O X O . O O |
+  2 | X)X O O X O O O X |
+  1 | . . O . O O O X . |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = A2
+B<< 
+W>> play B A2
+IN: genmoveIN: genmoveIN: play B A2
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playW<< = J1
+Move:  90  Komi: 6.5  Handicap: 0  Captures B: 10 W: 13
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X X X X X X O O . |
+  3 | . X O O X O . O O |
+  2 | X X O O X O O O . |
+  1 | . . O . O O O . O)|
+    +-------------------+
+
+W<< 
+B>> play W J1
+IN: play W J1
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  91  Komi: 6.5  Handicap: 0  Captures B: 10 W: 13
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X X X X X X O O . |
+  3 | . X O O X O . O O |
+  2 | X X O O X O O O . |
+  1 | . X)O . O O O . O |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = B1
+B<< 
+W>> play B B1
+IN: genmoveIN: genmoveIN: play B B1
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playMove:  92  Komi: 6.5  Handicap: 0  Captures B: 10 W: 13
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X X X X X X O O . |
+  3 | . X O O X O . O O |
+  2 | X X O O X O O O . |
+  1 | . X O O)O O O . O |
+    +-------------------+
+
+W<< = D1
+W<< 
+B>> play W D1
+IN: play W D1
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+Move:  92  Komi: 6.5  Handicap: 0  Captures B: 10 W: 13
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X X X X X X O O . |
+  3 | . X O O X O . O O |
+  2 | X X O O X O O O . |
+  1 | . X O O O O O . O |
+    +-------------------+
+
+B<< Original Stone color: 1
+B<< = pass
+B<< 
+W>> play B PASS
+IN: genmoveIN: genmoveIN: genmoveIN: play B PASS
+W<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playMove:  92  Komi: 6.5  Handicap: 0  Captures B: 10 W: 13
+      A B C D E F G H J  
+    +-------------------+
+  9 | X . X X X O O . O |
+  8 | X X X X X O . O O |
+  7 | . X X O O O O . O |
+  6 | X X X O X X O O . |
+  5 | X X X X X O O O O |
+  4 | X X X X X X O O . |
+  3 | . X O O X O . O O |
+  2 | X X O O X O O O . |
+  1 | . X O O O O O . O |
+    +-------------------+
+
+W<< = pass
+W<< 
+B>> play W PASS
+IN: play W PASS
+B<< = 
+B<< 
+B>> final_score
+IN: final_score
+counted score 13.5
+B<< = W+13.5
+B<< 
+W>> final_score
+IN: genmoveIN: genmoveIN: final_score
+counted score 13.5
+IN: genmoveW<< = W+13.5
+W<< 
+B>> quit
+IN: quit
+B<< = 
+B<< 
+B<< Monte-Carlo original total games: 1803211
+W>> quit
+IN: final_scoreIN: final_scoreIN: final_scoreIN: quit
+W<< = 
+W<< 
+W<< Monte-Carlo MPI total games: 1215019

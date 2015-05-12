@@ -1,0 +1,25 @@
+(;FF[4]CA[UTF-8]AP[gogui-twogtp:1.4.9]SZ[9]
+KM[6.5]PB[Pachi MonteCarlo[1\]]PW[Pachi MonteCarlo[2\]]DT[2015-05-11]
+RE[W+87.5]
+C[Black command: /home/xunjian1/Documents/CS484/project/pachi_mpi_omp/code/pachi -e montecarlo -t _60 -T 2
+White command: /home/xunjian1/Documents/CS484/project/pachi_mpi_omp/code/pachi -e montecarlo -t _60 -T 8
+Black version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+White version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+Result[Black\]: W+87.5
+Result[White\]: W+87.5
+Host: linux-a3.ews.illinois.edu (Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz)
+Date: May 11, 2015 2:44:02 PM CDT]
+;B[ff];W[dc];B[ce];W[de];B[dd];W[ed];B[cd];W[df];B[fd];W[ec]
+;B[ee];W[cf];B[fe];W[cc];B[fc];W[bd];B[bf];W[be];B[dh];W[fb]
+;B[gb];W[eg];B[eb];W[eh];B[fh];W[fg];B[gg];W[gh];B[ei];W[fi]
+;B[dg];W[ef];B[hh];W[di];B[bb];W[cb];B[ci];W[bg];B[fa];W[cg]
+;B[gi];W[hi];B[bc];W[cd];B[ih];W[ca];B[ei];W[fh];B[ad];W[ag]
+;B[ia];W[ha];B[ga];W[ea];B[da];W[ba];B[hb];W[aa];B[ai];W[db]
+;B[ea];W[ib];B[ha];W[ab];B[ic];W[hc];B[ib];W[gc];B[fb];W[ac]
+;B[bb];W[bc];B[id];W[hd];B[gd];W[ie];B[ch];W[he];B[ge];W[ae]
+;B[if];W[hf];B[gf];W[af];B[ig];W[hg];B[ia];W[ha];B[ga];W[fa]
+;B[ea];W[da];B[ib];W[hb];B[gb];W[fb];B[ga];W[gb];B[ic];W[eb]
+;B[fc];W[id];B[ia];W[ib];B[gd];W[fd];B[ge];W[fe];B[gf];W[ff]
+;B[bh];W[gg];B[gd];W[ge];B[ah];W[ii];B[if];W[ig];B[ih];W[hh]
+;B[di];W[bi];B[dg];W[dh];B[ch];W[bh];B[ah];W[ei];B[di];W[ci]
+;B[];W[ai];B[];W[])

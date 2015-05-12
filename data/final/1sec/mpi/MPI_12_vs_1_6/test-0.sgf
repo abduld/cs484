@@ -1,0 +1,25 @@
+(;FF[4]CA[UTF-8]AP[gogui-twogtp:1.4.9]SZ[9]
+KM[6.5]PB[Pachi montecarlo_original]PW[Pachi montecarlo_mpi]DT[2015-05-11]
+RE[W+87.5]
+C[Black command: /home/xunjian1/Documents/CS484/project/pachi_mpi_omp/code/pachi -e montecarlo_original -t _10
+White command: mpiexec -np 12 /home/xunjian1/Documents/CS484/project/pachi_mpi_omp/code/pachi -e montecarlo_mpi -t _10 -T 1
+Black version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+White version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+Result[Black\]: W+87.5
+Result[White\]: W+87.5
+Host: linux-a3.ews.illinois.edu (Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz)
+Date: May 11, 2015 8:49:35 AM CDT]
+;B[gg];W[ff];B[ce];W[fg];B[cc];W[fe];B[gc];W[fh];B[cd];W[fd]
+;B[fc];W[ec];B[ed];W[gd];B[eb];W[hc];B[he];W[hd];B[dc];W[hb]
+;B[dh];W[dg];B[cf];W[cg];B[ch];W[bg];B[eg];W[eh];B[ef];W[bh]
+;B[bi];W[ee];B[df];W[ci];B[di];W[ei];B[bf];W[ci];B[gh];W[gf]
+;B[hf];W[ie];B[ch];W[dh];B[ih];W[hi];B[gi];W[if];B[id];W[ic]
+;B[ig];W[id];B[hg];W[fi];B[da];W[ge];B[ea];W[gb];B[fa];W[de]
+;B[ah];W[af];B[ac];W[ha];B[bb];W[ca];B[aa];W[dd];B[ae];W[fb]
+;B[ib];W[ia];B[ag];W[ec];B[ga];W[ba];B[ii];W[db];B[ga];W[fa]
+;B[ea];W[da];B[cb];W[eb];B[ab];W[gc];B[bc];W[bd];B[ad];W[hh]
+;B[he];W[hf];B[be];W[ig];B[af];W[hg];B[gg];W[ih];B[gh];W[gi]
+;B[gg];W[gh];B[ai];W[bd];B[aa];W[cb];B[bb];W[ab];B[dc];W[aa]
+;B[cc];W[bc];B[ac];W[bb];B[cd];W[ad];B[ce];W[be];B[ae];W[ef]
+;B[df];W[cf];B[dc];W[cc];B[cd];W[ce];B[bf];W[af];B[ag];W[ah]
+;B[bi];W[ai];B[];W[])

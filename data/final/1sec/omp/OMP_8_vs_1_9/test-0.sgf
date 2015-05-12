@@ -1,0 +1,22 @@
+(;FF[4]CA[UTF-8]AP[gogui-twogtp:1.4.9]SZ[9]
+KM[6.5]PB[Pachi montecarlo_original]PW[Pachi MonteCarlo]DT[2015-05-10]
+RE[W+37.5]
+C[Black command: /home/xunjian1/Documents/CS484/project/pachi_mpi_omp/code/pachi -e montecarlo_original -t _10
+White command: /home/xunjian1/Documents/CS484/project/pachi_mpi_omp/code/pachi -e montecarlo -t _10 -T 8
+Black version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+White version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+Result[Black\]: W+37.5
+Result[White\]: W+37.5
+Host: linux-a2.ews.illinois.edu (Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz)
+Date: May 10, 2015 5:34:33 PM CDT]
+;B[df];W[ee];B[fc];W[de];B[ef];W[fe];B[ce];W[ff];B[cf];W[cd]
+;B[gg];W[fg];B[eh];W[dd];B[bd];W[fh];B[cc];W[dc];B[hb];W[db]
+;B[hh];W[bc];B[fb];W[eg];B[bf];W[dg];B[ad];W[ch];B[bh];W[bg]
+;B[cg];W[af];B[ag];W[gf];B[hf];W[he];B[hd];W[gd];B[ie];W[hc]
+;B[ge];W[gc];B[fd];W[he];B[gb];W[id];B[ic];W[ib];B[bb];W[cb]
+;B[da];W[ic];B[ca];W[ac];B[ab];W[ba];B[cc];W[ea];B[gi];W[ca]
+;B[eb];W[ha];B[ii];W[dh];B[gh];W[fi];B[ci];W[ei];B[ga];W[ia]
+;B[fa];W[da];B[aa];W[ec];B[bc];W[ed];B[ga];W[fa];B[hb];W[gb]
+;B[fb];W[ga];B[eb];W[fc];B[fb];W[eb];B[be];W[if];B[ae];W[ie]
+;B[ig];W[hg];B[ih];W[hf];B[ah];W[hi];B[ig];W[gg];B[ih];W[hh]
+;B[gh];W[ii];B[ig];W[ih];B[di];W[gi];B[bi];W[];B[])

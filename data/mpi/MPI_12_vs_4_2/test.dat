@@ -1,0 +1,21 @@
+# Black: Pachi montecarlo_mpi
+# BlackCommand: mpiexec -np 4 /home/warren/Documents/mpi_omp/cs484-master/code/pachi -e montecarlo_mpi -t _10 -T 1
+# BlackLabel: Pachi montecarlo_mpi[1]
+# BlackVersion: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+# Date: May 9, 2015 4:26:13 PM CDT
+# Host: warren-destop (Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz)
+# Komi: 6.5
+# Referee: -
+# Size: 9
+# White: Pachi montecarlo_mpi
+# WhiteCommand: mpiexec -np 12 /home/warren/Documents/mpi_omp/cs484-master/code/pachi -e montecarlo_mpi -t _10 -T 1
+# WhiteLabel: Pachi montecarlo_mpi[2]
+# WhiteVersion: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+# Xml: 0
+#
+#GAME	RES_B	RES_W	RES_R	ALT	DUP	LEN	TIME_B	TIME_W	CPU_B	CPU_W	ERR	ERR_MSG
+0	W+9.5	W+9.5	?	0	-	99	116.1	98.3	0	0	0	
+1	W+41.5	W+41.5	?	0	-	110	128.5	117.5	0	0	0	
+2	W+19.5	W+19.5	?	0	-	101	140.8	107.6	0	0	0	
+3	B+6.5	B+6.5	?	0	-	104	114.2	136.8	0	0	0	
+4	B+14.5	B+14.5	?	0	-	116	122.2	149.8	0	0	0	

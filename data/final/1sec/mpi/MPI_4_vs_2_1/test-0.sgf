@@ -1,0 +1,26 @@
+(;FF[4]CA[UTF-8]AP[gogui-twogtp:1.4.9]SZ[9]
+KM[6.5]PB[Pachi montecarlo_mpi[1\]]PW[Pachi montecarlo_mpi[2\]]DT[2015-05-11]
+RE[B+74.5]
+C[Black command: mpiexec -np 2 /home/xunjian1/Documents/CS484/project/pachi_mpi_omp/code/pachi -e montecarlo_mpi -t _10 -T 1
+White command: mpiexec -np 4 /home/xunjian1/Documents/CS484/project/pachi_mpi_omp/code/pachi -e montecarlo_mpi -t _10 -T 1
+Black version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+White version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+Result[Black\]: B+74.5
+Result[White\]: B+74.5
+Host: linux-a3.ews.illinois.edu (Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz)
+Date: May 11, 2015 8:58:44 AM CDT]
+;B[ff];W[fd];B[ed];W[ee];B[fe];W[gd];B[de];W[ef];B[eg];W[df]
+;B[cf];W[dg];B[dh];W[cg];B[bg];W[ch];B[bh];W[dd];B[ci];W[ec]
+;B[cd];W[ee];B[cc];W[cb];B[dc];W[ed];B[db];W[eb];B[ce];W[fg]
+;B[ef];W[gf];B[ge];W[he];B[hf];W[gg];B[hd];W[hg];B[ie];W[if]
+;B[he];W[da];B[hc];W[gc];B[ea];W[fa];B[hb];W[bc];B[gb];W[fb]
+;B[eh];W[fh];B[bb];W[ba];B[ca];W[ab];B[cb];W[bf];B[cg];W[be]
+;B[ia];W[bi];B[ha];W[di];B[aa];W[ch];B[ac];W[ad];B[ab];W[ga]
+;B[ea];W[ib];B[da];W[ic];B[fc];W[ga];B[fa];W[fb];B[ga];W[eb]
+;B[gc];W[ec];B[id];W[ib];B[ic];W[gd];B[fd];W[ed];B[dd];W[bd]
+;B[ee];W[fb];B[eb];W[ec];B[ed];W[ae];B[df];W[af];B[ig];W[ag]
+;B[if];W[ih];B[hh];W[gh];B[ah];W[bc];B[bd];W[ad];B[be];W[ae]
+;B[bf];W[af];B[ag];W[ad];B[ae];W[ii];B[hi];W[ih];B[ii];W[gi]
+;B[ih];W[fi];B[ei];W[gf];B[hg];W[gg];B[fg];W[gh];B[fh];W[gi]
+;B[fi];W[gf];B[gg];W[gh];B[gi];W[ci];B[ai];W[ch];B[di];W[ci]
+;B[bi];W[ch];B[ci];W[];B[])

@@ -1,0 +1,25 @@
+(;FF[4]CA[UTF-8]AP[gogui-twogtp:1.4.9]SZ[9]
+KM[6.5]PB[Pachi montecarlo_original]PW[Pachi montecarlo_mpi]DT[2015-05-09]
+RE[W+87.5]
+C[Black command: /home/kemmere2/finalproject/omp_mpi_4/code/pachi -e montecarlo_original -t _10
+White command: mpiexec -np 2 /home/kemmere2/finalproject/omp_mpi_4/code/pachi -e montecarlo_mpi -t _10 -T 12
+Black version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+White version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+Result[Black\]: W+87.5
+Result[White\]: W+87.5
+Host: taub215 (Intel(R) Xeon(R) CPU           X5650  @ 2.67GHz)
+Date: May 9, 2015 10:01:18 PM GMT]
+;B[de];W[ge];B[cc];W[df];B[cf];W[ee];B[fe];W[ed];B[dg];W[ef]
+;B[eg];W[ff];B[hf];W[fg];B[ec];W[dd];B[ce];W[cd];B[bc];W[bd]
+;B[be];W[dc];B[db];W[fh];B[ad];W[fc];B[cg];W[eb];B[gd];W[gc]
+;B[hd];W[hc];B[he];W[fd];B[hg];W[hh];B[gh];W[gg];B[hi];W[gi]
+;B[ih];W[gh];B[ic];W[hb];B[ea];W[fb];B[cb];W[ib];B[gf];W[ha]
+;B[ga];W[fa];B[da];W[ca];B[ba];W[gb];B[aa];W[bb];B[eh];W[ab]
+;B[ca];W[ac];B[ea];W[da];B[ca];W[ba];B[db];W[ea];B[cb];W[cc]
+;B[ca];W[db];B[id];W[cb];B[ie];W[fe];B[ae];W[if];B[bf];W[af]
+;B[ig];W[bg];B[ag];W[dh];B[af];W[ch];B[bh];W[ah];B[bg];W[ii]
+;B[fi];W[if];B[ic];W[id];B[hd];W[ic];B[gd];W[ie];B[he];W[hf]
+;B[hd];W[gd];B[ig];W[he];B[hg];W[ih];B[ig];W[hg];B[ei];W[di]
+;B[ci];W[dh];B[ch];W[bi];B[di];W[dh];B[ad];W[de];B[ce];W[be]
+;B[ae];W[cf];B[bf];W[af];B[ad];W[ae];B[eg];W[dg];B[cg];W[bg]
+;B[eh];W[ch];B[fi];W[ei];B[eg];W[eh];B[di];W[ci];B[];W[])

@@ -1,0 +1,2412 @@
+B>> protocol_version
+Running multithreaded version with 1 threads
+Random seed: 8264
+Running multithreaded version with 1 threads
+Random seed: 15351
+Running multithreaded version with 1 threads
+Random seed: 5937
+Running multithreaded version with 1 threads
+Random seed: 43515
+IN: �	��IN: protocol_version
+IN: ��8IN: �W�~B<< = 2
+B<< 
+B>> name
+IN: name
+IN: protocol_versionIN: protocol_versionIN: protocol_versionB<< = Pachi montecarlo_mpi
+B<< 
+B>> version
+IN: nameIN: version
+IN: nameIN: nameB<< = 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+B<< 
+B>> list_commands
+IN: list_commands
+IN: versionIN: versionIN: versionB<< = protocol_version
+B<< echo
+B<< name
+B<< version
+B<< list_commands
+B<< known_command
+B<< quit
+B<< boardsize
+B<< clear_board
+B<< kgs-game_over
+B<< komi
+B<< kgs-rules
+B<< play
+B<< genmove
+B<< kgs-genmove_cleanup
+B<< set_free_handicap
+B<< place_free_handicap
+B<< fixed_handicap
+B<< final_score
+B<< final_status_list
+B<< undo
+B<< pachi-evaluate
+B<< pachi-result
+B<< pachi-gentbook
+B<< pachi-dumptbook
+B<< kgs-chat
+B<< time_left
+B<< time_settings
+B<< kgs-time_settings
+B<< 
+W>> protocol_version
+Running multithreaded version with 1 threads
+Random seed: 34461
+Running multithreaded version with 1 threads
+Random seed: 16694
+Running multithreaded version with 1 threads
+Running multithreaded version with 1 threads
+Random seed: 3096
+Running multithreaded version with 1 threads
+Random seed: 51874
+Running multithreaded version with 1 threads
+Random seed: 7465
+Random seed: 64392
+IN: protocol_version
+IN: �9*�W<< = 2
+W<< 
+IN: �I	�IN: �y��GIN: ��B�kIN: �Ya�Running multithreaded version with 1 threads
+Random seed: 52946
+W>> name
+Running multithreaded version with 1 threads
+Random seed: 64251
+IN: ��R,IN: ����FRunning multithreaded version with 1 threads
+Random seed: 42687
+IN: protocol_versionIN: name
+IN: protocol_versionIN: protocol_versionIN: protocol_versionIN: �&IIN: protocol_versionIN: protocol_versionW<< = Pachi montecarlo_mpi
+W<< 
+Running multithreaded version with 1 threads
+Random seed: 58030
+W>> version
+IN: �i���IN: version
+IN: nameIN: nameIN: nameIN: nameIN: nameIN: nameIN: protocol_versionIN: nameW<< = 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+W<< 
+W>> list_commands
+IN: versionIN: versionIN: versionIN: list_commands
+IN: versionIN: versionIN: versionIN: versionW<< = protocol_version
+W<< echo
+W<< name
+W<< version
+W<< list_commands
+W<< known_command
+W<< quit
+W<< boardsize
+W<< clear_board
+W<< kgs-game_over
+W<< komi
+W<< kgs-rules
+W<< play
+W<< genmove
+W<< kgs-genmove_cleanup
+W<< set_free_handicap
+W<< place_free_handicap
+W<< fixed_handicap
+W<< final_score
+W<< final_status_list
+W<< undo
+W<< pachi-evaluate
+W<< pachi-result
+W<< pachi-gentbook
+W<< pachi-dumptbook
+W<< kgs-chat
+W<< time_left
+W<< time_settings
+W<< kgs-time_settings
+W<< 
+Running multithreaded version with 1 threads
+Random seed: 60281
+IN: �y�v
+IN: protocol_versionIN: nameIN: protocol_versionRunning multithreaded version with 1 threads
+IN: versionIN: nameIN: versionRandom seed: 60144
+IN: �	�IN: protocol_versionIN: protocol_versionIN: nameIN: nameIN: versionIN: versionB>> boardsize 9
+IN: boardsize 9
+IN: list_commandsIN: list_commandsIN: list_commandsB<< = 
+B<< 
+B>> clear_board
+IN: boardsizeIN: clear_board
+IN: boardsizeIN: boardsizeB<< = 
+B<< 
+B>> komi 6.5
+IN: clear_boardIN: clear_boardIN: komi 6.5
+IN: clear_boardB<< = 
+B<< 
+W>> boardsize 9
+IN: boardsize 9
+IN: list_commandsIN: list_commandsIN: list_commandsIN: list_commandsIN: list_commandsIN: list_commandsIN: list_commandsIN: list_commandsIN: list_commandsIN: list_commandsIN: list_commandsW<< = 
+W<< 
+W>> clear_board
+IN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: clear_board
+IN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeW<< = 
+W<< 
+W>> komi 6.5
+IN: clear_boardIN: clear_boardIN: clear_boardIN: clear_boardIN: clear_boardIN: komi 6.5
+IN: clear_boardIN: clear_boardIN: clear_boardIN: clear_boardIN: clear_boardW<< = 
+IN: clear_boardW<< 
+============================================
+Game 0
+============================================
+B>> boardsize 9
+IN: komiIN: komiIN: boardsize 9
+IN: komiB<< = 
+B<< 
+B>> clear_board
+IN: boardsizeIN: boardsizeIN: clear_board
+IN: boardsizeB<< = 
+B<< 
+W>> boardsize 9
+W<< = 
+W<< 
+IN: komiIN: komiIN: komiIN: komiIN: komiIN: komiIN: komiIN: komiIN: boardsize 9
+IN: komiIN: komiIN: komiW>> clear_board
+W<< = 
+IN: clear_board
+IN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeIN: boardsizeW<< 
+B>> time_settings 600 0 0
+IN: clear_boardIN: time_settings 600 0 0
+IN: clear_boardIN: clear_boardtime_settings 600 0/0*0
+ignored time info
+B<< = 
+B<< 
+W>> time_settings 600 0 0
+W<< = 
+IN: clear_boardIN: time_settings 600 0 0
+IN: clear_boardIN: clear_boardIN: clear_boardIN: clear_boardIN: clear_boardIN: clear_boardIN: clear_boardIN: clear_boardtime_settings 600 0/0*0
+ignored time info
+IN: clear_boardIN: clear_boardW<< 
+B>> genmove b
+IN: time_settingsIN: time_settingsIN: genmove b
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+IN: time_settingsWarning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Move:   1  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . . . . . . |
+  5 | . . . . . X). . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . . . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = F5
+B<< 
+W>> play B F5
+IN: time_settingsIN: time_settingsIN: play B F5
+IN: time_settingsIN: time_settingsIN: time_settingsIN: time_settingsIN: time_settingsIN: time_settingsIN: time_settingsIN: time_settingsIN: time_settingsW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+IN: playIN: playIN: playIN: playWarning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Warning: TD_WALLTIME time mode not supported, resetting to defaults.
+Move:   2  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . O). . . . |
+  5 | . . . . . X . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . . . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = E6
+W<< 
+B>> play W E6
+IN: play W E6
+IN: genmoveIN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: playIN: genmove b
+Move:   3  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . . . . . . . |
+  6 | . . . . O . . . . |
+  5 | . . . . . X . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . X). . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = F3
+B<< 
+W>> play B F3
+W<< = 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B F3
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: genmoveIN: genmoveIN: playIN: genmoveIN: playIN: playIN: playIN: playMove:   4  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O). . . . . |
+  6 | . . . . O . . . . |
+  5 | . . . . . X . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = D7
+W<< 
+B>> play W D7
+IN: genmoveIN: play W D7
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: genmoveIN: playIN: genmoveIN: playIN: playB<< = F6
+Move:   5  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . . . . . |
+  6 | . . . . O X). . . |
+  5 | . . . . . X . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< 
+W>> play B F6
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B F6
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playMove:   6  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O). . . |
+  6 | . . . . O X . . . |
+  5 | . . . . . X . . . |
+  4 | . . . . . . . . . |
+  3 | . . . . . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = F7
+W<< 
+B>> play W F7
+IN: genmoveIN: play W F7
+IN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: genmove b
+IN: playIN: playMove:   7  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O . . . |
+  6 | . . . . O X . . . |
+  5 | . . . . . X . . . |
+  4 | . . . . . . . . . |
+  3 | . . X). . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = C3
+B<< 
+W>> play B C3
+W<< = 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B C3
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:   8  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O . . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O)X . . . |
+  4 | . . . . . . . . . |
+  3 | . . X . . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = E5
+W<< 
+B>> play W E5
+B<< = 
+IN: genmoveIN: genmoveIN: play W E5
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: genmoveIN: playB<< = G7
+Move:   9  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X). . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . . . . . . . |
+  3 | . . X . . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< 
+W>> play B G7
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B G7
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playMove:  10  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . . . O). . . |
+  3 | . . X . . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = F4
+W<< 
+B>> play W F4
+IN: genmoveIN: play W F4
+IN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: genmoveIN: playIN: playIN: genmove b
+Move:  11  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . . X)O . . . |
+  3 | . . X . . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = E4
+B<< 
+W>> play B E4
+IN: play B E4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playW<< = D4
+Move:  12  Komi: 6.5  Handicap: 0  Captures B: 0 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . O)X O . . . |
+  3 | . . X . . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< 
+B>> play W D4
+IN: genmoveIN: genmoveIN: genmoveIN: play W D4
+B<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  13  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X). . |
+  3 | . . X . . X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = G4
+B<< 
+W>> play B G4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B G4
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: genmoveIN: playMove:  14  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O). X . . . |
+  2 | . . . . . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = D3
+W<< 
+B>> play W D3
+IN: genmoveIN: play W D3
+IN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: genmove b
+IN: playIN: playMove:  15  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O . X . . . |
+  2 | . . . X). . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = D2
+B<< 
+W>> play B D2
+W<< = 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B D2
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playMove:  16  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O O)X . . . |
+  2 | . . . X . . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = E3
+W<< 
+B>> play W E3
+B<< = 
+B<< 
+IN: genmoveIN: play W E3
+IN: genmoveIN: genmoveB>> genmove b
+IN: playIN: playIN: playIN: genmove b
+Move:  17  Komi: 6.5  Handicap: 0  Captures B: 1 W: 0
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X). . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = E2
+B<< 
+W>> play B E2
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B E2
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  18  Komi: 6.5  Handicap: 0  Captures B: 1 W: 1
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . O . O)X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X . . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = F4
+W<< 
+B>> play W F4
+IN: genmoveIN: play W F4
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: genmoveIN: playIN: playIN: genmoveIN: playMove:  19  Komi: 6.5  Handicap: 0  Captures B: 1 W: 1
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X . . . |
+  5 | . . . . O X . . . |
+  4 | . . . O . O X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X). . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = F2
+B<< 
+W>> play B F2
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B F2
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  20  Komi: 6.5  Handicap: 0  Captures B: 1 W: 1
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X O). . |
+  5 | . . . . O X . . . |
+  4 | . . . O . O X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = G6
+W<< 
+B>> play W G6
+B<< = 
+IN: genmoveIN: genmoveIN: play W G6
+IN: genmoveB<< 
+B>> genmove b
+IN: playIN: genmove b
+IN: playIN: playMove:  21  Komi: 6.5  Handicap: 0  Captures B: 2 W: 1
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . . . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X O . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X). X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = E4
+B<< 
+W>> play B E4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B E4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playMove:  22  Komi: 6.5  Handicap: 0  Captures B: 2 W: 1
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . . O). . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X O . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = G8
+W<< 
+B>> play W G8
+IN: genmoveIN: genmoveIN: genmoveIN: play W G8
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: playIN: playIN: playMove:  23  Komi: 6.5  Handicap: 0  Captures B: 2 W: 1
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . X)O . . |
+  7 | . . . O . O X . . |
+  6 | . . . . O X O . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = F8
+B<< 
+W>> play B F8
+IN: genmoveIN: play B F8
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playW<< = H7
+Move:  24  Komi: 6.5  Handicap: 0  Captures B: 2 W: 2
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . X O . . |
+  7 | . . . O . O . O). |
+  6 | . . . . O X O . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< 
+B>> play W H7
+IN: genmoveIN: genmoveIN: play W H7
+IN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: genmove b
+IN: playIN: playMove:  25  Komi: 6.5  Handicap: 0  Captures B: 2 W: 2
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . . X O . . |
+  7 | . . . O X)O . O . |
+  6 | . . . . O X O . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = E7
+B<< 
+W>> play B E7
+IN: genmoveIN: genmoveIN: play B E7
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playMove:  26  Komi: 6.5  Handicap: 0  Captures B: 2 W: 3
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . O)X O . . |
+  7 | . . . O . O . O . |
+  6 | . . . . O X O . . |
+  5 | . . . . O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = E8
+W<< 
+B>> play W E8
+IN: genmoveIN: play W E8
+IN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  27  Komi: 6.5  Handicap: 0  Captures B: 2 W: 3
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . O X O . . |
+  7 | . . . O . O . O . |
+  6 | . . . . O X O . . |
+  5 | . . X). O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = C5
+B<< 
+W>> play B C5
+W<< = 
+W<< 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B C5
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveW>> genmove w
+IN: genmoveIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: genmoveIN: playIN: playMove:  28  Komi: 6.5  Handicap: 0  Captures B: 2 W: 3
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . O X O . . |
+  7 | . . . O . O . O . |
+  6 | . . . . O X O . . |
+  5 | . . X O)O X . . . |
+  4 | . . . O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = D5
+W<< 
+B>> play W D5
+B<< = 
+B<< 
+IN: genmoveIN: genmoveIN: genmoveIN: play W D5
+B>> genmove b
+IN: playIN: genmove b
+IN: playIN: playMove:  29  Komi: 6.5  Handicap: 0  Captures B: 2 W: 3
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . O X O . . |
+  7 | . . . O . O . O . |
+  6 | . . . . O X O . . |
+  5 | . . X O O X . . . |
+  4 | . . X)O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = C4
+B<< 
+W>> play B C4
+W<< = 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B C4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playMove:  30  Komi: 6.5  Handicap: 0  Captures B: 2 W: 3
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . O X O . . |
+  7 | . . . O . O . O . |
+  6 | . . O). O X O . . |
+  5 | . . X O O X . . . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = C6
+W<< 
+B>> play W C6
+IN: genmoveIN: play W C6
+IN: genmoveB<< = 
+IN: genmoveB<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  31  Komi: 6.5  Handicap: 0  Captures B: 2 W: 3
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . O X O . . |
+  7 | . . . O . O . O . |
+  6 | . X)O . O X O . . |
+  5 | . . X O O X . . . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = B6
+B<< 
+W>> play B B6
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B B6
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: genmoveIN: playMove:  32  Komi: 6.5  Handicap: 0  Captures B: 2 W: 3
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . O X O . . |
+  7 | . O). O . O . O . |
+  6 | . X O . O X O . . |
+  5 | . . X O O X . . . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = B7
+W<< 
+B>> play W B7
+IN: genmoveIN: genmoveIN: play W B7
+IN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: playIN: genmove b
+Move:  33  Komi: 6.5  Handicap: 0  Captures B: 2 W: 3
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . . . O X O . . |
+  7 | . O X)O . O . O . |
+  6 | . X O . O X O . . |
+  5 | . . X O O X . . . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = C7
+B<< 
+W>> play B C7
+W<< = 
+W<< 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B C7
+IN: genmoveW>> genmove w
+IN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  34  Komi: 6.5  Handicap: 0  Captures B: 2 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O). O X O . . |
+  7 | . O . O . O . O . |
+  6 | . X O . O X O . . |
+  5 | . . X O O X . . . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = C8
+W<< 
+B>> play W C8
+IN: play W C8
+IN: genmoveIN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: genmove b
+IN: playIN: playMove:  35  Komi: 6.5  Handicap: 0  Captures B: 2 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . . |
+  7 | . O . O . O . O . |
+  6 | . X O . O X O . . |
+  5 | . . X O O X . X). |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = H5
+B<< 
+W>> play B H5
+W<< = 
+W<< 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B H5
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playMove:  36  Komi: 6.5  Handicap: 0  Captures B: 2 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . . |
+  7 | . O . O . O . O . |
+  6 | . X O . O X O . . |
+  5 | . O)X O O X . X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = B5
+W<< 
+B>> play W B5
+B<< = 
+B<< 
+IN: play W B5
+IN: genmoveIN: genmoveIN: genmoveB>> genmove b
+IN: playIN: playIN: playIN: genmove b
+Move:  37  Komi: 6.5  Handicap: 0  Captures B: 2 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . . |
+  7 | . O . O . O . O . |
+  6 | X)X O . O X O . . |
+  5 | . O X O O X . X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = A6
+B<< 
+W>> play B A6
+IN: play B A6
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  38  Komi: 6.5  Handicap: 0  Captures B: 2 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . . |
+  7 | O)O . O . O . O . |
+  6 | X X O . O X O . . |
+  5 | . O X O O X . X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = A7
+W<< 
+B>> play W A7
+IN: genmoveIN: genmoveIN: genmoveIN: play W A7
+B<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  39  Komi: 6.5  Handicap: 0  Captures B: 2 W: 4
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . . |
+  7 | O O . O . O . O . |
+  6 | X X O . O X O X). |
+  5 | . O X O O X . X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = H6
+B<< 
+W>> play B H6
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B H6
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: genmoveIN: genmoveIN: playIN: playIN: playIN: playMove:  40  Komi: 6.5  Handicap: 0  Captures B: 2 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . . |
+  7 | O O . O . O . O . |
+  6 | . . O . O X O X . |
+  5 | O)O X O O X . X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = A5
+W<< 
+B>> play W A5
+IN: play W A5
+IN: genmoveIN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: playIN: genmove b
+Move:  41  Komi: 6.5  Handicap: 0  Captures B: 2 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . . |
+  7 | O O . O . O . O . |
+  6 | . . O . O X O X . |
+  5 | O O X O O X X)X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = G5
+B<< 
+W>> play B G5
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B G5
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playMove:  42  Komi: 6.5  Handicap: 0  Captures B: 2 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . . |
+  7 | O O . O . O O)O . |
+  6 | . . O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = G7
+W<< 
+B>> play W G7
+IN: play W G7
+IN: genmoveIN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  43  Komi: 6.5  Handicap: 0  Captures B: 2 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . . |
+  7 | O O . O . O O O X)|
+  6 | . . O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = J7
+B<< 
+W>> play B J7
+IN: genmoveIN: play B J7
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playMove:  44  Komi: 6.5  Handicap: 0  Captures B: 2 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O . O)|
+  7 | O O . O . O O O X |
+  6 | . . O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = J8
+W<< 
+B>> play W J8
+IN: genmoveIN: genmoveIN: genmoveIN: play W J8
+B<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  45  Komi: 6.5  Handicap: 0  Captures B: 2 W: 6
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . . . |
+  8 | . . O . O X O X)O |
+  7 | O O . O . O O O X |
+  6 | . . O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = H8
+B<< 
+W>> play B H8
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B H8
+IN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+Move:  46  Komi: 6.5  Handicap: 0  Captures B: 2 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . O). |
+  8 | . . O . O X O . O |
+  7 | O O . O . O O O X |
+  6 | . . O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = H9
+W<< 
+B>> play W H9
+IN: genmoveIN: genmoveIN: genmoveIN: play W H9
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: playIN: playIN: playMove:  47  Komi: 6.5  Handicap: 0  Captures B: 2 W: 7
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . O . |
+  8 | . . O . O X O . O |
+  7 | O O . O . O O O X |
+  6 | X). O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = A6
+B<< 
+W>> play B A6
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B A6
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playMove:  48  Komi: 6.5  Handicap: 0  Captures B: 2 W: 8
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . O . |
+  8 | . . O . O X O . O |
+  7 | O O . O . O O O X |
+  6 | . O)O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = B6
+W<< 
+B>> play W B6
+IN: genmoveIN: play W B6
+IN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: genmoveIN: playMove:  49  Komi: 6.5  Handicap: 0  Captures B: 2 W: 8
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . . . O . |
+  8 | . . O X)O X O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+B<< = D8
+B<< 
+W>> play B D8
+W<< = 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B D8
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: genmoveIN: playIN: playIN: playIN: playMove:  50  Komi: 6.5  Handicap: 0  Captures B: 2 W: 9
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . O). O . |
+  8 | . . O X O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . . . . |
+    +-------------------+
+
+W<< = F9
+W<< 
+B>> play W F9
+IN: genmoveIN: play W F9
+IN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: genmoveIN: playIN: playIN: playMove:  51  Komi: 6.5  Handicap: 0  Captures B: 2 W: 9
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . . O . O . |
+  8 | . . O X O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X). . |
+    +-------------------+
+
+B<< = G1
+B<< 
+W>> play B G1
+IN: genmoveIN: genmoveIN: genmoveIN: play B G1
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+IN: genmoveW<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+Move:  52  Komi: 6.5  Handicap: 0  Captures B: 2 W: 9
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . . O)O . O . |
+  8 | . . O X O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = E9
+W<< 
+B>> play W E9
+IN: genmoveIN: play W E9
+IN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: playIN: genmove b
+Move:  53  Komi: 6.5  Handicap: 0  Captures B: 2 W: 9
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . . X)O O . O . |
+  8 | . . O X O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = D9
+B<< 
+W>> play B D9
+W<< = 
+IN: genmoveIN: genmoveIN: play B D9
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: genmoveIN: playIN: playIN: playIN: playIN: playMove:  54  Komi: 6.5  Handicap: 0  Captures B: 2 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . O). O O . O . |
+  8 | . . O . O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = C9
+W<< 
+B>> play W C9
+B<< = 
+IN: play W C9
+IN: genmoveIN: genmoveIN: genmoveB<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  55  Komi: 6.5  Handicap: 0  Captures B: 2 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | . . O X)O O . O . |
+  8 | . . O . O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = D9
+B<< 
+W>> play B D9
+IN: play B D9
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playMove:  56  Komi: 6.5  Handicap: 0  Captures B: 2 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O)O X O O . O . |
+  8 | . . O . O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = B9
+W<< 
+B>> play W B9
+IN: play W B9
+IN: genmoveIN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  57  Komi: 6.5  Handicap: 0  Captures B: 2 W: 11
+      A B C D E F G H J  
+    +-------------------+
+  9 | X)O O X O O . O . |
+  8 | . . O . O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = A9
+B<< 
+W>> play B A9
+IN: play B A9
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playMove:  58  Komi: 6.5  Handicap: 0  Captures B: 2 W: 12
+      A B C D E F G H J  
+    +-------------------+
+  9 | X O O . O O . O . |
+  8 | . . O O)O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = D8
+W<< 
+B>> play W D8
+IN: genmoveIN: genmoveIN: play W D8
+IN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playB<< = B8
+Move:  59  Komi: 6.5  Handicap: 0  Captures B: 2 W: 12
+      A B C D E F G H J  
+    +-------------------+
+  9 | X O O . O O . O . |
+  8 | . X)O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< 
+W>> play B B8
+IN: genmoveIN: play B B8
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+Move:  60  Komi: 6.5  Handicap: 0  Captures B: 2 W: 14
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O). O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X . |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = A8
+W<< 
+B>> play W A8
+IN: genmoveIN: genmoveIN: genmoveIN: play W A8
+B<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  61  Komi: 6.5  Handicap: 0  Captures B: 2 W: 14
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X)|
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = J6
+B<< 
+W>> play B J6
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B J6
+IN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playMove:  62  Komi: 6.5  Handicap: 0  Captures B: 2 W: 14
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X O)|
+  4 | . . X O X . X . . |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = J5
+W<< 
+B>> play W J5
+IN: genmoveIN: genmoveIN: genmoveIN: play W J5
+B<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  63  Komi: 6.5  Handicap: 0  Captures B: 3 W: 14
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X . X)|
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = J4
+B<< 
+W>> play B J4
+IN: play B J4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+IN: genmoveW<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  64  Komi: 6.5  Handicap: 0  Captures B: 3 W: 14
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X . |
+  4 | . . X O X . X O)X |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = H4
+W<< 
+B>> play W H4
+IN: play W H4
+IN: genmoveIN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: playIN: playIN: playMove:  65  Komi: 6.5  Handicap: 0  Captures B: 3 W: 14
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X)|
+  4 | . . X O X . X O X |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = J5
+B<< 
+W>> play B J5
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B J5
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  66  Komi: 6.5  Handicap: 0  Captures B: 3 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | . . X O . O)X O X |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = F4
+W<< 
+B>> play W F4
+IN: genmoveIN: genmoveIN: genmoveIN: play W F4
+B<< = 
+B<< 
+B>> genmove b
+IN: playIN: genmove b
+IN: playIN: playMove:  67  Komi: 6.5  Handicap: 0  Captures B: 3 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | . X)X O . O X O X |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = B4
+B<< 
+W>> play B B4
+IN: genmoveIN: genmoveIN: genmoveIN: play B B4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmoveIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playMove:  68  Komi: 6.5  Handicap: 0  Captures B: 3 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | . X X O O)O X O X |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = E4
+W<< 
+B>> play W E4
+B<< = 
+B<< 
+IN: genmoveIN: play W E4
+IN: genmoveB>> genmove b
+IN: playIN: playIN: genmove b
+IN: genmoveIN: playMove:  69  Komi: 6.5  Handicap: 0  Captures B: 3 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X)X X O O O X O X |
+  3 | . . X O O X . . . |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = A4
+B<< 
+W>> play B A4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B A4
+W<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playMove:  70  Komi: 6.5  Handicap: 0  Captures B: 3 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X O X |
+  3 | . . X O O X . . O)|
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = J3
+W<< 
+B>> play W J3
+B<< = 
+B<< 
+IN: play W J3
+IN: genmoveIN: genmoveIN: genmoveB>> genmove b
+IN: genmove b
+IN: playIN: playIN: playMove:  71  Komi: 6.5  Handicap: 0  Captures B: 4 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X . X |
+  3 | . . X O O X . X)O |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = H3
+B<< 
+W>> play B H3
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B H3
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: genmoveIN: playIN: playMove:  72  Komi: 6.5  Handicap: 0  Captures B: 4 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X . X |
+  3 | . . X O O X O)X O |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = G3
+W<< 
+B>> play W G3
+IN: genmoveIN: genmoveIN: genmoveIN: play W G3
+B<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playB<< = H4
+Move:  73  Komi: 6.5  Handicap: 0  Captures B: 4 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X)X |
+  3 | . . X O O X O X O |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< 
+W>> play B H4
+IN: genmoveIN: genmoveIN: play B H4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmoveIN: playIN: playMove:  74  Komi: 6.5  Handicap: 0  Captures B: 4 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | . O)X O O X O X O |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = B3
+W<< 
+B>> play W B3
+IN: play W B3
+IN: genmoveIN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  75  Komi: 6.5  Handicap: 0  Captures B: 4 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X)O X O O X O X O |
+  2 | . . . X X X . . . |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = A3
+B<< 
+W>> play B A3
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B A3
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmoveIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: genmoveIN: playIN: genmoveIN: playIN: playMove:  76  Komi: 6.5  Handicap: 0  Captures B: 4 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X O X O |
+  2 | . . . X X X . . O)|
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = J2
+W<< 
+B>> play W J2
+IN: genmoveIN: genmoveIN: play W J2
+IN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: playIN: playIN: playMove:  77  Komi: 6.5  Handicap: 0  Captures B: 4 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X O X O |
+  2 | . . . X X X . X)O |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = H2
+B<< 
+W>> play B H2
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B H2
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  78  Komi: 6.5  Handicap: 0  Captures B: 4 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X O X O |
+  2 | . . O)X X X . X O |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = C2
+W<< 
+B>> play W C2
+IN: play W C2
+IN: genmoveIN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  79  Komi: 6.5  Handicap: 0  Captures B: 5 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X O |
+  2 | . . O X X X X)X O |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = G2
+B<< 
+W>> play B G2
+IN: play B G2
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playMove:  80  Komi: 6.5  Handicap: 0  Captures B: 5 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X O |
+  2 | . O)O X X X X X O |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+W<< = B2
+W<< 
+B>> play W B2
+IN: genmoveIN: play W B2
+IN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: playIN: playIN: playMove:  81  Komi: 6.5  Handicap: 0  Captures B: 5 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X O |
+  2 | X)O O X X X X X O |
+  1 | . . . . . . X . . |
+    +-------------------+
+
+B<< = A2
+B<< 
+W>> play B A2
+W<< = 
+W<< 
+IN: genmoveIN: genmoveIN: genmoveIN: play B A2
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW>> genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playMove:  82  Komi: 6.5  Handicap: 0  Captures B: 5 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X O |
+  2 | X O O X X X X X O |
+  1 | . . . . . . X . O)|
+    +-------------------+
+
+W<< = J1
+W<< 
+B>> play W J1
+IN: play W J1
+IN: genmoveIN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: playIN: genmove b
+B<< = H1
+Move:  83  Komi: 6.5  Handicap: 0  Captures B: 8 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X . |
+  2 | X O O X X X X X . |
+  1 | . . . . . . X X). |
+    +-------------------+
+
+B<< 
+W>> play B H1
+IN: genmoveIN: play B H1
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  84  Komi: 6.5  Handicap: 0  Captures B: 8 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X O)|
+  2 | X O O X X X X X . |
+  1 | . . . . . . X X . |
+    +-------------------+
+
+W<< = J3
+W<< 
+B>> play W J3
+IN: genmoveIN: play W J3
+IN: genmoveIN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: playIN: playIN: playMove:  85  Komi: 6.5  Handicap: 0  Captures B: 9 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X . |
+  2 | X O O X X X X X X)|
+  1 | . . . . . . X X . |
+    +-------------------+
+
+B<< = J2
+B<< 
+W>> play B J2
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B J2
+IN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  86  Komi: 6.5  Handicap: 0  Captures B: 9 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X . |
+  2 | X O O X X X X X X |
+  1 | . . . . . O)X X . |
+    +-------------------+
+
+W<< = F1
+W<< 
+B>> play W F1
+IN: genmoveIN: genmoveIN: genmoveIN: play W F1
+B<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  87  Komi: 6.5  Handicap: 0  Captures B: 10 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X . |
+  2 | X O O X X X X X X |
+  1 | . . . . X). X X . |
+    +-------------------+
+
+B<< = E1
+B<< 
+W>> play B E1
+W<< = 
+IN: play B E1
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  88  Komi: 6.5  Handicap: 0  Captures B: 10 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X . |
+  2 | X O O X X X X X X |
+  1 | . . . O)X . X X . |
+    +-------------------+
+
+W<< = D1
+W<< 
+B>> play W D1
+IN: genmoveIN: genmoveIN: genmoveIN: play W D1
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: playIN: playIN: playMove:  89  Komi: 6.5  Handicap: 0  Captures B: 11 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X . |
+  2 | X O O X X X X X X |
+  1 | . . X). X . X X . |
+    +-------------------+
+
+B<< = C1
+B<< 
+W>> play B C1
+IN: genmoveIN: play B C1
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  90  Komi: 6.5  Handicap: 0  Captures B: 11 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X . |
+  2 | X O O X X X X X X |
+  1 | . O)X . X . X X . |
+    +-------------------+
+
+W<< = B1
+W<< 
+B>> play W B1
+B<< = 
+B<< 
+IN: play W B1
+IN: genmoveB>> genmove b
+IN: playIN: genmoveIN: playIN: genmoveIN: playIN: genmove b
+Move:  91  Komi: 6.5  Handicap: 0  Captures B: 11 W: 15
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X O O X X X X |
+  4 | X X X O O O X X X |
+  3 | X O X O O X . X . |
+  2 | X O O X X X X X X |
+  1 | . O X X)X . X X . |
+    +-------------------+
+
+B<< = D1
+B<< 
+W>> play B D1
+IN: play B D1
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: genmoveIN: playIN: playIN: genmove w
+IN: playIN: genmoveIN: playIN: playIN: playIN: genmoveIN: playIN: genmoveIN: playIN: genmoveIN: playIN: genmoveIN: playW<< = A1
+Move:  92  Komi: 6.5  Handicap: 0  Captures B: 11 W: 22
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O . O O X X X X |
+  4 | . . . O O O X X X |
+  3 | . O . O O X . X . |
+  2 | . O O X X X X X X |
+  1 | O)O X X X . X X . |
+    +-------------------+
+
+W<< 
+B>> play W A1
+IN: genmoveIN: genmoveIN: play W A1
+IN: genmoveB<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  93  Komi: 6.5  Handicap: 0  Captures B: 11 W: 22
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O X)O O X X X X |
+  4 | . . . O O O X X X |
+  3 | . O . O O X . X . |
+  2 | . O O X X X X X X |
+  1 | O O X X X . X X . |
+    +-------------------+
+
+B<< = C5
+B<< 
+W>> play B C5
+W<< = 
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B C5
+IN: genmoveW<< 
+W>> genmove w
+IN: genmoveIN: playIN: playIN: playIN: playIN: genmoveIN: playIN: genmoveIN: playIN: genmoveIN: playIN: genmove w
+IN: genmoveIN: playIN: playIN: genmoveIN: playIN: playMove:  94  Komi: 6.5  Handicap: 0  Captures B: 11 W: 23
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O . O O X X X X |
+  4 | . . O)O O O X X X |
+  3 | . O . O O X . X . |
+  2 | . O O X X X X X X |
+  1 | O O X X X . X X . |
+    +-------------------+
+
+W<< = C4
+W<< 
+B>> play W C4
+IN: genmoveIN: genmoveIN: genmoveIN: play W C4
+B<< = 
+B<< 
+B>> genmove b
+IN: playIN: playIN: genmove b
+IN: playMove:  95  Komi: 6.5  Handicap: 0  Captures B: 11 W: 23
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O . O O X X X X |
+  4 | . X)O O O O X X X |
+  3 | . O . O O X . X . |
+  2 | . O O X X X X X X |
+  1 | O O X X X . X X . |
+    +-------------------+
+
+B<< = B4
+B<< 
+W>> play B B4
+IN: genmoveIN: genmoveIN: play B B4
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: playIN: playIN: playIN: playIN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  96  Komi: 6.5  Handicap: 0  Captures B: 11 W: 24
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O . O O X X X X |
+  4 | O). O O O O X X X |
+  3 | . O . O O X . X . |
+  2 | . O O X X X X X X |
+  1 | O O X X X . X X . |
+    +-------------------+
+
+W<< = A4
+W<< 
+B>> play W A4
+IN: genmoveIN: genmoveIN: genmoveIN: play W A4
+B<< = 
+B<< 
+B>> genmove b
+IN: genmove b
+IN: playIN: playIN: playMove:  97  Komi: 6.5  Handicap: 0  Captures B: 11 W: 24
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O . O O X X X X |
+  4 | O . O O O O X X X |
+  3 | X)O . O O X . X . |
+  2 | . O O X X X X X X |
+  1 | O O X X X . X X . |
+    +-------------------+
+
+B<< = A3
+B<< 
+W>> play B A3
+IN: genmoveIN: play B A3
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: genmoveIN: genmoveIN: playIN: genmoveIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  98  Komi: 6.5  Handicap: 0  Captures B: 11 W: 25
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O . O O X X X X |
+  4 | O . O O O O X X X |
+  3 | . O . O O X . X . |
+  2 | O)O O X X X X X X |
+  1 | O O X X X . X X . |
+    +-------------------+
+
+W<< = A2
+W<< 
+B>> play W A2
+B<< = 
+IN: play W A2
+IN: genmoveIN: genmoveIN: genmoveB<< 
+B>> genmove b
+IN: playIN: playIN: playIN: genmove b
+Move:  98  Komi: 6.5  Handicap: 0  Captures B: 11 W: 25
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O . O O X X X X |
+  4 | O . O O O O X X X |
+  3 | . O . O O X . X . |
+  2 | O O O X X X X X X |
+  1 | O O X X X . X X . |
+    +-------------------+
+
+B<< = pass
+B<< 
+W>> play B PASS
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: play B PASS
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = 
+W<< 
+W>> genmove w
+IN: genmove w
+IN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playIN: playMove:  98  Komi: 6.5  Handicap: 0  Captures B: 11 W: 25
+      A B C D E F G H J  
+    +-------------------+
+  9 | . O O . O O . O . |
+  8 | O . O O O . O . O |
+  7 | O O . O . O O O X |
+  6 | . O O . O X O X X |
+  5 | O O . O O X X X X |
+  4 | O . O O O O X X X |
+  3 | . O . O O X . X . |
+  2 | O O O X X X X X X |
+  1 | O O X X X . X X . |
+    +-------------------+
+
+W<< = pass
+W<< 
+B>> play W PASS
+IN: genmoveIN: genmoveIN: play W PASS
+IN: genmoveB<< = 
+B<< 
+B>> final_score
+IN: playIN: final_score
+counted score 31.5
+IN: playIN: playB<< = W+31.5
+B<< 
+W>> final_score
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: final_score
+counted score 31.5
+IN: genmoveIN: genmoveIN: genmoveIN: genmoveIN: genmoveW<< = W+31.5
+W<< 
+B>> quit
+IN: final_scoreIN: final_scoreIN: quit
+IN: final_scoreB<< = 
+B<< 
+B<< Monte-Carlo MPI total games: 1998914
+W>> quit
+IN: final_scoreIN: final_scoreIN: final_scoreIN: quit
+IN: final_scoreIN: final_scoreIN: final_scoreIN: final_scoreIN: final_scoreIN: final_scoreIN: final_scoreIN: final_scoreW<< = 
+W<< 
+W<< Monte-Carlo MPI total games: 1159167
