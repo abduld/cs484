@@ -1,7 +1,7 @@
 dir=`pwd`
 goguitwogtp="${dir}/gogui/bin/gogui-twogtp"
 
-for baseline_threads in 1 2 4 8
+for baseline_threads in 1 2 4 8 16
 do
    for threads in 2 4 8 12
    do
@@ -18,7 +18,7 @@ do
 	for trial in 1 2
 	do
 		games=5
-		${goguitwogtp} -black "${black}" -white "${white}" -size 9 -auto -games ${games} -sgffile test -time 10 -verbose >gtg_output.txt 2>&1
+		${goguitwogtp} -black "${black}" -white "${white}" -size 19 -auto -games ${games} -sgffile test -time 10 -verbose >gtg_output.txt 2>&1
 		${goguitwogtp} -analyze test.dat
 		my_test="OMP_${threads}_vs_${baseline_threads}_${trial}"
 		mkdir ${my_test}

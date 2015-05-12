@@ -1,7 +1,7 @@
 #ifndef MONTE_CARLO_PARALLEL_VARS
 #define MONTE_CARLO_PARALLEL_VARS
 #include <stdio.h>
-#include "mpi.h"
+#include <mpich/mpi.h>
 
 extern int omp_thread_count;
 extern int total_game_count_mc_original;

@@ -1,4 +1,5 @@
 #include "mc_parallel_vars.h"
+#include "mpi.h"
 void print_game_stats(void){
 	int mpi_comm_size;
 	int mpi_rank;

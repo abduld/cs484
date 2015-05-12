@@ -28,7 +28,7 @@
 #include "version.h"
 #include "network.h"
 #include <omp.h>
-#include "mpi.h"
+#include "mpi/mpi.h"
 #include <sys/time.h>
 #include "mc_parallel_vars.h"
 
