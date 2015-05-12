@@ -1,0 +1,1866 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     83396,       1857]
+NotebookOptionsPosition[     81627,       1793]
+NotebookOutlinePosition[     82183,       1814]
+CellTagsIndexPosition[     82078,       1809]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["helper", "Title",
+ CellChangeTimes->{{3.64042440253128*^9, 3.6404244046753216`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"getBlack", "[", "s_", "]"}], ":=", 
+   RowBox[{"StringCases", "[", 
+    RowBox[{"s", ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\"\<B<< Monte-Carlo \>\"", "~~", 
+        RowBox[{"Shortest", "[", "__", "]"}], "~~", "\"\< total games: \>\"", 
+        "~~", 
+        RowBox[{"(", 
+         RowBox[{"x", ":", 
+          RowBox[{"DigitCharacter", ".."}]}], ")"}], "~~", "WordBoundary"}], 
+       ")"}], ":>", 
+      RowBox[{
+       RowBox[{"ToExpression", "[", "x", "]"}], "/", 
+       RowBox[{"10", "^", "6"}]}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"getWhite", "[", "s_", "]"}], ":=", 
+  RowBox[{"StringCases", "[", 
+   RowBox[{"s", ",", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"\"\<W<< Monte-Carlo \>\"", "~~", 
+       RowBox[{"Shortest", "[", "__", "]"}], "~~", "\"\< total games: \>\"", "~~", 
+       RowBox[{"(", 
+        RowBox[{"x", ":", 
+         RowBox[{"DigitCharacter", ".."}]}], ")"}], "~~", "WordBoundary"}], 
+      ")"}], "\[RuleDelayed]", 
+     RowBox[{
+      RowBox[{"ToExpression", "[", "x", "]"}], "/", 
+      RowBox[{"10", "^", "6"}]}]}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.6403764842965217`*^9, 3.640376485263444*^9}, {
+  3.640376520886465*^9, 3.640376831988572*^9}, {3.640376872269041*^9, 
+  3.6403768918927813`*^9}, {3.6403771217322817`*^9, 3.6403771253557434`*^9}, {
+  3.6403777533534913`*^9, 3.6403777600729084`*^9}, {3.6403777997608123`*^9, 
+  3.6403779292164435`*^9}, {3.6403779709863343`*^9, 3.6403779870486755`*^9}, {
+  3.6403780391374197`*^9, 3.640378045593587*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "makePlot", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"makePlot", "[", 
+   RowBox[{"expr_", "\[Rule]", "data_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "all", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"all", "=", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"getBlack", "[", "data", "]"}], ",", 
+        RowBox[{"getWhite", "[", "data", "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"all", "=", "all"}], ";", 
+     RowBox[{"ListLinePlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Legended", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"Take", "[", 
+              RowBox[{"all", ",", 
+               RowBox[{"Length", "[", 
+                RowBox[{"getBlack", "[", "data", "]"}], "]"}]}], "]"}], ",", 
+             "Black"}], "]"}], ",", 
+           RowBox[{"Placed", "[", 
+            RowBox[{"\"\<Black\>\"", ",", "Below"}], "]"}]}], "]"}], ",", 
+         RowBox[{"Legended", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"Drop", "[", 
+              RowBox[{"all", ",", 
+               RowBox[{"Length", "[", 
+                RowBox[{"getBlack", "[", "data", "]"}], "]"}]}], "]"}], ",", 
+             "LightGray"}], "]"}], ",", 
+           RowBox[{"Placed", "[", 
+            RowBox[{"\"\<White\>\"", ",", "Below"}], "]"}]}], "]"}]}], "}"}], 
+       ",", 
+       RowBox[{"PlotLabel", "\[Rule]", 
+        RowBox[{"StringTrim", "[", 
+         RowBox[{"expr", ",", "\"\<\\\\\>\""}], "]"}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ListLinePlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"getWhite", "[", "data", "]"}], ",", 
+         RowBox[{"getBlack", "[", "data", "]"}]}], "}"}], ",", 
+       RowBox[{"Mesh", "\[Rule]", "All"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{"StringTrim", "[", 
+           RowBox[{"expr", ",", "\"\<\\\\\>\""}], "]"}], ",", "Medium"}], 
+         "]"}]}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+       RowBox[{"PlotMarkers", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"Automatic", ",", "8"}], "}"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", 
+        RowBox[{"Scaled", "[", "0.18", "]"}]}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"LightGray", ",", "Black"}], "}"}]}]}], "]"}]}]}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.640376832900443*^9, 3.6403768502530146`*^9}, {
+  3.6403768988123946`*^9, 3.6403769333563805`*^9}, {3.6403769696600513`*^9, 
+  3.6403770557963123`*^9}, {3.6403771099880667`*^9, 3.6403771472116165`*^9}, {
+  3.6403772018668118`*^9, 3.6403772190112023`*^9}, {3.6403772513470664`*^9, 
+  3.6403774154107676`*^9}, {3.6403775020575004`*^9, 3.6403775215541368`*^9}, {
+  3.6403776283781395`*^9, 3.640377659169544*^9}, {3.6403780857119007`*^9, 
+  3.6403780861593266`*^9}, {3.640378177408473*^9, 3.640378242743869*^9}, {
+  3.6404251196090965`*^9, 3.640425124792046*^9}, {3.6404253257199364`*^9, 
+  3.6404253593920927`*^9}, {3.640425392127355*^9, 3.6404254252389774`*^9}, {
+  3.6404254569432564`*^9, 3.640425499927306*^9}, {3.6404255398394227`*^9, 
+  3.640425568239547*^9}, {3.6404258345028315`*^9, 3.6404258411101427`*^9}, {
+  3.6404279113892956`*^9, 3.6404279121650352`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "PlotMarkers"}]], "Input",
+ CellChangeTimes->{{3.640425434975276*^9, 3.6404254362144594`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"PlotMarkers is an option for graphics functions like ListPlot \
+and ListLinePlot that specifies what markers to draw at the points plotted. \
+\"\>", "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/PlotMarkers"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6404279159416466`*^9},
+ CellTags->"Info-18081533-a099-4233-919e-9a9c40eccb1c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["MPI", "Section",
+ CellChangeTimes->{{3.640424412282604*^9, 3.640424412658947*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rawdata", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"FileNameSplit", "[", "#", "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "\[Rule]", 
+       RowBox[{"Import", "[", 
+        RowBox[{"#", ",", "\"\<Text\>\""}], "]"}]}], "&"}], ",", 
+     RowBox[{"FileNames", "[", 
+      RowBox[{"\"\<MPI*/gtg_output.txt\>\"", ",", "\"\<mpi\>\""}], "]"}]}], 
+    "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.640376356328308*^9, 3.640376481493843*^9}, {
+  3.6403777060012693`*^9, 3.640377706297552*^9}, {3.6404244182352724`*^9, 
+  3.640424418819831*^9}, {3.640424488834695*^9, 3.6404245513073587`*^9}, {
+  3.640424883769866*^9, 3.6404248840411243`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", "=", 
+  RowBox[{"Normal", "@", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{"{", "val", "}"}], ",", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"Last", "/@", "val"}], "]"}]}], "]"}], ",", 
+     RowBox[{"GroupBy", "[", 
+      RowBox[{"rawdata", ",", 
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"Riffle", "[", 
+          RowBox[{
+           RowBox[{"Most", "[", 
+            RowBox[{"StringSplit", "[", 
+             RowBox[{
+              RowBox[{"First", "[", "#", "]"}], ",", "\"\<_\>\""}], "]"}], 
+            "]"}], ",", "\"\< \>\""}], "]"}], "]"}], "&"}]}], "]"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.640424480773014*^9, 3.640424483299409*^9}, {
+  3.640424573075146*^9, 3.640424677210599*^9}, {3.6404247076656823`*^9, 
+  3.6404249077217407`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"MPI 12 vs 1\"\>", "\[Rule]", 
+            TemplateBox[{"648832"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}], ",", 
+           RowBox[{"\<\"MPI 12 vs 2\"\>", "\[Rule]", 
+            TemplateBox[{"669319"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}], ",", 
+           RowBox[{"\<\"MPI 12 vs 4\"\>", "\[Rule]", 
+            TemplateBox[{"747819"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}], ",", 
+           RowBox[{"\<\"MPI 12 vs 8\"\>", "\[Rule]", 
+            TemplateBox[{"765237"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}], ",", 
+           RowBox[{"\<\"MPI 2 vs 1\"\>", "\[Rule]", 
+            TemplateBox[{"548879"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}], ",", 
+           RowBox[{"\<\"MPI 4 vs 1\"\>", "\[Rule]", 
+            TemplateBox[{"580699"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}], ",", 
+           RowBox[{"\<\"MPI 4 vs 2\"\>", "\[Rule]", 
+            TemplateBox[{"600692"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}], ",", 
+           RowBox[{"\<\"MPI 8 vs 1\"\>", "\[Rule]", 
+            TemplateBox[{"601230"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}], ",", 
+           RowBox[{"\<\"MPI 8 vs 2\"\>", "\[Rule]", 
+            TemplateBox[{"609912"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}], ",", 
+           RowBox[{"\<\"MPI 8 vs 4\"\>", "\[Rule]", 
+            TemplateBox[{"665102"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
+               GrayLevel[0.75], RoundingRadius -> 7]& )]}]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{65., {3., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{52., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            Identity, 214, 22988734703893276495, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{62., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            Identity, 214, 22988734703893276495, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{44., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            Identity, 214, 22988734703893276495, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{78., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[214]]], "Output",
+ CellChangeTimes->{{3.6404244835926895`*^9, 3.640424554005935*^9}, {
+   3.640424610035444*^9, 3.640424652316823*^9}, {3.6404247098767943`*^9, 
+   3.64042472226264*^9}, {3.6404247804291735`*^9, 3.6404248589421544`*^9}, {
+   3.64042489278948*^9, 3.640424908333324*^9}, 3.640425338229883*^9, 
+   3.6404264153535547`*^9, 3.6404277778187323`*^9, 3.6404278673071957`*^9, 
+   3.6404279181387415`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "data", "]"}]], "Input",
+ CellChangeTimes->{{3.6404248777771416`*^9, 3.6404248962257605`*^9}, {
+  3.640424961249861*^9, 3.640424962514067*^9}}],
+
+Cell[BoxData["10"], "Output",
+ CellChangeTimes->{{3.6404248989043264`*^9, 3.640424909346291*^9}, 
+   3.64042496289443*^9, 3.6404264153825817`*^9, 3.6404277778257427`*^9, 
+   3.6404278673202085`*^9, 3.6404279181477485`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{
+   RowBox[{"Partition", "[", 
+    RowBox[{
+     RowBox[{"makePlot", "/@", 
+      RowBox[{"Reverse", "@", 
+       RowBox[{"Sort", "@", 
+        RowBox[{"Normal", "[", "data", "]"}]}]}]}], ",", "5"}], "]"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", 
+    RowBox[{"Scaled", "[", "2", "]"}]}], ",", 
+   RowBox[{"ImagePadding", "\[Rule]", 
+    RowBox[{"Scaled", "[", "0.2", "]"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.640426419692705*^9, 3.640426424379174*^9}, {
+  3.640427850432088*^9, 3.6404278529174542`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 1.964546}, {2., 1.345037}, {3., 1.305021}, {4., 
+            1.545005}, {5., 1.42002}, {6., 1.850943}, {7., 1.440024}, {8., 
+            1.669573}, {9., 1.580036}, {10., 2.526109}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.365017}, {2., 1.964546}, {3., 1.345037}, {4.,
+             1.305021}, {5., 1.545005}, {6., 1.42002}, {7., 1.850943}, {8., 
+            1.440024}, {9., 1.669573}, {10., 1.580036}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.964546}}, {{2., 1.345037}}, {{
+            3., 1.305021}}, {{4., 1.545005}}, {{5., 1.42002}}, {{6., 
+            1.850943}}, {{7., 1.440024}}, {{8., 1.669573}}, {{9., 
+            1.580036}}, {{10., 2.526109}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.365017}}, {{2., 1.964546}}, {{
+            3., 1.345037}}, {{4., 1.305021}}, {{5., 1.545005}}, {{6., 
+            1.42002}}, {{7., 1.850943}}, {{8., 1.440024}}, {{9., 
+            1.669573}}, {{10., 1.580036}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 1.2439666},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 8 vs 4\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {1.305021, 2.526109}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.05], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {42.791666666666664`, -38.93333333333334},
+       ImageScaled[{0.5, 0.5}], {79, 68}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 2.009767}, {2., 2.32}, {3., 1.443881}, {4., 2.}, {5.,
+             1.797876}, {6., 1.243356}, {7., 1.474235}, {8., 1.72}, {9., 
+            2.110397}, {10., 1.03003}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.7601}, {2., 2.009767}, {3., 2.32}, {4., 
+            1.443881}, {5., 2.}, {6., 1.797876}, {7., 1.243356}, {8., 
+            1.474235}, {9., 1.72}, {10., 2.110397}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 2.009767}}, {{2., 2.32}}, {{3., 
+            1.443881}}, {{4., 2.}}, {{5., 1.797876}}, {{6., 1.243356}}, {{7., 
+            1.474235}}, {{8., 1.72}}, {{9., 2.110397}}, {{10., 1.03003}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.7601}}, {{2., 2.009767}}, {{
+            3., 2.32}}, {{4., 1.443881}}, {{5., 2.}}, {{6., 1.797876}}, {{7., 
+            1.243356}}, {{8., 1.474235}}, {{9., 1.72}}, {{10., 2.110397}}}]}, 
+          {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 8 vs 2\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 2.32}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {128.375, -38.93333333333334}, 
+      ImageScaled[{0.5, 0.5}], {79, 66}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 2.234224}, {2., 2.036975}, {3., 2.664734}, {4., 
+            1.972866}, {5., 1.962542}, {6., 2.097049}, {7., 2.178586}, {8., 
+            0.68}, {9., 1.672676}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.912692}, {2., 2.234224}, {3., 2.036975}, {4.,
+             2.664734}, {5., 1.972866}, {6., 1.962542}, {7., 2.097049}, {8., 
+            2.178586}, {9., 1.190014}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 2.234224}}, {{2., 2.036975}}, {{
+            3., 2.664734}}, {{4., 1.972866}}, {{5., 1.962542}}, {{6., 
+            2.097049}}, {{7., 2.178586}}, {{8., 0.68}}, {{9., 1.672676}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.912692}}, {{2., 2.234224}}, {{
+            3., 2.036975}}, {{4., 2.664734}}, {{5., 1.972866}}, {{6., 
+            1.962542}}, {{7., 2.097049}}, {{8., 2.178586}}, {{9., 
+            1.190014}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8750000000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 8 vs 1\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 9.}, {0, 2.664734}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {213.95833333333331`, -38.93333333333334},
+       ImageScaled[{0.5, 0.5}], {79, 71}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 1.52004}, {2., 2.28}, {3., 1.82002}, {4., 2.08}, {5.,
+             1.555015}, {6., 1.68}, {7., 1.994325}, {8., 2.031778}, {9., 
+            1.562863}, {10., 2.097961}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.304718}, {2., 1.52004}, {3., 2.28}, {4., 
+            1.82002}, {5., 2.08}, {6., 1.555015}, {7., 1.68}, {8., 
+            1.994325}, {9., 2.031778}, {10., 1.562863}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.52004}}, {{2., 2.28}}, {{3., 
+            1.82002}}, {{4., 2.08}}, {{5., 1.555015}}, {{6., 1.68}}, {{7., 
+            1.994325}}, {{8., 2.031778}}, {{9., 1.562863}}, {{10., 
+            2.097961}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.304718}}, {{2., 1.52004}}, {{
+            3., 2.28}}, {{4., 1.82002}}, {{5., 2.08}}, {{6., 1.555015}}, {{7.,
+             1.68}}, {{8., 1.994325}}, {{9., 2.031778}}, {{10., 
+            1.562863}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 1.2559539},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 4 vs 2\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {1.304718, 2.28}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.05], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {299.54166666666663`, -38.93333333333334},
+       ImageScaled[{0.5, 0.5}], {79, 69}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 2.109863}, {2., 2.176601}, {3., 2.028922}, {4., 
+            2.160236}, {5., 2.112848}, {6., 2.00861}, {7., 2.037096}, {8., 
+            1.985132}, {9., 1.948327}, {10., 1.150022}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.340012}, {2., 2.109863}, {3., 2.176601}, {4.,
+             2.028922}, {5., 2.160236}, {6., 2.112848}, {7., 2.00861}, {8., 
+            2.037096}, {9., 1.985132}, {10., 1.948327}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 2.109863}}, {{2., 2.176601}}, {{
+            3., 2.028922}}, {{4., 2.160236}}, {{5., 2.112848}}, {{6., 
+            2.00861}}, {{7., 2.037096}}, {{8., 1.985132}}, {{9., 
+            1.948327}}, {{10., 1.150022}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.340012}}, {{2., 2.109863}}, {{
+            3., 2.176601}}, {{4., 2.028922}}, {{5., 2.160236}}, {{6., 
+            2.112848}}, {{7., 2.00861}}, {{8., 2.037096}}, {{9., 
+            1.985132}}, {{10., 1.948327}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 1.0986930500000003`},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 4 vs 1\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {1.150022, 2.176601}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.05], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {385.125, -38.93333333333334}, 
+      ImageScaled[{0.5, 0.5}], {79, 72}]}, {InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 1.88418}, {2., 2.12}, {3., 1.964351}, {4., 
+            2.374382}, {5., 1.567587}, {6., 1.458638}, {7., 2.060934}, {8., 
+            1.309135}, {9., 2.075419}, {10., 1.187228}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.756568}, {2., 1.88418}, {3., 2.12}, {4., 
+            1.964351}, {5., 2.374382}, {6., 1.567587}, {7., 1.458638}, {8., 
+            2.060934}, {9., 1.309135}, {10., 2.075419}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.88418}}, {{2., 2.12}}, {{3., 
+            1.964351}}, {{4., 2.374382}}, {{5., 1.567587}}, {{6., 
+            1.458638}}, {{7., 2.060934}}, {{8., 1.309135}}, {{9., 
+            2.075419}}, {{10., 1.187228}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.756568}}, {{2., 1.88418}}, {{
+            3., 2.12}}, {{4., 1.964351}}, {{5., 2.374382}}, {{6., 
+            1.567587}}, {{7., 1.458638}}, {{8., 2.060934}}, {{9., 
+            1.309135}}, {{10., 2.075419}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 1.1278702999999999`},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 2 vs 1\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {1.187228, 2.374382}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.05], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {42.791666666666664`, -116.80000000000001`},
+       ImageScaled[{0.5, 0.5}], {79, 72}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 2.016023}, {2., 1.562141}, {3., 1.463587}, {4., 
+            1.570018}, {5., 1.721465}, {6., 2.034075}, {7., 1.293484}, {8., 
+            1.315015}, {9., 1.283649}, {10., 2.101512}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 2.153788}, {2., 2.016023}, {3., 1.562141}, {4.,
+             1.463587}, {5., 1.570018}, {6., 1.721465}, {7., 2.034075}, {8., 
+            1.293484}, {9., 1.315015}, {10., 1.283649}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 2.016023}}, {{2., 1.562141}}, {{
+            3., 1.463587}}, {{4., 1.570018}}, {{5., 1.721465}}, {{6., 
+            2.034075}}, {{7., 1.293484}}, {{8., 1.315015}}, {{9., 
+            1.283649}}, {{10., 2.101512}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 2.153788}}, {{2., 2.016023}}, {{
+            3., 1.562141}}, {{4., 1.463587}}, {{5., 1.570018}}, {{6., 
+            1.721465}}, {{7., 2.034075}}, {{8., 1.293484}}, {{9., 
+            1.315015}}, {{10., 1.283649}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 1.2401420500000002`},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 12 vs 8\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {1.283649, 2.153788}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.05], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {128.375, -116.80000000000001`}, 
+      ImageScaled[{0.5, 0.5}], {79, 73}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 1.730821}, {2., 1.998914}, {3., 2.08}, {4., 
+            2.202489}, {5., 2.342508}, {6., 1.575043}, {7., 1.375019}, {8., 
+            1.530026}, {9., 1.408631}, {10., 2.02699}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.18002}, {2., 1.730821}, {3., 1.998914}, {4., 
+            2.08}, {5., 2.202489}, {6., 2.342508}, {7., 1.575043}, {8., 
+            1.375019}, {9., 1.530026}, {10., 1.408631}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.730821}}, {{2., 1.998914}}, {{
+            3., 2.08}}, {{4., 2.202489}}, {{5., 2.342508}}, {{6., 
+            1.575043}}, {{7., 1.375019}}, {{8., 1.530026}}, {{9., 
+            1.408631}}, {{10., 2.02699}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.18002}}, {{2., 1.730821}}, {{
+            3., 1.998914}}, {{4., 2.08}}, {{5., 2.202489}}, {{6., 
+            2.342508}}, {{7., 1.575043}}, {{8., 1.375019}}, {{9., 
+            1.530026}}, {{10., 1.408631}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 1.1218956},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 12 vs 4\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {1.18002, 2.342508}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.05], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {213.95833333333331`, -116.80000000000001`},
+       ImageScaled[{0.5, 0.5}], {79, 73}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 1.96}, {2., 1.29952}, {3., 1.48}, {4., 1.628733}, {
+            5., 1.145029}, {6., 2.033037}, {7., 2.143241}, {8., 1.575019}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.300012}, {2., 1.96}, {3., 1.29952}, {4., 
+            1.48}, {5., 1.801951}, {6., 1.628733}, {7., 1.365017}, {8., 
+            1.145029}, {9., 2.033037}, {10., 2.143241}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.96}}, {{2., 1.29952}}, {{3., 
+            1.48}}, {{4., 1.628733}}, {{5., 1.145029}}, {{6., 2.033037}}, {{
+            7., 2.143241}}, {{8., 1.575019}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.300012}}, {{2., 1.96}}, {{3., 
+            1.29952}}, {{4., 1.48}}, {{5., 1.801951}}, {{6., 1.628733}}, {{7.,
+             1.365017}}, {{8., 1.145029}}, {{9., 2.033037}}, {{10., 
+            2.143241}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 1.0951184000000003`},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 12 vs 2\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {1.145029, 2.143241}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.05], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {299.54166666666663`, -116.80000000000001`},
+       ImageScaled[{0.5, 0.5}], {79, 73}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 1.72}, {2., 1.755007}, {3., 1.798514}, {4., 
+            1.848617}, {5., 1.957862}, {6., 2.677695}, {7., 2.147596}, {8., 
+            1.92}, {9., 1.837887}, {10., 1.315728}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.683468}, {2., 1.72}, {3., 1.755007}, {4., 
+            1.798514}, {5., 1.848617}, {6., 1.957862}, {7., 2.677695}, {8., 
+            2.147596}, {9., 1.92}, {10., 1.837887}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.72}}, {{2., 1.755007}}, {{3., 
+            1.798514}}, {{4., 1.848617}}, {{5., 1.957862}}, {{6., 
+            2.677695}}, {{7., 2.147596}}, {{8., 1.92}}, {{9., 1.837887}}, {{
+            10., 1.315728}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.683468}}, {{2., 1.72}}, {{3., 
+            1.755007}}, {{4., 1.798514}}, {{5., 1.848617}}, {{6., 
+            1.957862}}, {{7., 2.677695}}, {{8., 2.147596}}, {{9., 1.92}}, {{
+            10., 1.837887}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"MPI 12 vs 1\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 2.677695}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {385.125, -116.80000000000001`}, 
+      ImageScaled[{0.5, 0.5}], {79, 68}]}}, {}},
+  ContentSelectable->True,
+  ImagePadding->Scaled[0.2],
+  ImageSize->Scaled[2],
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{{3.6404264110454397`*^9, 3.6404264258766036`*^9}, 
+   3.6404277791760287`*^9, {3.6404278548172665`*^9, 3.64042786863046*^9}, 
+   3.6404279195310698`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      "\"\<stev_1sec_MPI_vs.pdf\>\""}], "}"}], "]"}], ",", 
+   RowBox[{"GraphicsGrid", "[", 
+    RowBox[{
+     RowBox[{"Partition", "[", 
+      RowBox[{
+       RowBox[{"makePlot", "/@", 
+        RowBox[{"Reverse", "@", 
+         RowBox[{"Sort", "@", 
+          RowBox[{"Normal", "[", "data", "]"}]}]}]}], ",", "5"}], "]"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"Scaled", "[", "2", "]"}]}], ",", 
+     RowBox[{"ImagePadding", "\[Rule]", 
+      RowBox[{"Scaled", "[", "0.2", "]"}]}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.640425024793546*^9, 3.6404250542967215`*^9}, 
+   3.6404250850180607`*^9, {3.640425376799719*^9, 3.640425377070977*^9}, {
+   3.640425588886263*^9, 3.6404255902866*^9}, {3.6404256810462775`*^9, 
+   3.640425681358576*^9}, {3.640425754582506*^9, 3.6404257593100224`*^9}, {
+   3.6404257964294715`*^9, 3.6404258141343822`*^9}, {3.6404258834936185`*^9, 
+   3.640425937196906*^9}, {3.6404277566535187`*^9, 3.640427763614167*^9}, 
+   3.640427861213377*^9, {3.640428020588583*^9, 3.640428020844827*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\adakk\\\\Desktop\\\\mpi_omp\\\\cs484-master\\\
+\\data\\\\final\\\\1sec\\\\setv_1sec_MPI_vs.pdf\"\>"], "Output",
+ CellChangeTimes->{
+  3.640425015218401*^9, 3.6404250558662214`*^9, 3.6404250860940886`*^9, {
+   3.6404253455208454`*^9, 3.640425410638034*^9}, {3.6404254851802225`*^9, 
+   3.64042550610921*^9}, {3.64042558024401*^9, 3.6404255929611745`*^9}, 
+   3.640425683882987*^9, 3.6404257617493505`*^9, {3.64042579898291*^9, 
+   3.6404258167718987`*^9}, 3.6404258513339057`*^9, {3.640425885934951*^9, 
+   3.6404259392188406`*^9}, 3.6404277809687405`*^9, 3.640427870676414*^9, 
+   3.640427921408864*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["OMP", "Section",
+ CellChangeTimes->{{3.6404244355548124`*^9, 3.6404244361063385`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rawdata", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"FileNameSplit", "[", "#", "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "\[Rule]", 
+       RowBox[{"Import", "[", 
+        RowBox[{"#", ",", "\"\<Text\>\""}], "]"}]}], "&"}], ",", 
+     RowBox[{"FileNames", "[", 
+      RowBox[{"\"\<OMP*/gtg_output.txt\>\"", ",", "\"\<omp\>\""}], "]"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "rawdata", "]"}]}], "Input",
+ CellChangeTimes->{{3.640376356328308*^9, 3.640376481493843*^9}, {
+  3.6403777060012693`*^9, 3.640377706297552*^9}, {3.6404244182352724`*^9, 
+  3.640424418819831*^9}, {3.640424488834695*^9, 3.6404245513073587`*^9}, {
+  3.640424883769866*^9, 3.6404248840411243`*^9}, {3.6404263656360745`*^9, 
+  3.6404263837313538`*^9}}],
+
+Cell[BoxData["100"], "Output",
+ CellChangeTimes->{{3.640426372302439*^9, 3.640426385961484*^9}, 
+   3.6404264312967806`*^9, 3.640427782693404*^9, 3.6404278725482006`*^9, 
+   3.640427923211584*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Normal", "@", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{"Function", "[", 
+       RowBox[{
+        RowBox[{"{", "val", "}"}], ",", 
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"Last", "/@", "val"}], "]"}]}], "]"}], ",", 
+      RowBox[{"GroupBy", "[", 
+       RowBox[{"rawdata", ",", 
+        RowBox[{
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"Riffle", "[", 
+           RowBox[{
+            RowBox[{"Most", "[", 
+             RowBox[{"StringSplit", "[", 
+              RowBox[{
+               RowBox[{"First", "[", "#", "]"}], ",", "\"\<_\>\""}], "]"}], 
+             "]"}], ",", "\"\< \>\""}], "]"}], "]"}], "&"}]}], "]"}]}], 
+     "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.640424480773014*^9, 3.640424483299409*^9}, {
+   3.640424573075146*^9, 3.640424677210599*^9}, {3.6404247076656823`*^9, 
+   3.6404249077217407`*^9}, 3.640426394147303*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{
+   RowBox[{"Partition", "[", 
+    RowBox[{
+     RowBox[{"makePlot", "/@", 
+      RowBox[{"Reverse", "@", 
+       RowBox[{"Sort", "@", 
+        RowBox[{"Normal", "[", "data", "]"}]}]}]}], ",", "5"}], "]"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", 
+    RowBox[{"Scaled", "[", "1", "]"}]}], ",", 
+   RowBox[{"ImagePadding", "\[Rule]", 
+    RowBox[{"Scaled", "[", "0.1", "]"}]}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 5.3001}, {2., 4.738303}, {3., 4.860172}, {4., 
+            6.710001}, {5., 7.04}, {6., 8.48}, {7., 5.52524}, {8., 
+            7.994338}, {9., 5.980044}, {10., 14.35615}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 8.48}, {2., 5.3001}, {3., 4.738303}, {4., 
+            4.860172}, {5., 6.710001}, {6., 7.04}, {7., 8.48}, {8., 
+            5.52524}, {9., 7.994338}, {10., 5.980044}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 5.3001}}, {{2., 4.738303}}, {{
+            3., 4.860172}}, {{4., 6.710001}}, {{5., 7.04}}, {{6., 8.48}}, {{
+            7., 5.52524}}, {{8., 7.994338}}, {{9., 5.980044}}, {{10., 
+            14.35615}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 8.48}}, {{2., 5.3001}}, {{3., 
+            4.738303}}, {{4., 4.860172}}, {{5., 6.710001}}, {{6., 7.04}}, {{
+            7., 8.48}}, {{8., 5.52524}}, {{9., 7.994338}}, {{10., 
+            5.980044}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 8 vs 4\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 14.35615}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {42.791666666666664`, -39.46666666666667},
+       ImageScaled[{0.5, 0.5}], {79, 71}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 8.96}, {2., 4.158354}, {3., 2.955039}, {4., 
+            3.981688}, {5., 4.466022}, {6., 2.870724}, {7., 2.90002}, {8., 
+            3.826719}, {9., 2.910022}, {10., 14.4}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 3.81194}, {2., 4.158354}, {3., 2.955039}, {4., 
+            3.981688}, {5., 4.466022}, {6., 2.870724}, {7., 2.90002}, {8., 
+            3.826719}, {9., 2.910022}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 8.96}}, {{2., 4.158354}}, {{3., 
+            2.955039}}, {{4., 3.981688}}, {{5., 4.466022}}, {{6., 
+            2.870724}}, {{7., 2.90002}}, {{8., 3.826719}}, {{9., 
+            2.910022}}, {{10., 14.4}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 3.81194}}, {{2., 4.158354}}, {{
+            3., 2.955039}}, {{4., 3.981688}}, {{5., 4.466022}}, {{6., 
+            2.870724}}, {{7., 2.90002}}, {{8., 3.826719}}, {{9., 
+            2.910022}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 8 vs 2\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 14.4}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {128.375, -39.46666666666667}, 
+      ImageScaled[{0.5, 0.5}], {79, 71}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 1.936997}, {2., 2.567728}, {3., 2.}, {4., 
+            1.858141}, {5., 2.030716}, {6., 1.197637}, {7., 1.956509}, {8., 
+            2.617958}, {9., 2.124334}, {10., 11.734103}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 2.054304}, {2., 1.936997}, {3., 2.567728}, {4.,
+             2.}, {5., 1.858141}, {6., 2.030716}, {7., 1.197637}, {8., 
+            1.956509}, {9., 2.617958}, {10., 2.124334}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.936997}}, {{2., 2.567728}}, {{
+            3., 2.}}, {{4., 1.858141}}, {{5., 2.030716}}, {{6., 1.197637}}, {{
+            7., 1.956509}}, {{8., 2.617958}}, {{9., 2.124334}}, {{10., 
+            11.734103}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 2.054304}}, {{2., 1.936997}}, {{
+            3., 2.567728}}, {{4., 2.}}, {{5., 1.858141}}, {{6., 2.030716}}, {{
+            7., 1.197637}}, {{8., 1.956509}}, {{9., 2.617958}}, {{10., 
+            2.124334}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 8 vs 1\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 11.734103}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {213.95833333333331`, -39.46666666666667},
+       ImageScaled[{0.5, 0.5}], {79, 73}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 3.244823}, {2., 4.394491}, {3., 3.989517}, {4., 
+            4.714055}, {5., 2.620044}, {6., 4.32}, {7., 2.71744}, {8., 
+            2.590038}, {9., 2.647808}, {10., 8.48}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], 
+           LineBox[{{1., 3.76}, {2., 3.244823}, {3., 4.394491}, {4., 
+            3.989517}, {5., 4.714055}, {6., 2.620044}, {7., 4.32}, {8., 
+            2.71744}, {9., 2.590038}, {10., 2.647808}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 3.244823}}, {{2., 4.394491}}, {{
+            3., 3.989517}}, {{4., 4.714055}}, {{5., 2.620044}}, {{6., 
+            4.32}}, {{7., 2.71744}}, {{8., 2.590038}}, {{9., 2.647808}}, {{
+            10., 8.48}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 3.76}}, {{2., 3.244823}}, {{3., 
+            4.394491}}, {{4., 3.989517}}, {{5., 4.714055}}, {{6., 
+            2.620044}}, {{7., 4.32}}, {{8., 2.71744}}, {{9., 2.590038}}, {{
+            10., 2.647808}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 4 vs 2\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 8.48}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {299.54166666666663`, -39.46666666666667},
+       ImageScaled[{0.5, 0.5}], {79, 74}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 1.94798}, {2., 1.445025}, {3., 2.278895}, {4., 
+            2.075302}, {5., 1.823743}, {6., 2.189983}, {7., 1.876121}, {8., 
+            2.2}, {9., 1.8}, {10., 5.514702}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 2.100343}, {2., 1.94798}, {3., 1.445025}, {4., 
+            2.278895}, {5., 2.075302}, {6., 1.823743}, {7., 2.189983}, {8., 
+            1.876121}, {9., 2.2}, {10., 1.8}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.94798}}, {{2., 1.445025}}, {{
+            3., 2.278895}}, {{4., 2.075302}}, {{5., 1.823743}}, {{6., 
+            2.189983}}, {{7., 1.876121}}, {{8., 2.2}}, {{9., 1.8}}, {{10., 
+            5.514702}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 2.100343}}, {{2., 1.94798}}, {{
+            3., 1.445025}}, {{4., 2.278895}}, {{5., 2.075302}}, {{6., 
+            1.823743}}, {{7., 2.189983}}, {{8., 1.876121}}, {{9., 2.2}}, {{
+            10., 1.8}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 4 vs 1\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 5.514702}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {385.125, -39.46666666666667}, 
+      ImageScaled[{0.5, 0.5}], {79, 72}]}, {InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 1.850935}, {2., 2.154075}, {3., 1.983726}, {4., 
+            2.115205}, {5., 1.483224}, {6., 2.54374}, {7., 2.08}, {8., 
+            2.191952}, {9., 1.673995}, {10., 2.709279}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 1.385021}, {2., 1.850935}, {3., 2.154075}, {4.,
+             1.983726}, {5., 2.115205}, {6., 1.483224}, {7., 2.54374}, {8., 
+            2.08}, {9., 2.191952}, {10., 1.673995}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.850935}}, {{2., 2.154075}}, {{
+            3., 1.983726}}, {{4., 2.115205}}, {{5., 1.483224}}, {{6., 
+            2.54374}}, {{7., 2.08}}, {{8., 2.191952}}, {{9., 1.673995}}, {{
+            10., 2.709279}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 1.385021}}, {{2., 1.850935}}, {{
+            3., 2.154075}}, {{4., 1.983726}}, {{5., 2.115205}}, {{6., 
+            1.483224}}, {{7., 2.54374}}, {{8., 2.08}}, {{9., 2.191952}}, {{
+            10., 1.673995}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 1.3188080999999998`},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 2 vs 1\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {1.385021, 2.709279}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.05], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {42.791666666666664`, -118.4}, 
+      ImageScaled[{0.5, 0.5}], {79, 69}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 11.010377}, {2., 11.840128}, {3., 19.69025}, {4., 
+            15.982706}, {5., 9.752299}, {6., 11.654451}, {7., 10.397322}, {8.,
+             13.770082}, {9., 15.301661}, {10., 14.767381}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 15.68}, {2., 11.010377}, {3., 11.840128}, {4., 
+            19.69025}, {5., 15.982706}, {6., 9.752299}, {7., 11.654451}, {8., 
+            10.397322}, {9., 13.770082}, {10., 15.301661}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 11.010377}}, {{2., 
+            11.840128}}, {{3., 19.69025}}, {{4., 15.982706}}, {{5., 
+            9.752299}}, {{6., 11.654451}}, {{7., 10.397322}}, {{8., 
+            13.770082}}, {{9., 15.301661}}, {{10., 14.767381}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 15.68}}, {{2., 11.010377}}, {{
+            3., 11.840128}}, {{4., 19.69025}}, {{5., 15.982706}}, {{6., 
+            9.752299}}, {{7., 11.654451}}, {{8., 10.397322}}, {{9., 
+            13.770082}}, {{10., 15.301661}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 12 vs 8\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 19.69025}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {128.375, -118.4}, 
+      ImageScaled[{0.5, 0.5}], {79, 73}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 8.0748}, {2., 4.680104}, {3., 8.213511}, {4., 
+            5.740092}, {5., 7.562661}, {6., 5.401504}, {7., 8.537628}, {8., 
+            7.828043}, {9., 4.49833}, {10., 24.939505}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 5.937886}, {2., 8.0748}, {3., 4.680104}, {4., 
+            8.213511}, {5., 5.740092}, {6., 7.562661}, {7., 5.401504}, {8., 
+            8.537628}, {9., 7.828043}, {10., 4.49833}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 8.0748}}, {{2., 4.680104}}, {{
+            3., 8.213511}}, {{4., 5.740092}}, {{5., 7.562661}}, {{6., 
+            5.401504}}, {{7., 8.537628}}, {{8., 7.828043}}, {{9., 
+            4.49833}}, {{10., 24.939505}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 5.937886}}, {{2., 8.0748}}, {{
+            3., 4.680104}}, {{4., 8.213511}}, {{5., 5.740092}}, {{6., 
+            7.562661}}, {{7., 5.401504}}, {{8., 8.537628}}, {{9., 
+            7.828043}}, {{10., 4.49833}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 12 vs 4\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 24.939505}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {213.95833333333331`, -118.4}, 
+      ImageScaled[{0.5, 0.5}], {79, 72}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 3.6}, {2., 4.15771}, {3., 4.155029}, {4., 
+            2.506559}, {5., 3.44046}, {6., 2.850026}, {7., 3.239884}, {8., 
+            4.064996}, {9., 5.412223}, {10., 15.120528}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 4.065992}, {2., 3.6}, {3., 4.15771}, {4., 
+            4.155029}, {5., 2.506559}, {6., 3.44046}, {7., 2.850026}, {8., 
+            3.239884}, {9., 4.064996}, {10., 5.412223}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 3.6}}, {{2., 4.15771}}, {{3., 
+            4.155029}}, {{4., 2.506559}}, {{5., 3.44046}}, {{6., 
+            2.850026}}, {{7., 3.239884}}, {{8., 4.064996}}, {{9., 
+            5.412223}}, {{10., 15.120528}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 4.065992}}, {{2., 3.6}}, {{3., 
+            4.15771}}, {{4., 4.155029}}, {{5., 2.506559}}, {{6., 3.44046}}, {{
+            7., 2.850026}}, {{8., 3.239884}}, {{9., 4.064996}}, {{10., 
+            5.412223}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 12 vs 2\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 15.120528}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {299.54166666666663`, -118.4}, 
+      ImageScaled[{0.5, 0.5}], {79, 72}], InsetBox[
+      GraphicsBox[{{}, {{{}, {}, 
+          {GrayLevel[0.85], PointSize[0.019444444444444445`], 
+           AbsoluteThickness[1.6], 
+           LineBox[{{1., 2.147742}, {2., 1.249147}, {3., 1.524136}, {4., 
+            1.942628}, {5., 2.285246}, {6., 2.414437}, {7., 2.029669}, {8., 
+            1.715015}, {9., 2.328295}, {10., 14.460396}}]}, 
+          {GrayLevel[0], PointSize[0.019444444444444445`], AbsoluteThickness[
+           1.6], LineBox[{{1., 2.388225}, {2., 2.147742}, {3., 1.249147}, {4.,
+             1.524136}, {5., 1.942628}, {6., 2.285246}, {7., 2.414437}, {8., 
+            2.029669}, {9., 1.715015}, {10., 2.328295}}]}}, {
+          {GrayLevel[0.85], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledCircle]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 2.147742}}, {{2., 1.249147}}, {{
+            3., 1.524136}}, {{4., 1.942628}}, {{5., 2.285246}}, {{6., 
+            2.414437}}, {{7., 2.029669}}, {{8., 1.715015}}, {{9., 
+            2.328295}}, {{10., 14.460396}}}]}, 
+          {GrayLevel[0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+           GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"\[FilledSquare]\"\>",
+              StripOnInput->False,
+              FontSize->8], {0., 0.}], {{{1., 2.388225}}, {{2., 2.147742}}, {{
+            3., 1.249147}}, {{4., 1.524136}}, {{5., 1.942628}}, {{6., 
+            2.285246}}, {{7., 2.414437}}, {{8., 2.029669}}, {{9., 
+            1.715015}}, {{10., 2.328295}}}]}, {}}}, {}},
+       AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+       Axes->{True, True},
+       AxesLabel->{None, None},
+       AxesOrigin->{0.8593750000000001, 0},
+       DisplayFunction->Identity,
+       Frame->{{False, False}, {False, False}},
+       FrameLabel->{{None, None}, {None, None}},
+       FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+       GridLines->{None, None},
+       GridLinesStyle->Directive[
+         GrayLevel[0.5, 0.4]],
+       ImageSize->Scaled[0.18],
+       Method->{},
+       PlotLabel->FormBox[
+         StyleBox["\"OMP 12 vs 1\"", Medium, StripOnInput -> False], 
+         TraditionalForm],
+       PlotRange->{{1., 10.}, {0, 14.460396}},
+       PlotRangeClipping->True,
+       PlotRangePadding->{{
+          Scaled[0.02], 
+          Scaled[0.02]}, {
+          Scaled[0.02], 
+          Scaled[0.05]}},
+       Ticks->{Automatic, Automatic}], {385.125, -118.4}, 
+      ImageScaled[{0.5, 0.5}], {79, 71}]}}, {}},
+  ContentSelectable->True,
+  ImagePadding->Scaled[0.1],
+  ImageSize->Scaled[1],
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{3.640426437133355*^9, 3.640427783897538*^9, 
+  3.6404278737733707`*^9, 3.640427924435755*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      "\"\<stev_1sec_OMP_vs.pdf\>\""}], "}"}], "]"}], ",", 
+   RowBox[{"GraphicsGrid", "[", 
+    RowBox[{
+     RowBox[{"Partition", "[", 
+      RowBox[{
+       RowBox[{"makePlot", "/@", 
+        RowBox[{"Reverse", "@", 
+         RowBox[{"Sort", "@", 
+          RowBox[{"Normal", "[", "data", "]"}]}]}]}], ",", "5"}], "]"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"Scaled", "[", "2", "]"}]}], ",", 
+     RowBox[{"ImagePadding", "\[Rule]", 
+      RowBox[{"Scaled", "[", "0.2", "]"}]}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.640377058073487*^9, 3.640377072661419*^9}, {
+   3.6403771930433855`*^9, 3.6403771990751457`*^9}, {3.6403776671782103`*^9, 
+   3.640377687113248*^9}, {3.6403780148322077`*^9, 3.6403780250169353`*^9}, {
+   3.640378057688136*^9, 3.6403780741918983`*^9}, {3.6403782484793453`*^9, 
+   3.640378252480167*^9}, {3.64037828758269*^9, 3.640378378958956*^9}, {
+   3.6404264402753563`*^9, 3.6404264716673527`*^9}, {3.640427753123149*^9, 
+   3.64042777428636*^9}, 3.6404278643033476`*^9}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\adakk\\\\Desktop\\\\mpi_omp\\\\cs484-master\\\
+\\data\\\\final\\\\1sec\\\\stev_1sec_OMP_vs.pdf\"\>"], "Output",
+ CellChangeTimes->{{3.640377063673835*^9, 3.640377073617332*^9}, {
+   3.640377106245492*^9, 3.6403771440886326`*^9}, {3.640377206908644*^9, 
+   3.6403772202914076`*^9}, 3.640377416575864*^9, {3.6403775034848623`*^9, 
+   3.64037752262214*^9}, {3.6403776335821075`*^9, 3.640377689789787*^9}, {
+   3.6403780066844273`*^9, 3.640378088186262*^9}, 3.6403781801050463`*^9, {
+   3.6403782159292603`*^9, 3.640378245315324*^9}, {3.6403783167045016`*^9, 
+   3.640378342170822*^9}, 3.640378381348255*^9, {3.640426444585471*^9, 
+   3.6404264736422224`*^9}, 3.6404277855020695`*^9, 3.6404278755520687`*^9, 
+   3.640427926071316*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1436, 872},
+WindowMargins->{{182, Automatic}, {48, Automatic}},
+FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (April 29, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info-18081533-a099-4233-919e-9a9c40eccb1c"->{
+  Cell[5972, 155, 479, 11, 42, "Print",
+   CellTags->"Info-18081533-a099-4233-919e-9a9c40eccb1c"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info-18081533-a099-4233-919e-9a9c40eccb1c", 81955, 1803}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 90, 1, 101, "Title"],
+Cell[673, 25, 1595, 38, 52, "Input"],
+Cell[2271, 65, 3551, 82, 192, "Input"],
+Cell[CellGroupData[{
+Cell[5847, 151, 122, 2, 31, "Input"],
+Cell[5972, 155, 479, 11, 42, "Print",
+ CellTags->"Info-18081533-a099-4233-919e-9a9c40eccb1c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6488, 171, 88, 1, 70, "Section"],
+Cell[6579, 174, 872, 22, 52, "Input"],
+Cell[CellGroupData[{
+Cell[7476, 200, 883, 24, 31, "Input"],
+Cell[8362, 226, 14050, 325, 111, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22449, 556, 181, 3, 31, "Input"],
+Cell[22633, 561, 222, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22892, 569, 568, 14, 31, "Input"],
+Cell[23463, 585, 25738, 514, 1058, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49238, 1104, 1214, 26, 52, "Input"],
+Cell[50455, 1132, 636, 9, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51140, 1147, 92, 1, 70, "Section"],
+Cell[CellGroupData[{
+Cell[51257, 1152, 991, 24, 72, "Input"],
+Cell[52251, 1178, 196, 3, 31, "Output"]
+}, Open  ]],
+Cell[52462, 1184, 945, 25, 31, "Input"],
+Cell[CellGroupData[{
+Cell[53432, 1213, 451, 12, 31, "Input"],
+Cell[53886, 1227, 25702, 518, 539, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[79625, 1750, 1196, 26, 52, "Input"],
+Cell[80824, 1778, 763, 10, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
