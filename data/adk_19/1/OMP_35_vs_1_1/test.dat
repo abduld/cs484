@@ -1,0 +1,21 @@
+# Black: Pachi montecarlo_original
+# BlackCommand: /home/ubuntu/cs484/code/pachi -e montecarlo_original -t _5
+# BlackLabel: Pachi montecarlo_original
+# BlackVersion: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+# Date: May 12, 2015 3:50:22 PM UTC
+# Host: ip-172-31-5-148 (Intel(R) Xeon(R) CPU E5-2666 v3 @ 2.90GHz)
+# Komi: 6.5
+# Referee: -
+# Size: 19
+# White: Pachi MonteCarlo
+# WhiteCommand: /home/ubuntu/cs484/code/pachi -e montecarlo -t _5 -T 35
+# WhiteLabel: Pachi MonteCarlo
+# WhiteVersion: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+# Xml: 0
+#
+#GAME	RES_B	RES_W	RES_R	ALT	DUP	LEN	TIME_B	TIME_W	CPU_B	CPU_W	ERR	ERR_MSG
+0	W+119.5	W+119.5	?	0	-	417	589.2	1692.1	0	0	0	
+1	W+85.5	W+85.5	?	0	-	392	598.1	2127.3	0	0	0	
+2	W+35.5	W+35.5	?	0	-	401	604.4	1879.8	0	0	0	
+3	W+21.5	W+21.5	?	0	-	426	605.2	1941.3	0	0	0	
+4	?	W+50.5	?	0	-	280	570.7	2125.5	0	0	1	The Go program terminated unexpectedly.

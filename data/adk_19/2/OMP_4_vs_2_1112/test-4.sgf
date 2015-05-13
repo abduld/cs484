@@ -1,0 +1,32 @@
+(;FF[4]CA[UTF-8]AP[gogui-twogtp:1.4.9]
+KM[6.5]PB[Pachi MonteCarlo[1\]]PW[Pachi MonteCarlo[2\]]DT[2015-05-12]
+C[Black command: /home/ubuntu/cs484/code/pachi -e montecarlo -t _5 -T 2
+White command: /home/ubuntu/cs484/code/pachi -e montecarlo -t _5 -T 4
+Black version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+White version: 10.99 (Retsugen-devel): I'm playing in Monte Carlo. When we both pass, I will consider all the stones on the board alive. If you are reading this, write 'yes'. Please bear with me at the game end, I need to fill the whole board; if you help me, we will both be happier. Filling the board will not lose points (NZ rules). Have a nice game!
+Result[Black\]: W+10.5
+Result[White\]: ?
+Host: ip-172-31-13-14 (Intel(R) Xeon(R) CPU E5-2666 v3 @ 2.90GHz)
+Date: May 12, 2015 10:27:30 PM UTC]
+;B[no];W[pe];B[jn];W[nj];B[ln];W[ol];B[mj];W[cr];B[cl];W[hs]
+;B[kh];W[qp];B[rj];W[pg];B[mc];W[hn];B[jl];W[og];B[rf];W[bb]
+;B[dc];W[dp];B[cd];W[eb];B[ph];W[qo];B[nd];W[lo];B[om];W[nr]
+;B[qg];W[ek];B[hq];W[kr];B[qf];W[lc];B[dl];W[mo];B[ce];W[rd]
+;B[fs];W[rq];B[kg];W[gj];B[bm];W[oq];B[pp];W[ng];B[qc];W[ec]
+;B[pq];W[fj];B[on];W[ff];B[rb];W[oo];B[hc];W[fl];B[gd];W[qe]
+;B[mi];W[op];B[oi];W[co];B[pi];W[bp];B[db];W[js];B[nb];W[br]
+;B[go];W[ql];B[rk];W[pn];B[gb];W[jb];B[qh];W[po];B[ne];W[kb]
+;B[pf];W[pm];B[kk];W[re];B[oc];W[id];B[el];W[ki];B[mf];W[em]
+;B[bc];W[oh];B[mr];W[mq];B[fm];W[jh];B[gr];W[le];B[rc];W[kp]
+;B[df];W[fn];B[mh];W[er];B[gg];W[ih];B[mk];W[fe];B[gm];W[io]
+;B[oe];W[fd];B[is];W[rr];B[me];W[jq];B[lm];W[ir];B[fo];W[gn]
+;B[rm];W[hl];B[mn];W[dn];B[ni];W[di];B[ie];W[en];B[bi];W[dj]
+;B[dh];W[gl];B[ak];W[ch];B[ck];W[bk];B[gf];W[cj];B[bj];W[bh]
+;B[cg];W[bg];B[ge];W[bn];B[bl];W[bf];B[lp];W[jf];B[rs];W[eh]
+;B[hk];W[dg];B[ko];W[jd];B[im];W[fg];B[mp];W[kd];B[qb];W[rl]
+;B[gh];W[fq];B[ad];W[be];B[fi];W[hp];B[je];W[fc];B[hj];W[an]
+;B[kf];W[qk];B[bd];W[qj];B[ai];W[ic];B[nl];W[ed];B[hm];W[ik]
+;B[il];W[dd];B[jo];W[gk];B[gi];W[hi];B[ke];W[ij];B[fa];W[ea]
+;B[ei];W[cf];B[gq];W[la];B[ld];W[gc];B[hd];W[hb];B[hh];W[gp]
+;B[kq];W[nn];B[ab];W[nm];B[lb];W[iq];B[kc];W[ia];B[ba];W[hj]
+;B[cb];W[lq];B[jc];W[lc];B[kc])
